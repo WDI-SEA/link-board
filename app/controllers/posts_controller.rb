@@ -11,14 +11,46 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create post_params
-    redirect_to root
+    post = Post.create post_params do |p|
+      p.user_id = @current_user.id
+      p.save
+    end
+    if post.valid?
+      flash[:success] = 'Post created'
+      redirect_to root_path
+    else
+      messages = post.errors.map { |k, v| "#{k} #{v}" }
+      flash[:danger] = messages.join(', ')
+      redirect_to root_path
+    end
+  end
+
+  def upvote
+    post = Post.find(params[:post_id])
+    unless post.votes.find_by_user_id(@current_user.id)
+      vote = Vote.create(value: 1, user_id: @current_user.id)
+      post.votes << vote 
+      flash[:success]='Voted!'
+    else
+        flash[:warning]='You already voted!'
+    end 
+    redirect_to root_path
+  end
+
+  def downvote
+    post = Post.find(params[:post_id])
+    unless post.votes.find_by_user_id(@current_user.id)
+      vote = Vote.create(value: -1, user_id: @current_user.id)
+      post.votes << vote
+    else
+        flash[:warning]='You already voted!'
+    end
+    redirect_to root_path
   end
 
   private
     def post_params
-      params.require(:post).permit(:title, :url, :user_id)
+      params.require(:post).permit(:title, :link)
     end
-
 
 end
