@@ -2,7 +2,7 @@
 
 We are going to create a clone of [Hacker News](https://news.ycombinator.com/). Hacker news is a reddit-style link board that allows users to post links which are upvoted by other users so the best links rise to the top.
 
-For part 1, we're going focus on `Users` and `Posts` only. The goal for is to create an app that allows users to sign up, login, and add posts. In part 2, we'll work on adding comments and voting.
+For part 1, we're going to focus on `Users` and `Posts` only. The goal for is to create an app that allows users to sign up, login, and add posts. In part 2, we'll work on adding comments and voting.
 
 ##Requirements
 
