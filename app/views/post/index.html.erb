@@ -1,3 +1,12 @@
 <h1>All the Posts</h1>
 
+<% @posts.each do |post|%>
+
+<div>
+<%= link_to post.title, post.link%>
+</div>
+
+<% end %>
+
+
 

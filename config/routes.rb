@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'post#index'
 
   get 'posts/new' => 'post#new'
-  post 'posts' => 'posts#create'
+  post 'posts' => 'post#create'
 
   get 'login' => 'session#new'
 

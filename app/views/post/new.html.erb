@@ -1,14 +1,12 @@
 <h1>Make Your Post</h1>
 
-<%= form_form @post do |f| %>
+<%= form_for @post do |f| %>
 
 	<%= f.label :title%>
 	<%= f.text_field :title%>
 
 	<%= f.label :link%>
 	<%= f.text_field :link%>
-
-	<%= f.hidden_field :user, :value => @current_user.id %>
 
 	<%= f.submit %>
 

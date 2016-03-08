@@ -3,6 +3,7 @@ class PostController < ApplicationController
 		:only => :new
   def index
   	@posts = Post.all
+
   end
 
   def new
@@ -10,12 +11,12 @@ class PostController < ApplicationController
   end
 
   def create
-  	new_post = Post.create(user_params)
+  	@current_user.posts.create(post_params)
   	flash[:success] = 'Post created'
   	redirect_to root_path
   end
 
-  def user_params
-  	params.require(:post).permit(:title, :link, :user)
+  def post_params
+  	params.require(:post).permit(:title, :link)
   end
 end
