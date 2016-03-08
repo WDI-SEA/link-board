@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
   	on: :create
   validates :link,
   	presence: true,
-  	url: true,
+  	# url: true,
   	on: :create
+  	
 end
