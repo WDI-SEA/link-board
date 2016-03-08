@@ -1,3 +1,13 @@
 <h1>Profile</h1>
 <h2>Welcome <%= @current_user.name %></h2>
-<h3><%= link_to 'Create post', posts_new_path %></h3>
+<h3><%= link_to 'Create new post', posts_new_path %></h3>
+<br />
+<hr />
+<br />
+<h4>All my posts</h4>
+
+<% @posts.each do |item| %>
+	<% if item.user.id === @current_user.id %>
+		<p><a href="<%= item.link %>" target="_blank"><%= item.title %></a> (Posted on <%= item.created_at %>)</p>
+	<% end %>
+<% end %>

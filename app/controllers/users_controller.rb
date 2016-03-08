@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def create
   	user = User.create(user_params)
-  	flash[:success] = "User profile created successfully. Please log in."
+  	flash[:success] = "User profile created successfully."
   	session[:user_id] = user.id
   	redirect_to profile_path
   end
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @posts = Post.all
   end
 
   private
