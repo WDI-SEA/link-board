@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
-
+  has_many :posts
   validates :password, 
     presence: true,
     on: :create
   validates :email,
     presence: true,
     uniqueness: {:case_sensitive => false},
-    :format => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+    :format => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/
 
   has_secure_password
 

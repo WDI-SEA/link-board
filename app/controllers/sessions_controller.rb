@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       flash[:success] = 'You have logged in! Hooray!'
-      redirect_to secret_path
+      redirect_to root_path
     else
       flash[:danger] = 'Come on now, try harder'
       redirect_to login_path
