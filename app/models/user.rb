@@ -1,10 +1,15 @@
 class User < ActiveRecord::Base
+	validates :name,
+		presence: true,
+		length: { in: 2..20 }
 
 	validates :password,
 		presence: true,
+		length: { in: 8..15 },
 		on: :create
+
 	validates :email,
-		presence: true,
+		email: { strict_mode: true },
 		uniqueness: {:case_sensitive => false}
 
 	has_secure_password
