@@ -1,0 +1,7 @@
+<h1>All posts</h1>
+
+<div>
+<% @posts.each do |post| %>
+<h2><a href="<%= post.link %>" target="_blank"><%= post.title %></a></h2>
+<% end %>
+</div>
