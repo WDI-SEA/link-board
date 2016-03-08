@@ -4,6 +4,7 @@
 
 <% @posts.each do |post| %>
 	<div class="well">
+		<%= render partial: 'posts/voting', locals: { post: post } %>
 		<h2><a href="<%= post.link %>" target="_blank"><%= post.title %></a></h2>
 		<p>Posted by <%= post.user.name %></p>
 	</div>

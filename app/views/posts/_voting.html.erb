@@ -1,0 +1,3 @@
+<%= link_to 'Upvote', post_upvote_path(post), :method => :post %>
+<strong><%= post.votes.inject(0) {|sum, v| sum + v.value } %></strong>
+<%= link_to 'Downvote', post_downvote_path(post), :method => :post %>
