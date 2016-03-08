@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_many :post
 	validates :password,
 		presence: true
 		
