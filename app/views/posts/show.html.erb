@@ -1,8 +1,14 @@
 <h1>All posts</h1>
-<ol>
-	<% @posts.each do |post| %>
-		<li>
-			<a href='<%= post.link %>'><%= post.title %></a>
-		</li>
-	<% end %>
-</ol>
+<div class='row'>
+	<ol>
+		<% @posts.each do |post| %>
+			<div class='well col-sm-9'>
+				<li>
+					<a href='<%= post.link %>'><h2><%= post.title %></h2></a>
+					<p>By <%= post.user.name %></p>
+					<%= render partial: 'posts/voting', locals: {post: post} %>
+				</li>
+			</div>
+		<% end %>
+	</ol>
+</div>

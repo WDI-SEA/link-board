@@ -3,17 +3,20 @@ Rails.application.routes.draw do
 
   root 'posts#show'
 
+	resources :posts, only: [:new, :create, :show] do
+		resources :comments, only: [:index, :new, :create]
+		get 'upvote' => 'posts#upvote'
+		get 'downvote' => 'posts#downvote'
+	end
+
 	get 'login' => 'sessions#new'
 	post 'login' => 'sessions#create'
-	delete 'logout' => 'sessions#destroy'
+	get 'logout' => 'sessions#destroy'
 
 	get 'signup' => 'users#new', :as => 'users'
 	post 'signup' => 'users#create'
 	get 'profile' => 'users#show'
 
-	get 'posts' => 'posts#new'
-	post 'posts' => 'posts#create'
-	get 'show' => 'posts#show'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

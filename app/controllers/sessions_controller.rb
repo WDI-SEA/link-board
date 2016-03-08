@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   		#login
   		session[:user_id] = user.id
   		flash[:success] = "You have logged in!"
-  		redirect_to login_path
+  		redirect_to root_path
   	else
   		#ERror
   		flash[:danger] = "You have not been logged in!"
