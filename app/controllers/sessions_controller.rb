@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user
       #login
       session[:user_id] = user.id
-      flash[:success] = "You have logged in! Hooray!"
+      flash[:success] = "Welcome back to the LinkBoard!"
       redirect_to root_path
     else  
       flash[:danger] = "Sorry, incorrect email or password"

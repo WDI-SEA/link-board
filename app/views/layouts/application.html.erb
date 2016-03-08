@@ -12,15 +12,22 @@
 
 <div>
 <% if @current_user %>
-Currently logged in: <%= @current_user.name %>
+Currently logged in as: <%= @current_user.name %>
 </div>
 <% end %>
 
 <div>
   <%= link_to 'Home', root_path %>
+  <% if @current_user %>
+  <a href="/posts/new"> New Post </a>
+  <% end %>
   <%= link_to 'Login', login_path %>
+  <% if !@current_user %>
   <%= link_to 'Signup', signup_path %>
+  <% end %>
+  <% if @current_user %>
   <%= link_to 'Logout', logout_path, :method => :delete %>
+  <% end %>
 </div>
 <%= yield %>
 

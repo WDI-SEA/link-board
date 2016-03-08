@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
 
   def is_authenticated?
     unless session[:user_id]
-      flash[:danger] = 'You are not logged in and cannot see this page'
       redirect_to login_path
     end
   end
