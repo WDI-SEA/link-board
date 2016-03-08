@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 
+	has_many :posts
+
 	validates :name,
+	length:{maximum: 20},
 	presence: true,
 	on: :create
 
@@ -17,6 +20,5 @@ class User < ActiveRecord::Base
 	def self.authenticate(email,password)
 		User.find_by_email(email).try(:authenticate, password)
 	end
-
 
 end

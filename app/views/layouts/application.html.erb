@@ -14,6 +14,7 @@
 	<% if @current_user %>
 	Currently logged in: <%= @current_user.name %>
 	<%= link_to 'Logout', logout_path %>
+	<%= link_to 'Posts' , post_path %>
 	<% end %>
 </div>
 
@@ -23,8 +24,6 @@
 
 
 <%= yield %>
-
-
 
 
 </body>
