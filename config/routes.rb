@@ -12,12 +12,37 @@ Rails.application.routes.draw do
     post 'downvote' => 'posts#downvote'
   end
 
+  # resources :comments, only: [:index, :new, :create] do
+  #   post 'upvote' => 'posts#upvote'
+  #   post 'downvote' => 'posts#downvote'
+  # end
+
+  #create user profile page
+  get 'profile' => 'users#show'
+
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
+
+#           Prefix Verb URI Pattern                            Controller#Action
+#             root GET  /                                      posts#index
+#    post_comments GET  /posts/:post_id/comments(.:format)     comments#index
+#                  POST /posts/:post_id/comments(.:format)     comments#create
+# new_post_comment GET  /posts/:post_id/comments/new(.:format) comments#new
+#      post_upvote POST /posts/:post_id/upvote(.:format)       posts#upvote
+#    post_downvote POST /posts/:post_id/downvote(.:format)     posts#downvote
+#            posts POST /posts(.:format)                       posts#create
+#         new_post GET  /posts/new(.:format)                   posts#new
+#             post GET  /posts/:id(.:format)                   posts#show
+#          profile GET  /profile(.:format)                     users#show
+#           signup GET  /signup(.:format)                      users#new
+#                  POST /signup(.:format)                      users#create
+#            login GET  /login(.:format)                       sessions#new
+#                  POST /login(.:format)                       sessions#create
+#           logout GET  /logout(.:format)                      sessions#destroy
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

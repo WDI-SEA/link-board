@@ -19,6 +19,32 @@ class CommentsController < ApplicationController
     redirect_to post_comments_path(params[:post_id])
   end
 
+  # def upvote
+  #   comment = Comment.find(params[:post_id])
+  #   unless comment.votes.find_by_user_id(@current_user.id)
+  #     vote = Vote.create(value: 1, user_id: @current_user.id)
+  #     comment.votes << vote
+  #     flash[:success] = 'Voted!'
+  #   else
+  #     flash[:warning] = 'You already voted!'
+  #   end
+
+  #   redirect_to root_path
+  # end
+
+  # def downvote
+  #   comment = Comment.find(params[:post_id])
+  #   unless comment.votes.find_by_user_id(@current_user.id)
+  #     vote = Vote.create(value: -1, user_id: @current_user.id)
+  #     comment.votes << vote
+  #     flash[:success] = 'Voted!'
+  #   else
+  #     flash[:warning] = 'You already voted!'
+  #   end
+
+  #   redirect_to root_path
+  # end
+
   private
 
   def comment_params

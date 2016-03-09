@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
+  before_action :is_authenticated?, except: [:new, :create]
+
   def new
+  end
+
+  def show
   end
 
   def create
