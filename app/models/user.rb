@@ -1,15 +1,32 @@
 class User < ActiveRecord::Base
-    has_many :posts
+  has_many :post
 
-    validates :password_digest,
-        presence: true,
-        on: :create
-    validates :email,
-        presence: true,
-        uniqueness: {:case_sensitive => false}
-    has_secure_password
+  validates :email,
+  presence: true,
+  email: true,
+  uniqueness: {case_sensitive: false}
 
-    def self.authenticate(email, password)
-        User.find_by_email(email).try(:authenticate, password)
-    end
+  validates :name,
+  presence: true,
+  length: {
+    maximum: 20,
+    too_long: "must be less than %{count} letters"
+  }
+
+  validates :password,
+  presence: true,
+  length: {
+    minimum: 8,
+    maximum: 99,
+    too_short: "must be greater than %{count} characters",
+    too_long: "must be less than %{count} characters"
+  },
+  confirmation: true,
+  on: :create
+
+  has_secure_password
+
+  def self.authenticate email, password
+    User.find_by_email(email).try(:authenticate, password)
+  end
 end

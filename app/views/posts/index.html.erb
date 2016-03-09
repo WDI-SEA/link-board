@@ -1,0 +1,46 @@
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+   Signup
+</button>
+
+
+<%= link_to "Signup", signup_path, 'data-toggle' => "modal", 'data-target' => "#myModal" %>
+
+<!-- Modal -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Enter your information below</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'sessions/form' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-xs-8">
+    <h1>HAXOR NUES MAYBE YES ¯\_(ツ)_/¯</h1>
+  </div>
+  <div class="col-xs-4">
+    <%= link_to '', new_post_path, class: 'btn btn-primary glyphicon glyphicon-plus pull-right' %>
+  </div>
+</div>
+
+<% @posts.each do |post| %>
+<div class="well">
+  <h2><%= link_to post.title, post.link %></h2>
+  <strong>By <%= post.user.name %></strong>
+  <p><%= link_to 'Comments', post_comments_path(post) %></p>
+  <%= render partial: 'posts/voting', locals: {post: post} %>
+</div>
+<% end %>
