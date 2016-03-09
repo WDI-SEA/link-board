@@ -10,8 +10,8 @@ root 'posts#index'
  post 'login' => 'sessions#create'
  delete 'logout' => 'sessions#destroy'
  
-resources :post, only: [:new, :create, :show] do
-  # resources :comments, only: [:index, :new, :create]
+resources :posts, only: [:new, :create, :show] do
+  resources :comment, only: [:index, :new, :create]
  post 'upvote' => 'posts#upvote'
  post 'downvote' => 'posts#downvote'
 end 

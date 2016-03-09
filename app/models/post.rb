@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   has_many :votes, as: :votable 
+  has_many :comment
 
   validates :title,
   length: { in: 10..100},

@@ -14,6 +14,7 @@ class UsersController < ApplicationController
  end
 
  def show
+   @user = Post.find params[session[:user_id]]
  end
 
  private 
