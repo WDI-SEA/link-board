@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require_tree .
 body{
-	background-image: url('/assets/hacker.jpeg');
+	background-image: url('_assets/hacker.png');
 }
