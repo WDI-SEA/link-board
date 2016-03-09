@@ -3,7 +3,7 @@
     <h1>GA News</h1>
   </div>
   <div class="col-xs-4">
-    <%= link_to '', new_post_path, class: 'btn btn-primary glyphicon glyphicon-plus pull-right' %>
+    <%= link_to '', '#modal-id', class: 'btn btn-primary glyphicon glyphicon-plus pull-right', data: {:toggle => 'modal'} %>
   </div>
 </div>
 
@@ -15,3 +15,17 @@
     <%= render partial: 'posts/voting', locals: {post: post} %>
   </div>
 <% end %>
+
+<div class="modal fade" id="modal-id">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Create a New Post</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'posts/form' %>
+      </div>
+    </div>
+  </div>
+</div>
