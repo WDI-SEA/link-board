@@ -1,21 +1,10 @@
-<h1>New User: Register Below</h1>
+<h1>Signup</h1>
 
-<%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br />
-
-  <%= f.label :email %>
+<%= bootstrap_form_for :user do |f| %>
   <%= f.email_field :email %>
-  <br />
-
-  <%= f.label :password %>
+  <%= f.text_field :name %>
   <%= f.password_field :password %>
-  <br />
-
-  <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
-  <br />
-  
-  <%= f.submit %>
+
+  <%= f.primary 'Signup' %>
 <% end %>

@@ -1,11 +1,8 @@
-<h1>New Post</h1>
+<h1>Create a new Post</h1>
 
-<%= form_for :user do |f| %>
-  <%= f.label :title %>
+<%= bootstrap_form_for @post, url: posts_path do |f| %>
   <%= f.text_field :title %>
+  <%= f.url_field :link %>
 
-  <%= f.label :link %>
-  <%= f.text_field :link %>
-
-  <%= f.submit 'Log In' %>
+  <%= f.primary %>
 <% end %>
