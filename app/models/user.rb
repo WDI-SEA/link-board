@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	has_many :posts
 
+	# has_many :ratings, class_name: 'Vote',
+
 	validates :name,
 	length: {minimum: 2},
 	length: {maximum: 20}
