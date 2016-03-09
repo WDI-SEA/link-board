@@ -18,6 +18,7 @@ Currently logged in: <%= @current_user.name %>
   <%= link_to 'Signup', signup_path %>
   <%= link_to 'Login', login_path %>
   <%= link_to 'Logout', logout_path, :method => :delete %>
+  <%= link_to 'Profile', profile_path %>
 </div>
 
 <%= yield %>

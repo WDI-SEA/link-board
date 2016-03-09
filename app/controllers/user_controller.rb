@@ -13,6 +13,7 @@ before_filter :is_authenticated?,
   end
 
   def show
+
   end
 
   private

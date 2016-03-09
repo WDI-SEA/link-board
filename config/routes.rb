@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+
+  get 'comments/create'
+
   root 'posts#index'
+
+  get 'profile' => 'user#show'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
@@ -10,7 +16,18 @@ Rails.application.routes.draw do
 
   get 'posts/new' => 'posts#new'
   post 'posts' => 'posts#create'
-  
+
+  resources :posts, only: [:new, :create, :show] do
+      resources :comments, only: [:index, :new, :create]
+      post 'upvote' => 'posts#upvote'
+      post 'downvote' => 'posts#downvote'
+  end
+
+  resources :comments, only: [:index, :new, :create] do
+      post 'upvote' => 'comments#upvote'
+      post 'downvote' => 'comments#downvote'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
