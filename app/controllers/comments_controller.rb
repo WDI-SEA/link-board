@@ -3,6 +3,8 @@ class CommentsController < ApplicationController
  	
  	def index
  		@post = Post.find params[:post_id]
+ 		@comments = Comment.group(:post_id).count
+ 		@comments_count = @comments[@post.id]
 	end
 
 	def new

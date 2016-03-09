@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all
-	end
+	end	
 
 	def new
 		@post = Post.new
@@ -22,14 +22,6 @@ class PostsController < ApplicationController
 		end
 
 	end
-
-	# def create
-	# 	p = Post.new
-	# 	postObj = params['post']
-	# 	p.title = postObj['title']
-	# 	p.link = postObj['link']
-	# 	p.save
-	# end
 
 	def show
 		@post = Post.find params[:id]
