@@ -14,6 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-body{
-	background-image: url('_assets/hacker.png');
-}
