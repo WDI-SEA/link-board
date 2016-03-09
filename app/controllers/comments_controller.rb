@@ -21,7 +21,29 @@ class CommentsController < ApplicationController
 		redirect_to post_comments_path(params[:post_id])
 	end
 
+	# def show
+	# 	@pcomment = Comment.find params[:id]
+	# end
+
 	def destroy
+	end
+
+	def upvote
+		vote(:up)
+		redirect_to post_comments_path(params[:post_id])
+	end
+
+	def downvote
+		vote(:down)
+		redirect_to post_comments_path(params[:post_id])
+	end
+
+	def vote(choice)
+		vote_value == :up ? 1 : -1
+		comment = Comment.find(params[:comment_id])
+		vote = comment.votes.find_or_create(user_id: @current_user.id)
+		vote_value = (vote.value) == vote_value ? 0 : vote_value
+		vote.save!
 	end
 
 	private

@@ -4,7 +4,6 @@ class PostsController < ApplicationController
 	def index
 		@posts = Post.all
 		@comments = Comment.group(:post_id).count
-		# @comments_count = @comments[@post_id]
 	end	
 
 	def new
@@ -30,27 +29,39 @@ class PostsController < ApplicationController
 	end
 
 	def upvote
-		post = Post.find params[:post_id]
-
-		unless post.votes.find_by_user_id(@current_user.id)
-			vote = Vote.create(value: 1, user_id: @current_user.id)
-			post.votes << vote
-			post.save
-			flash[:success] = "Voted!"
-		else
-			flash[:warning] = "You already voted!"
-		end
-
+		vote(:up)
 		redirect_to root_path
+		# post = Post.find params[:post_id]
+
+		# unless post.votes.find_by_user_id(@current_user.id)
+		# 	vote = Vote.create(value: 1, user_id: @current_user.id)
+		# 	post.votes << vote
+		# 	post.save
+		# 	flash[:success] = "Voted!"
+		# else
+		# 	flash[:warning] = "You already voted!"
+		# end
+
+		# redirect_to root_path
 	end
 
 	def downvote
-		post = Post.find params[:post_id]
-		vote = Vote.create(value: -1, user_id: @current_user.id)
-		post.votes << vote
-		post.save
-		
+		vote(:down)
 		redirect_to root_path
+		# post = Post.find params[:post_id]
+		# vote = Vote.create(value: -1, user_id: @current_user.id)
+		# post.votes << vote
+		# post.save
+		
+		# redirect_to root_path
+	end
+
+	def vote(choice)
+		vote_value = choice == :up ? 1 : -1
+		post = Post.find(params[:post_id])
+		vote = post.votes.find_or_create_by(user_id: @current_user.id)
+		vote.value = (vote.value) == vote_value ? 0 :vote_value
+		vote.save!
 	end
 
 	private

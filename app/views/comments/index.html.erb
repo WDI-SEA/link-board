@@ -1,12 +1,19 @@
 <h1><%= link_to @post.title, @post.link %></h1>
-<h2>Comments (<%= @comments_count %>)</h2>
+<h2>Comments 
+	<% if @comments_count == nil %>
+		(0)
+	<% else %>
+		(<%= @comments_count %>)	
+	<% end %>
+</h2>
 
 <%= link_to 'Add new Comment', new_post_comment_path(@post) %>
 
 <% @post.comments.each do |c| %>
-<div class="well">
-  <p><%= c.body %></p>
-  <strong>By <%= c.user.name %></strong>
-</div>
+	<%= render partial: 'comments/voting', locals: {c: c} %>
+	<div class="well">
+	  <p><%= c.body %></p>
+	  - <%= c.user.name %>
+	</div>
 <% end %>
 

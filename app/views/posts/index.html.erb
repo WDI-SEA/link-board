@@ -7,6 +7,12 @@
 		<%= render partial: 'posts/voting', locals: { post: post } %>
 		<h2><a href="<%= post.link %>" target="_blank"><%= post.title %></a> </h2>
 		<p>Posted by <%= post.user.name %></p>
-		<p><%= link_to 'Comments', post_comments_path(post) %> <%= @comments[post.id] %></p>
+		<p><%= link_to 'Comments', post_comments_path(post) %> 
+			<% if @comments[post.id] == nil %>
+				(0)
+			<% else %>
+				(<%= @comments[post.id] %>)
+			<% end %>
+		</p>
 	</div>
 <% end %>

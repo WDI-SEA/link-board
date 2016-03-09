@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-  # get 'comments/new'
-
-  # get 'comments/create'
-
-  # get 'comments/destroy'
-
-  # get 'comments/index'
-
   root 'posts#index'
 
   get 'signup' => 'users#new', :as => 'users'
@@ -21,10 +13,26 @@ Rails.application.routes.draw do
   post 'posts' => 'posts#create'
 
   resources :posts, only: [:new, :create, :show] do
-  resources :comments, only: [:index, :new, :create]
-  post 'upvote' => 'posts#upvote'
-  post 'downvote' => 'posts#downvote'
-end
+    resources :comments, only: [:index, :new, :create]
+    post 'upvote' => 'posts#upvote'
+    post 'downvote' => 'posts#downvote'
+    post 'upvote' => 'comments#upvote'
+    post 'downvote' => 'comments#downvote'
+  end
+
+  # resources :comments, only: [:new, :create, :show] do
+  #   resources :comments, only: [:index, :new, :create]
+    # post 'upvote' => 'comments#upvote'
+    # post 'downvote' => 'comments#downvote'
+  # end
+  
+  # get 'comments/new'
+
+  # get 'comments/create'
+
+  # get 'comments/destroy'
+
+  # get 'comments/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
