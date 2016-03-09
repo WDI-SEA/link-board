@@ -3,7 +3,34 @@
     <h1>GA News</h1>
   </div>
   <div class="col-xs-4">
-    <%= link_to '', new_post_path, class: 'btn btn-primary glyphicon glyphicon-plus pull-right' %>
+    
+
+
+    <!--  Add modal for new post -->
+    <a href="#" class="btn btn-primary glyphicon glyphicon-plus pull-right" 
+       data-toggle="modal" 
+       data-target="#add_post"></a>
+    <div id="add_post" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="gridSystemModalLabel">New Post</h4>
+          </div>
+          <div class="modal-body">
+            <%= bootstrap_form_for @new_post, url: posts_path do |f| %>
+              <%= f.text_field :title %>
+              <%= f.url_field :link %>
+
+              <%= f.primary %>
+            <% end %>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
   </div>
 </div>
 
