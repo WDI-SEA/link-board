@@ -16,10 +16,10 @@
 			<ul class="nav navbar-nav navbar-left">
 				<li><%= link_to 'Home', root_path %></li>
 				<% if @current_user %>
-					<li>Signed in as <%= @current_user.name %></li>
-					<li><%= link_to 'Go to my profile', profile_path %></li>
-					<li><%= link_to 'Sign out', logout_path, method: :delete %></li>
+					<p class="navbar-text navbar-right">Signed in as <%= @current_user.name %></p>
+					<li><%= link_to 'My account', profile_path %></li>
 					<li><%= link_to 'Create a post', posts_new_path %></li>
+					<li><%= link_to 'Sign out', logout_path, method: :delete %></li>
 				<% else %>
 					<li><%= link_to 'Log in', login_path %></li>
 					<li><%= link_to 'New user', signup_path %></li>

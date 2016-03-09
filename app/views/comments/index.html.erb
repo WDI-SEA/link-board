@@ -1,0 +1,11 @@
+<h1><%= link_to @post.title, @post.link %></h1>
+
+<%= link_to 'New Comment', new_post_comment_path(@post) %>
+
+<% @post.comments.each do |c| %>
+<div class="well">
+  <p><%= c.body %></p>
+  <strong>By <%= c.user.name %></strong>
+</div>
+<% end %>
+

@@ -1,11 +1,10 @@
-<h1>Profile</h1>
+<h1>My account</h1>
 <h2>Welcome <%= @current_user.name %></h2>
-<h3><%= link_to 'Create new post', posts_new_path %></h3>
-<br />
+<p>Email: <%= @current_user.email %></p>
 <hr />
+<h3><%= link_to 'Create new post >', posts_new_path %></h3>
 <br />
-<h4>All my posts</h4>
-
+<h4>My recent posts</h4>
 <% @posts.each do |item| %>
 	<% if item.user.id === @current_user.id %>
 		<p><a href="<%= item.link %>" target="_blank"><%= item.title %></a> (Posted on <%= item.created_at %>)</p>

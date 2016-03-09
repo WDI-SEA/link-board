@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  # get 'comments/new'
+
+  # get 'comments/create'
+
+  # get 'comments/destroy'
+
+  # get 'comments/index'
+
   root 'posts#index'
 
   get 'signup' => 'users#new', :as => 'users'
@@ -13,7 +21,7 @@ Rails.application.routes.draw do
   post 'posts' => 'posts#create'
 
   resources :posts, only: [:new, :create, :show] do
-  # resources :comments, only: [:index, :new, :create]
+  resources :comments, only: [:index, :new, :create]
   post 'upvote' => 'posts#upvote'
   post 'downvote' => 'posts#downvote'
 end
