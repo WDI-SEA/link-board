@@ -25,3 +25,46 @@
     margin-left: 15px;
 }
 
+
+.word_spilt span[class*="word"]:nth-child(n+2){
+	font-size: 2em;
+}
+
+.word_split span[class*="word"]{
+	moz-transform: skewY(10deg);
+    -webkit-transform: skewY(10deg);
+    -o-transform: skewY(10deg);
+    -ms-transform: skewY(10deg);
+    transform: skewY(10deg);
+    font-family: 'Amatic SC', helvetica;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 20px;
+	padding: 10px;
+    display: inline-block;
+    max-width: 1500px;
+}
+
+.word_split span[class*="word"]:nth-child(2n+1){
+	moz-transform: skewY(10deg);
+    -webkit-transform: skewY(10deg);
+    -o-transform: skewY(10deg);
+    -ms-transform: skewY(10deg);
+    transform: skewY(10deg);
+    background: yellow;
+    color: #000;
+    padding-left: 90%;
+}
+
+.word_split span[class*="word"]:nth-child(2n){
+	moz-transform: skewY(10deg);
+    -webkit-transform: skewY(10deg);
+    -o-transform: skewY(10deg);
+    -ms-transform: skewY(10deg);
+    transform: skewY(10deg);
+    padding-left: 90%;
+    background-color: #add8e6;
+}
+
