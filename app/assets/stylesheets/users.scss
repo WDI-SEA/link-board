@@ -1,3 +1,35 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h1 {
+  color: #0E5342;
+
+}
+
+body {
+  background-color: #6fa698;
+  font-family: 'Cabin', sans-serif;
+  color: #0E5342;
+  text-align: left;
+ }
+
+.well {
+  background-color: #458A79;
+  color: #143054;
+  opacity: .8;
+ }
+
+p {
+  color: #143054;
+ }
+
+a {
+  color: #143054;
+ }
+
+.btn-primary {
+    color: #fff;
+    background-color: #0E5342;
+    border-color: #fff;
+    opacity: .8;
+}

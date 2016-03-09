@@ -1,3 +1,47 @@
-// Place all the styles related to the posts controller here.
+/*// Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+ 
+/* played around with this a good twenty min, even saved it twice as two different images, and tried to find the correct route. ../images is what I thought.
+ body {
+ background-image: url("/app/assets/images/wallpaper-texture-background-desktop.jpg");
+
+ }*/
+h1 {
+  color: #0E5342;
+
+}
+
+body {
+  background-color: #6fa698;
+  font-family: 'Cabin', sans-serif;
+  color: #0E5342;
+  text-align: left;
+ }
+
+.well {
+  background-color: #143054;
+  color: #805715;
+  opacity: .8;
+ }
+
+p {
+  color: #143054;
+ }
+
+a {
+  color: #143054;
+ }
+
+ .btn-primary {
+    color: #fff;
+    background-color: #0E5342;
+    border-color: #2e6da4;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0E5342;
+    border-color: #fff;
+    opacity: .8;
+}

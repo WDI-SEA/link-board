@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+ /*is this file what would apply to each of the pages? I kinda broke my app with all my fiddling and couldn't tell and just copy pasted my code for uniformity. However in a real world situation I'd like a little difference from page to page for UX reasons*/
+h1 {
+  color: #0E5342;
+  font-size: 51px;
+
+}
+
+body {
+  background-color: #6fa698;
+  font-family: 'Cabin', sans-serif;
+  color: #0E5342;
+  text-align: left;
+ }
+
+.well {
+  background-color: #458A79;
+  color: #143054;
+  opacity: .8;
+ }
+
+p {
+  color: #143054;
+ }
+
+a {
+  color: #143054;
+ }
+
+ .btn-primary {
+    color: #fff;
+    background-color: #0E5342;
+    border-color: #fff;
+    opacity: .8;
+}
