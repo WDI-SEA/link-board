@@ -1,0 +1,48 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(https://fonts.googleapis.com/css?family=Sansita+One);
+
+$accent-color: #000000;
+$primary-color: #FBDD0B;
+$font-stack: 'Sansita One', cursive;
+
+body {
+	background-image: url(http://img08.deviantart.net/cc1f/i/2012/068/9/2/rotated_grey_hexagonal_grid_source_by_chadparker42-d4s9r6s.png);
+	
+
+	h1 {
+		font-family: $font-stack;
+		color: $primary-color;
+	}
+		h2 a {
+		font-family: $font-stack;
+		color: $accent-color;
+	}
+			a {
+				color: $primary-color;
+			}
+			a:visted{
+				color: $primary-color;
+			}
+			a:hover {
+				color: $primary-color;
+			}
+		}
+
+div#opacity {
+	background-color: rgba(0, 0, 0, 0.5);
+	height: 100%;
+	width: 100%;
+}
+
+nav.navbar.navbar-default {
+	margin-bottom: 0;
+}
+
+a.btn.btn-primary {
+	background-color: $accent-color;
+	border: solid 1px $primary-color;
+}
+
+
