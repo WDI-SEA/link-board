@@ -16,6 +16,12 @@
 body{
 	background-image: url('hacker.png');
 	background-size: contain;
+	background-repeat: none;
+}
+
+.row{
+	background-color: rgba(0,0,0,.8);
+	color: #fff;
 }
 
 
@@ -74,4 +80,11 @@ body{
     background-color: #add8e6;
 }
 
+
+.title, .login{
+	width: 100%;
+	padding: 1% 1%;
+	color: #fff;
+	background-color: rgba(0,0,0,.8);
+}
 
