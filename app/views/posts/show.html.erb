@@ -7,6 +7,7 @@
 					<a href='<%= post.link %>'><h2><%= post.title %></h2></a>
 					<p>By <%= post.user.name %></p>
 					<%= render partial: 'posts/voting', locals: {post: post} %>
+					<%= link_to "Comments", post_comments_path(post) %>
 				</li>
 			</div>
 		<% end %>

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'comment/new'
+
+  get 'comment/create'
+
   root 'posts#show'
 
 	resources :posts, only: [:new, :create, :show] do
@@ -16,6 +20,13 @@ Rails.application.routes.draw do
 	get 'signup' => 'users#new', :as => 'users'
 	post 'signup' => 'users#create'
 	get 'profile' => 'users#show'
+
+	get 'posts' => 'posts#new'
+
+	resources :comments, only: [:index, :new, :create] do
+      post 'upvote' => 'comments#upvote'
+      post 'downvote' => 'comments#downvote'
+  end
 
 
 

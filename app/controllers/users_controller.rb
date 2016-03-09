@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+  	@current_user
   end
 
   private
