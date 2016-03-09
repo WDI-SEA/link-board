@@ -1,0 +1,27 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+a {
+  color: black;
+}
+
+body {
+  background-color: #FFE5B5;
+  font-family: 'Comfortaa', cursive;
+}
+
+.navbar-brand {
+  font-size: 25px;
+}
+.navbar-default {
+  background-color: #ABF1F1;
+}
+
+.navbar-header {
+  font-family: 'Satisfy', cursive;
+}
+
+.voting a {
+  display: block;
+}
