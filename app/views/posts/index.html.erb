@@ -1,0 +1,11 @@
+<h1>GA LinkBoard</h1>
+
+<strong><h3>Total Number of Links: <%= @posts.length %></h3></strong>
+
+<% @posts.each do |post| %>
+<div class="well">
+  <a href="<%=post.link%>"><%= post.title %></a></li><br /> By: <a href=mailto:"<%=post.user.email%>"><%= post.user.name %>
+  <p><%= link_to 'Comments', post_comments_path(post) %></p>
+  <%= render partial: 'posts/voting', locals: {post: post} %>
+</div>
+<% end %>

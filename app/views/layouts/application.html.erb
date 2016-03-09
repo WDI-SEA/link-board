@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="//code.jquery.com/jquery.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <title>LinkBoard</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render 'layouts/flash' %>
+
+<div>
+<% if @current_user %>
+Currently logged in as: <%= @current_user.name %>
+</div>
+<% end %>
+
+<div id="nav">
+  <%= link_to 'Home', root_path %> |
+  <% if @current_user %>
+  <a href="/posts/new"> New Post </a> |
+  <% end %>
+  <%= link_to 'Login', login_path %> |
+  <% if !@current_user %>
+  <%= link_to 'Signup', signup_path %> |
+  <% end %>
+  <% if @current_user %>
+  <%= link_to 'Logout', logout_path, :method => :delete %>
+  <% end %>
+</div>
+<%= yield %>
+
+</body>
+</html>
