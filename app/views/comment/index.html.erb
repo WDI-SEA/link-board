@@ -1,0 +1,13 @@
+<h1>Comment#index</h1>
+<p>Find me in app/views/comment/index.html.erb</p>
+
+
+<%= link_to 'New Comment',new_post_comment_path(@post) %>
+
+<div>
+<% @post.comment.each do |comment| %>
+	<p> <%= comment.content %> </p>
+	<p> by <%= comment.user.name %> </p>
+	<% end %>
+
+</div>

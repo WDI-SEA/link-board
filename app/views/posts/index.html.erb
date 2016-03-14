@@ -1,0 +1,13 @@
+<% @posts.each do |p| %>
+
+
+<li><%= p.title %></li>
+<li><%= link_to p.link %></li>
+<li>By <%= p.user.name %> </li>
+<p><%= link_to 'Comments', post_comment_index_path(p) %></p>
+<%= link_to 'upvote', post_upvote_path(p), :method => :post %> 
+<strong><%= p.votes.inject(0) {|sum, v| sum + v.value}  %></strong>
+<%= link_to 'downvote', post_downvote_path(p), :method => :post %>
+
+
+<% end %>

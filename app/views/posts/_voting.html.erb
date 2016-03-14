@@ -1,0 +1,3 @@
+<%= link_to 'upvote', post_upvote_path(p.id), :method => :post %> 
+<strong><%= p.votes.count %></strong>
+<%= link_to 'downvote', post_downvote_path(p.id), :method => :post %>
