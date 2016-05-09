@@ -1,5 +1,6 @@
 #Link Board - Part 1
 
+
 We are going to create a clone of [Hacker News](https://news.ycombinator.com/). Hacker news is a reddit-style link board that allows users to post links which are upvoted by other users so the best links rise to the top.
 
 For part 1, we're going focus on `Users` and `Posts` only. The goal for is to create an app that allows users to sign up, login, and add posts. In part 2, we'll work on adding comments and voting.
@@ -29,8 +30,8 @@ For part 1, we're going focus on `Users` and `Posts` only. The goal for is to cr
 
 | Verb | Route | Action | Purpose |
 |------|-------|------------|--------|---|
-| GET | /signup | users#new | render user sign up form | 
-| POST | /signup | users#create | create user in database (signup) | 
+| GET | /signup | users#new | render user sign up form |
+| POST | /signup | users#create | create user in database (signup) |
 | GET | /login | sessions#new | render user log in form |
 | POST | /login | sessions#create | create user session (login) |
 | DELETE | /logout | sessions#destroy | destroy user session (logout) |
@@ -41,9 +42,9 @@ Create basic CRUD routes (see RESTful routing table if needed). Rails can do thi
 
 | Verb | Route | Action | Purpose |
 |------|-------|------------|--------|---|
-| GET | / | posts#index | render list of all posts | 
-| GET | /posts/new | posts#new | render add post form | 
-| POST | /posts | posts#create | create post in database (associated to logged in user) | 
+| GET | / | posts#index | render list of all posts |
+| GET | /posts/new | posts#new | render add post form |
+| POST | /posts | posts#create | create post in database (associated to logged in user) |
 
 **Note:** We're using the root for `posts#index` because (just like hacker news) we want to list all posts on the home page.
 
@@ -117,7 +118,7 @@ User.all
 **Testing valdations**
 
 ```
-User.create 
+User.create
 #no parameters should fail validation
 
 User.create email: 'blah@blah.com', name: 'a name', password: 'qwertyuiop'
