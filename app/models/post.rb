@@ -5,7 +5,8 @@ class Post < ActiveRecord::Base
 
   validates :link,
   presence: true,
-  length: { in: 10..100 }
+  length: { in: 10..100 },
+  :url => true
 
   belongs_to :user
 end

@@ -29,6 +29,10 @@ gem 'bcrypt', '~> 3.1.7'
 #email validator
 gem 'email_validator'
 
+#url validator
+gem 'valid_url'
+
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
