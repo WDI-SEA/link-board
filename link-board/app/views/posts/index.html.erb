@@ -1,2 +1,14 @@
 <h1>Posts</h1>
-<p>This is a post.</p>
+<p>These are the posts:</p>
+
+<%if @current_user %>
+<%= @current_user.email %> logged in 
+<% end %>
+
+<div>
+<% @posts.each do |post| %>
+<%= post.title %>
+<%= post.link %>
+<% end %>
+</div>
+
