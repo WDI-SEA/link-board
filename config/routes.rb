@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  get 'main/index'
+  root "posts#index"
 
-  get 'main/restricted'
+  get "posts/new" => "posts#new"
 
-  root 'main#index'
+  post "posts/new" => "posts#create"
+
+  get "signup" => "users#new"
+
+  post "signup" => "users#create"
+
+  # get 'main/restricted'
   
   get "login" => "sessions#new"
 
