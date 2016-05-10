@@ -4,10 +4,14 @@
 <% @posts.each do |post| %>
     <h2><%= link_to post.title, post.link %></h2>
     <p>By <%= post.user.email %></p>
+    <%= link_to 'Delete', post, method: :delete %>
 <% end %>
 </div>
-
+<% if @current_user %>
 <div class="newpost col-md-12">
 <h2> Create Post </h2>
         <%= render 'posts/create' %>
  </div>
+ <% else %>
+ 
+ <% end %>
