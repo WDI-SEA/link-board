@@ -1,0 +1,13 @@
+<h1>Posts#index</h1>
+<p>Find me in app/views/posts/index.html.erb</p>
+
+<% if @current_user %>
+  <%= @current_user.email %> is logged in
+<% end %>
+
+<% @posts.each do |post| %>
+ <%= post.title %>
+ <%= post.link %>
+ <%= post.user_id %>
+ <%= post.email %>
+<% end %>
