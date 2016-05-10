@@ -1,6 +1,11 @@
 Rails.application.routes.draw do 
 
-  root 'sessions#new'
+  root 'posts#index'
+
+  get 'posts#new'
+
+  post 'posts#create'
+  
 
   get '/users' => 'users#new'
 
