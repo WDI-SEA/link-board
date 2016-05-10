@@ -4,23 +4,23 @@
 
 
 body {
-  font-family: Verdana !important;
+  font-family: Verdana;
 }
 #heading-name {
-  color: black !important;
-  font-weight: bold !important;
+  color: black;
+  font-weight: bold;
 }
 
 #nav-links {
   font-size: 8pt;
-  color: black !important;
+  color: black;
   text-decoration: none;
 }
 
 
 .header-row {
-  height: 30px !important;
-  vertical-align: middle !important;
+  height: 30px;
+  vertical-align: middle;
 }
 
 .logo {
@@ -49,9 +49,9 @@ body {
 }
 
 .table tbody tr td {
-  border-top: none !important;
-  line-height: 1 !important;
-  padding: 4px 8px 4px 8px !important;
+  border-top: none;
+  line-height: 1;
+  padding: 4px 8px 4px 8px;
 
 }
 

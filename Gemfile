@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'uri'
 
 gem 'email_validator'
 
