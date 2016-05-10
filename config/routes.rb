@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'posts/update'
 
-  get 'posts/destroy'
+  get "delete" => 'posts/destroy'
 
   root 'main#index'
 
