@@ -1,0 +1,8 @@
+<h1>Create an account</h1>
+
+<%= form_for :user, action: '/users', method: 'POST' do |f| %>
+  <li><%= f.text_field :email, placeholder: "Enter Email" %></li>
+  <li><%= f.password_field :password, placeholder: "Enter password" %></li>
+  <li><%= f.text_field :name, placeholder: "Enter your name" %></li>
+  <%= f.submit %>
+<% end %>
