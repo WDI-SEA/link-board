@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'main/index'
+
+  get 'main/restricted'
+
+  get 'index/restricted'
+
   root 'posts#index'
 
   get 'posts/new'
