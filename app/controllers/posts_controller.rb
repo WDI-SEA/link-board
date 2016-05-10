@@ -4,7 +4,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create post_params
+    post = Post.create post_params do |p|
+      p.user_id = @current_user.id
+      p.save
     redirect_to posts_path
   end
 
@@ -18,7 +20,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find params[:id]
-    # render json: params
   end
 
   def update
@@ -34,7 +35,7 @@ class PostsController < ApplicationController
 
   private
 
-  def tweet_params
+  def post_params
     params.require(:post).permit(:title, :link, :user)
   end
 end
