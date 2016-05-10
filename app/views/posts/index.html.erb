@@ -1,12 +1,13 @@
 <h1>Posts</h1>
 
-
+<div class="post col-md-10">
 <% @posts.each do |post| %>
-<div class="post">
     <h2><%= link_to post.title, post.link %></h2>
     <p>By <%= post.user.email %></p>
-    </div>
 <% end %>
+</div>
 
+<div class="newpost col-md-12">
 <h2> Create Post </h2>
         <%= render 'posts/create' %>
+ </div>
