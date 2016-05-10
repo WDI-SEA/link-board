@@ -11,9 +11,11 @@ class User < ActiveRecord::Base
   presence: true,
   length: { maximum: 20 }
 
+  has_many :post
+
   has_secure_password
 
-  def self.authenticate email, password, name
+  def self.authenticate email, password
     User.find_by_email(email).try(:authenticate, password)
   end
 end

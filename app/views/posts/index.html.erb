@@ -1,0 +1,10 @@
+<h1>Haxx&amp;Linx</h1>
+
+<ul>
+  <%  @posts.each do |p| %>
+    <li>
+      <%= p.title  %>
+      <%= p.link  %>
+    </li>
+  <% end %>
+</ul>

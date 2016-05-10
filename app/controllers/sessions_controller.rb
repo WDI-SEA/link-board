@@ -3,9 +3,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.authenticate user_params[:email], user_params[:password], user_params[:name]
+    @user = User.authenticate user_params[:email], user_params[:password]
     flash[:success] = "User logged in!"
 
+    session[:user_id] = @user.id
     redirect_to root_path
   end
 
@@ -19,6 +20,6 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :name)
+    params.require(:user).permit(:email, :password)
   end
 end
