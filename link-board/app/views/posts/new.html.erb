@@ -3,5 +3,6 @@
 <%=	form_for @post do |p| %>
 	<%= p.text_field :title, placeholder: "Enter title" %>
 	<%=	p.text_field :link, placeholder: "Enter link" %>
+	<%= p.hidden_field :user_id, value: @current_user.id %>
 	<%=	p.submit "Create Post" %>
 <%	end %>
