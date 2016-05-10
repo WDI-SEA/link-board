@@ -9,6 +9,7 @@ class PostsController < ApplicationController
       p.user_id = @current_user.user_id
       p.save
       redirect_to root_path
+    end
   end
 
   def new
