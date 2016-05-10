@@ -1,2 +1,10 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Make a New Post</h1>
+<%= form_for :post do |f| %>
+  <%= f.text_field :title, placeholder: "Enter a title" %>
+  <%= f.url_field :link, placeholder: "Enter a link"%>
+  <%= f.submit 'Submit' %>
+<% end %>
+
+<% if @current_user %>
+<%= @current_user.email %> is logged in
+<% end %>

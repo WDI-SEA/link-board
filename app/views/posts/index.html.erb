@@ -1,1 +1,46 @@
-index.html.erb
+<div class="row">
+  <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+    <table style="margin-top: 10px;" class="table table-news">
+      <tbody class="header" style="background-color: #ff6600;">
+        <tr>
+          <td class="header-row">
+              <img class="logo" src='<%= image_url "y18.gif" %>' />
+              <span style="color: black; font-weight: bold;">Hacker News</span>
+              <a style="color:black;text-decoration: none;" href="/posts/new">new</a> | 
+              <a style="color:black;text-decoration: none;" href="#">comments</a> |
+              <a style="color:black;text-decoration: none;" href="#">show</a> |
+              <a style="color:black;text-decoration: none;" href="#">ask</a> |
+              <a style="color:black;text-decoration: none;" href="#">jobs</a> |
+              <a style="color:black;text-decoration: none;" href="#">submit</a>
+          </td>
+          <td class="header-row">
+          <% if @current_user %>
+          <span style="color:black;"><%= @current_user.email %> is logged in</span>  |  
+          <% end %>
+          <% if @current_user %>
+          <a style="color:black;text-decoration: none;" href="/logout">logout</a>
+          <%else%>
+          <a style="color:black;text-decoration: none;" href="/login">login</a>
+          <% end %>
+             
+          </td>
+        </tr>
+        </tbody>
+
+
+        <tbody>
+        <tr style="height:10px"></tr>
+        <% @posts.each do |post| %>
+        <% uri = URI(post.link) %>
+        <tr>
+          <td> 
+           <span><%= post.title %></span><a class="main-link" href="<%=post.link%>"> (<%= uri.host%>)</a><br>
+           <span class="by-line">by <%=post.user.name%></span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+  </div>
+</div>
+</div>

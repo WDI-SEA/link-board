@@ -1,3 +1,57 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body {
+  font-family: Verdana !important;
+}
+#heading-name {
+  color: black !important;
+  font-weight: bold !important;
+}
+
+#nav-links {
+  font-size: 8pt;
+  color: black !important;
+  text-decoration: none;
+}
+
+
+.header-row {
+  height: 30px !important;
+  vertical-align: middle !important;
+}
+
+.logo {
+  border:1px solid white;
+}
+.main-link {
+  font-size: 8pt;
+  color: #868686;
+  text-decoration: none; 
+}
+
+.main-link:hover {
+    color: #868686;
+    text-decoration: underline;
+  }
+
+.by-line {
+  font-size: 7pt;
+  color: #868686;
+}
+
+.table-news {
+  background-color: #eaeae1;
+  padding-top: 20px;
+  
+}
+
+.table tbody tr td {
+  border-top: none !important;
+  line-height: 1 !important;
+  padding: 4px 8px 4px 20px !important;
+
+}
+

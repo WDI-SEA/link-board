@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   get 'posts/new' => 'posts#new'
 
-  get 'posts' => 'posts#create'
-  
+  post 'posts/new' => 'posts#create'
+
   get 'signup' => 'users#new'
 
   post 'signup' => 'users#create'
