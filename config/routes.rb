@@ -13,7 +13,11 @@ Rails.application.routes.draw do
 
   get "delete" => 'posts/destroy'
 
-  root 'main#index'
+  root 'posts#index'
+
+  get 'signup' => 'users#new'
+  
+  post 'signup' => 'users#create'
 
   get 'restricted' => 'main#restricted'
 
