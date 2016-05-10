@@ -9,11 +9,9 @@ class SessionsController < ApplicationController
     if @user
       session[:user_id] = @user.id
       flash[:success]  = "User logged in!"
-      puts "Successful login"
       redirect_to root_path
     else
       flash[:danger] = "Credentials Invalid!"
-      puts "Failed login"
       redirect_to login_path
     end
   end
