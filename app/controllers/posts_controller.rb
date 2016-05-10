@@ -13,6 +13,9 @@ class PostsController < ApplicationController
     post = Post.new post_params
     post.save!
     flash[:success] = "Post created!"
+
+    # Josh's cool stuff
+    # @current_user.post.create post_params
     
     redirect_to root_path
   end

@@ -22,7 +22,7 @@ body {
   background-color: #FF6103;
   color: black;
   min-height: 12px !important;
-  max-height: 25px !important;
+  max-height: 26px !important;
   margin-bottom: 0px !important;
   padding-top: 4px;
 }
@@ -65,4 +65,9 @@ p {
 div .login {
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+hr {
+  background-color: #FF6103;
+  color: #FF6103;
 }
