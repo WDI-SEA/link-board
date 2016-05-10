@@ -1,14 +1,29 @@
 <h1>Posts</h1>
 <p>These are the posts:</p>
 
+<div>
 <%if @current_user %>
 <%= @current_user.email %> logged in 
 <% end %>
-
-<div>
-<% @posts.each do |post| %>
-<%= post.title %>
-<%= post.link %>
-<% end %>
 </div>
+<br>
+
+<tbody>
+<tr style="height:10px"></tr>
+<% @posts.each do |post| %>
+<td>
+  <span>
+    <%= post.title %> 
+  </span>
+</td>
+
+<td>
+  <span>
+    <%= post.link %>
+  </span>
+</td>
+<br>
+<% end %>
+</tbody>
+
 
