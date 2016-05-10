@@ -9,7 +9,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create post_params
+    new_post = User.find(session[:user_id]).post.create post_params
+    if new_post.id != nil
+      flash[:success] = "New post added."
+    else
+      flash[:danger] = "Invalid post details."
+    end
     redirect_to root_path
   end
 
