@@ -1,10 +1,11 @@
-<h1>Haxx&amp;Linx</h1>
 
-<ul>
+
+<ol>
   <%  @posts.each do |p| %>
     <li>
-      <%= p.title  %>
-      <%= p.link  %>
+    <a href="<%= p.link  %>"> <%= p.title  %></a>
+    <br>
+    <span class="smaller"> <%= rand(10..1000) %> points by <%= @current_user.name  %> <%= rand(2..24) %> hours ago </span>
     </li>
   <% end %>
-</ul>
+</ol>

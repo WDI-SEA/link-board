@@ -1,10 +1,17 @@
-<ul>
-  <li>Hacker News</li>
-  <li>new</li>
-  <li>comments</li>
-  <li>show</li>
-  <li>ask</li>
-  <li>jobs</li>
-  <li>submit</li>
-  <li>login</li>
-</ul>
+<div class="navbar">
+  <ul>
+    <li><%= link_to 'Hacker News', root_path  %></li> 
+    <li>new</li> |
+    <li>comments</li> |
+    <li>show</li> |
+    <li>ask</li> |
+    <li>jobs</li> |
+    <li><%= link_to 'submit', posts_new_path %></li> 
+  <% if @current_user  %>
+    | <li> <%= @current_user.name  %> (1)
+    <li> <%= link_to 'logout', logout_path %></li>
+  <% else %>
+    <li> <%= link_to 'login', login_path %></li>
+  <% end %>
+  </ul>
+</div>

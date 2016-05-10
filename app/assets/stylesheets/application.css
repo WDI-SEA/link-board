@@ -14,10 +14,55 @@
  *= require_self
  */
 
-body{
+body {
 
 }
 
-navbar {
-  color: #FF4500;
+.navbar {
+  background-color: #FF6103;
+  color: black;
+  min-height: 12px !important;
+  max-height: 25px !important;
+  margin-bottom: 0px !important;
+  padding-top: 4px;
+}
+
+.navbar ul li {
+  display: inline;
+  list-style: none;
+  padding: 0px 5px 0px 5px;
+}
+
+.form ul li {
+  list-style: none;
+  padding: 0px 5px 0px 5px;
+}
+
+.navbar ul li:last-child {
+  float:right;
+}
+
+ a:link {color: black;}
+ a:visited {color: black;}
+ a:hover {color: black;}
+ a:active {color: white;} 
+
+ ol {
+  background-color: #EDEDED;
+  padding-top: 5px;
+ }
+
+.smaller {
+  color: dimgrey;
+  font-size: 11px;
+}
+
+p {
+  font-family: 'Times New Roman', serif;
+  font-weight: bold;
+}
+
+div .login {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
