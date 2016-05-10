@@ -1,12 +1,12 @@
-<b>Slacker News</b>
-
-<a href="/signup">Sign Up</a>
-<a href="/login">Log In</a>
-
 <% for post in @posts %>
-	<div>
-		<%= post.title %>
-		<%= post.user %>
-		<%= post.link %>
+	<div class="well well-sm">
+		<h4>
+			<a href="<%= post.link %>">
+				<%= post.title %>
+			</a>
+		</h4>
+		<p>
+			by <%= post.user.name %>
+		</p>
 	</div>
 <% end %>

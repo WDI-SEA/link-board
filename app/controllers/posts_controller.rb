@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 	before_action :is_authenticated?
 
   def index
-  	@posts = Post.all
+  	@posts = Post.includes(:user).all
   end
 
   def new
