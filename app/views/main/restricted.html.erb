@@ -4,3 +4,8 @@
 <% if @current_user %>
 	<%= @current_user.email %> is logged in
 <% end %>
+
+<%= form_for :post do |p| %>
+	<%=	p.text_field :title, placeholder: "Title" %>
+	<%= p.text_field :link, placeholder: "Link" %>
+	<%= p.submit "Post" %>

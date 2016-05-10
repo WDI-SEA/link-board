@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'posts/index'
+
+  get 'posts/create'
+
+  get 'posts/new'
+
+  get 'posts/edit'
+
+  get 'posts/show'
+
+  get 'posts/update'
+
+  get 'posts/destroy'
+
   root 'main#index'
 
   get 'restricted' => 'main#restricted'
@@ -9,6 +23,8 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
 
   get "logout" => "sessions#destroy"
+
+  resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
