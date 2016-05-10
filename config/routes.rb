@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'posts/new' => 'posts#new'
 
-  post 'posts' => 'posts#create'
+  post 'posts/new' => 'posts#create'
   # get 'sessions/new'
 
   get 'users/new'
