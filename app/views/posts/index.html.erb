@@ -6,7 +6,7 @@
           <td class="header-row">
               <img class="logo" src='<%= image_url "y18.gif" %>' />
               <span style="color: black; font-weight: bold;">Hacker News</span>
-              <a style="color:black;text-decoration: none;" href="/posts/new">new</a> | 
+              <a style="color:black;text-decoration: none;" href="/posts">new</a> | 
               <a style="color:black;text-decoration: none;" href="#">comments</a> |
               <a style="color:black;text-decoration: none;" href="#">show</a> |
               <a style="color:black;text-decoration: none;" href="#">ask</a> |
@@ -34,8 +34,10 @@
         <% uri = URI(post.link) %>
         <tr>
           <td> 
+           <span style="color: #777777;"><%=post.id%>.</span>
+           <img style="vertical-align: top; height:12px" src='<%= image_url "grayarrow2x.gif" %>' />
            <span><%= post.title %></span><a class="main-link" href="<%=post.link%>"> (<%= uri.host%>)</a><br>
-           <span class="by-line">by <%=post.user.name%></span>
+           <span style="padding-left:20px;" class="by-line">by <%=post.user.name%></span>
           </td>
         </tr>
       <% end %>
