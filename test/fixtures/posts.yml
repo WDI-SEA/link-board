@@ -2,8 +2,10 @@
 
 one:
   title: MyString
+  link: MyString
   user_id: 
 
 two:
   title: MyString
+  link: MyString
   user_id: 

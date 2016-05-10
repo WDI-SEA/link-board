@@ -1,24 +1,31 @@
 class PostsController < ApplicationController
-  def index
-    @links =Link.all { |e|  }
-  end
+  before_action :is_authenticated?, only: [:restricted]
 
-  def create
-    Link.create link_params
-    redirect_to links_path 
-    # tweets_path is basically saying take me to /tweets
+  def index
+    # @links =Link.all { |e|  }
   end
 
   def new
-    @link = Link.new
-    # This will create a new tweet object 
+    @post = Post.new
+    # This will create a new tweet object \
   end
+
+
+  def create
+    # Link.create link_params
+    # redirect_to links_path 
+    post = Post.new post_params
+    post.save!
+    redirect_to posts_new_path
+  end
+
+  
 
   def edit
   end
 
   def show
-    @link = Link.find params[:id]
+    # @link = Link.find params[:id]
   end
 
   def update
@@ -28,7 +35,8 @@ class PostsController < ApplicationController
   end
 
   private
-  def link_params
-    params.require(:link).permit(:title, :link)
+
+  def post_params
+    params.require(:post).permit(:title, :link)
   end
 end

@@ -3,7 +3,7 @@ def create
   @user = User.authenticate user_params[:email], user_params[:password]
 
   if @user
-    session[:user_id] = @user.id
+    session[:user_id] = @user_id
     flash[:success] = "User logged in!!"
     redirect_to root_path
   else
