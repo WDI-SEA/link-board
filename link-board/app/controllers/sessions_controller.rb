@@ -3,9 +3,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	@user = User.authenticate user.params[:email], user.params[:password]
+  	@user = User.authenticate user_params[:email], user_params[:password]
   		if @user
-  			session[:user_id] = user.id
+  			session[:user_id] = @user.id
   			flash[:success] = "User logged in"
   			redirect_to root_path
   		else
@@ -23,6 +23,6 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-  	params.require[:user].permit[:email, :password]
+  	params.require(:user).permit(:email, :password)
   end
 end

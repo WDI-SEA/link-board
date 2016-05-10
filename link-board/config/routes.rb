@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   
-  root 'posts#index'
+  root 'post#index'
 
-  get 'posts/new' => 'posts#new'
+  get 'post/new' => 'post#new'
 
-  post 'posts' => 'posts#create'
+  post 'post' => 'post#create'
 
-  get 'signup' => 'users#new'
+  get 'signup' => 'user#new'
 
-  post 'signup' => 'users#create'
+  post 'signup' => 'user#create'
 
   get 'login' => 'sessions#new'
 
