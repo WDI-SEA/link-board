@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
       c.user_id = @current_user.id
       c.save
     end
-    redirect_to comments_path comment
+    # redirect_to comments_path comment
+    redirect_to :back
   end
 
   def new

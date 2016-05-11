@@ -2,11 +2,13 @@
 
 <div class="post col-md-10">
 <% @posts.each do |post| %>
+	<div class="row">
     <img class="col-md-3 col-sm-3 col-xs-3" src="<%= post.link %>">
-    <h2><%= link_to post.title, post_path(post) %></h2>
+    <h2 class="col-md-9 col-sm-9 col-xs-9"><%= link_to post.title, post_path(post) %></h2>
     <p>By <%= post.user.email %></p>
     <%= link_to 'Edit', edit_post_path(post) %>
     <%= link_to 'Delete', post, method: :delete %>
+    </div>
 <% end %>
 </div>
 <% if @current_user %>
