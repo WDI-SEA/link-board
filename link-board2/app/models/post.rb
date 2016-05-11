@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
     too_long: "must be less than %{count} letters"
   }
 
-  # # validates :link,
-  # presence: true,
-  # url: true
+  validates :link,
+  presence: true,
+  url: true
 end
