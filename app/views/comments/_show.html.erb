@@ -1,7 +1,7 @@
 <% @comments.each do |comment| %>
     <h2><%= comment.content %></h2>
     <p>By <%= comment.user.email %></p>
-    <% if @current_user == comment.user.email %>
+    <% if @current_user.email == comment.user.email %>
     <%= link_to 'Edit', edit_comment_path(comment) %>
     <%= link_to 'Delete', comment, method: :delete %>
     <% end %>

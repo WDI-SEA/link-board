@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
 
   def destroy
     Comment.find(params[:id]).delete
-    redirect_to comments_path
+    redirect_to :back
   end
 
   private
