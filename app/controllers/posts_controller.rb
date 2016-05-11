@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 before_action :is_authenticated?, only: [:new]
+  
   def index
     @posts = Post.all
   end
@@ -10,9 +11,9 @@ before_action :is_authenticated?, only: [:new]
   end
 
   def create
-    post = Post.create post_params do |p|
+      post = Post.create post_params do |p|
+        puts p
       p.user_id = @current_user.id
-      puts p.user_id
       p.save
       redirect_to root_path
     end

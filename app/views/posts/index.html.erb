@@ -5,22 +5,22 @@
         <tr>
           <td class="header-row">
               <img class="logo" src='<%= image_url "y18.gif" %>' />
-              <span style="color: black; font-weight: bold;">Hacker News</span>
-              <a style="color:black;text-decoration: none;" href="#">new</a> | 
-              <a style="color:black;text-decoration: none;" href="#">comments</a> |
-              <a style="color:black;text-decoration: none;" href="#">show</a> |
-              <a style="color:black;text-decoration: none;" href="#">ask</a> |
-              <a style="color:black;text-decoration: none;" href="#">jobs</a> |
-              <a style="color:black;text-decoration: none;" href="/posts/new">submit</a>
+              <span id="heading-name">Hacker News</span>
+              <a class="nav-links" href="#">new</a> | 
+              <a class="nav-links" href="#">comments</a> |
+              <a class="nav-links" href="#">show</a> |
+              <a class="nav-links" href="#">ask</a> |
+              <a class="nav-links" href="#">jobs</a> |
+              <a class="nav-links" href="/posts/new">submit</a>
           </td>
           <td style="vertical-align: middle;" class="header-row">
           <% if @current_user %>
           <span style="color:black;"><%= @current_user.email %> is logged in</span>  |  
           <% end %>
           <% if @current_user %>
-          <a style="color:black;text-decoration: none;" href="/logout">logout</a>
+          <a class="nav-links" href="/logout">logout</a>
           <%else%>
-          <a style="color:black;text-decoration: none;" href="/login">login</a>
+          <a class="nav-links" href="/login">login</a>
           <% end %>
              
           </td>
