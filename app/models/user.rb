@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :post
+  has_many :ratings, class_name: 'Vote'
+  has_many :votes, as: :votable
 
   def self.authenticate email, password
     User.find_by_email(email).try(:authenticate, password)

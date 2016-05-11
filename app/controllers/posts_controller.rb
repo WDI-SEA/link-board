@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :is_authenticated?, only: [:new]
+  before_action :is_authenticated?, only: [:new, :create]
 
   def index
     @posts = Post.all
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     if new_post.id != nil
       flash[:success] = "New post added."
     else
-      flash[:danger] = "Invalid post details."
+      flash[:danger] = "Invalid post details. (Make sure the title is at least ten characters long, and the link is a valid url.)"
     end
     redirect_to root_path
   end
