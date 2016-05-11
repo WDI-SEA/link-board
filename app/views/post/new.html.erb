@@ -1,0 +1,13 @@
+<h1>Post#new</h1>
+<p>Find me in app/views/post/new.html.erb</p>
+
+<div class="form">
+  <p>Sign Up</p>
+  <ul>
+    <%= form_for :post, action:'create', method:'post' do |f| %>
+      <li>Title:<%= f.text_field :title, placeholder: "Enter Title" %></li>
+      <li>Link:<%= f.text_field :link, placeholder: "Enter Link" %></li>
+      <%= f.submit "Post"%>
+    <% end %>
+  </ul>
+</div>
