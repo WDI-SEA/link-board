@@ -1,0 +1,12 @@
+<div class="form login">
+  <p>Login</p>
+  <ul>
+    <%= form_for :user do |f| %>
+      <li>email: <%= f.text_field :email %> </li>
+      <li>password: <%= f.password_field :password%> </li>
+      <%= f.submit "Login"%>
+    <% end %>
+  </ul>
+</div>
+
+<p> Or sign up <a href="/signup">here</a>!</p>

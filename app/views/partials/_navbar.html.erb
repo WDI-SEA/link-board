@@ -1,0 +1,44 @@
+<div class="navbar">
+  <ul>
+    <li class="white-border">Y</li>
+    <li><%= link_to 'Hacker News', root_path  %></li> 
+    <li>new</li> |
+    <li>comments</li> |
+    <li>show</li> |
+    <li>ask</li> |
+    <li>jobs</li> |
+    <li><%= link_to 'submit', posts_new_path %></li> 
+  <% if @current_user  %>
+    | <li> <%= @current_user.name  %> (1)
+    <li> <%= link_to 'logout', logout_path %></li>
+  <% else %>
+    <li> 
+<a class="btn bt-default btn-sm" data-toggle="modal" href='#modal-id'>Login</a>
+<div class="modal fade" id="modal-id">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Login</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="form login">
+          <p>Login</p>
+          <ul>
+            <%= form_for :user, url: "/login", method: "POST" do |f| %>
+              <li>email: <%= f.text_field :email %> </li>
+              <li>password: <%= f.password_field :password%> </li>
+              <%= f.submit "Login"%>
+            <% end %>
+          </ul>
+        </div>
+
+        <p> <a href="/signup">Or click here to sign up here</a>!</p>
+
+    </div>
+  </div>
+</div>
+  <% end %>
+  </ul>
+</div>
