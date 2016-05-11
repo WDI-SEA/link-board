@@ -1,2 +1,12 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+
+<div class="post col-md-10">
+
+<img class="col-md-4 col-sm-4 col-xs-4" src="<%= @post.link %>">
+<h2><%= link_to @post.title, @post.link %></h2>
+<p>By <%= @post.user.email %></p>
+</div>
+
+
+<h1>Comments</h1>
+			<%= render 'comments/show' %>
+        <%= render 'comments/create' %>
