@@ -1,27 +1,23 @@
 class SessionsController < ApplicationController
-def create
-  @user = User.authenticate user_params[:email], user_params[:password]
-
-  if @user
-    session[:user_id] = @user_id
-    flash[:success] = "User logged in!!"
-    redirect_to root_path
-  else
-    flash[:danger] = "Credentials Invalid!!"
-    redirect_to login_path
+  def new
   end
-end
 
-def destroy
-  session[:user_id] = nil
-  flash[:success] = "User logged out!!"
-  redirect_to root_path
-end
+  def create
+    user = User.authenticate params[:user][:email], params[:user][:password]
 
-private
+    if user
+      session[:user_id] = user.id
+      flash[:success] = 'You are now logged in'
+      redirect_to root_path
+    else
+      flash[:danger] = 'Username and/or password incorrect'
+      redirect_to login_path
+    end
+  end
 
-def user_params
-  params.require(:user).permit(:email, :password)
-end
-
+  def destroy
+    session[:user_id] = nil
+    flash[:success] = 'You have been logged out'
+    redirect_to root_path
+  end
 end

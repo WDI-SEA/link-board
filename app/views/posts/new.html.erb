@@ -1,13 +1,8 @@
-<h1>Posts#new</h1>
+<h1>Create a new Post</h1>
 
-<%= form_for :post, action:"/posts/new", method:"POST" do |f| %>
- 
-<div>
+<%= bootstrap_form_for @post, url: posts_path do |f| %>
   <%= f.text_field :title %>
-</div>
-<div>
-  <%= f.text_field :link %>
-</div>
-  <%= f.submit  %>
+  <%= f.url_field :link %>
 
+  <%= f.primary %>
 <% end %>

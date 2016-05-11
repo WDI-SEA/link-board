@@ -1,37 +1,31 @@
 class PostsController < ApplicationController
-  before_action :is_authenticated?, only: [:restricted]
+  before_action :is_authenticated?, except: [:index]
 
   def index
-    # @links =Link.all { |e|  }
+    @posts = Post.all
   end
 
   def new
     @post = Post.new
-    # This will create a new tweet object \
   end
-
 
   def create
-    # Link.create link_params
-    # redirect_to links_path 
-    post = Post.new post_params
-    post.save!
-    redirect_to posts_new_path
-  end
-
-  
-
-  def edit
+    post = Post.create post_params do |p|
+      p.user_id = @current_user.id
+      p.save
+    end
+    if post.valid?
+      flash[:success] = 'Post created'
+      redirect_to root_path
+    else
+      messages = post.errors.map { |k, v| "#{k} #{v}" }
+      flash[:danger] = messages.join(', ')
+      redirect_to new_post_path
+    end
   end
 
   def show
-    # @link = Link.find params[:id]
-  end
-
-  def update
-  end
-
-  def destroy
+    @post = Post.find params[:id]
   end
 
   private
