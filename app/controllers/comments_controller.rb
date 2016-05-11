@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find params[:id]
+    session[:return_to] ||= request.referer
   end
 
   def show
@@ -29,7 +30,7 @@ class CommentsController < ApplicationController
   def update
     t = Comment.find params[:id]
     t.update comment_params
-    redirect_to comments_path
+    redirect_to session.delete(:return_to)
   end
 
   def destroy

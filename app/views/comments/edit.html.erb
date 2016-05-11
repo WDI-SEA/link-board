@@ -1,2 +1,9 @@
-<h1>Comments#edit</h1>
-<p>Find me in app/views/comments/edit.html.erb</p>
+<h1>Comment Edit</h1>
+<!-- <p>Find me in app/views/creatures/edit.html.erb</p>
+ -->
+<%= bootstrap_form_for(@comment)  do |f| %>
+	<div>
+		<%= f.text_field :content %>
+	</div>
+	<%= f.submit %>
+<% end %>
