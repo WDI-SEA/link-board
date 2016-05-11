@@ -71,3 +71,8 @@ hr {
   background-color: #FF6103;
   color: #FF6103;
 }
+
+.white-border {
+  color: white;
+  border: 1px white solid;
+}

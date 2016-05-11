@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
-  before_action :is_authenticated?
+  before_action :is_authenticated?, only: [:new, :create]
 
   def index
     @posts = Post.all
+    @users = User.all
   end
 
   def new
@@ -18,6 +19,10 @@ class PostsController < ApplicationController
     # @current_user.post.create post_params
     
     redirect_to root_path
+  end
+
+  def show
+    @post = Post.find params[:id]
   end
 
   private

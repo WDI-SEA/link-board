@@ -1,11 +1,9 @@
-
-
 <ol>
   <%  @posts.each do |p| %>
     <li>
     <a href="<%= p.link  %>"> <%= p.title  %></a>
     <br>
-    <span class="smaller"> <%= rand(10..1000) %> points by <%= @current_user.name  %> <%= rand(2..24) %> hours ago </span>
+    <span class="smaller"> <%= rand(10..1000) %> points by <%= p.user_id %> | <%= rand(2..24) %> hours ago |  <%= rand(1..15) %> <%= link_to 'comments', post_path %> </span>
     </li>
   <% end %>
 </ol>
