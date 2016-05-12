@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  has_many :post
+  #ratings is an instance of the Class Vote 
+  has_many :ratings, class_name: 'Vote'
+  has_many :votes, as: :votable
+
   validates :email,
   presence: true,
   uniqueness: {case_sensitive: false}

@@ -18,8 +18,15 @@ Rails.application.routes.draw do
   # GET /posts/new  posts#new render add post form
   get 'posts'  => 'posts#new'
  
+  # GET show single post
+  get 'posts/:id'=> 'posts#show'
+
+  post 'posts/:id' => 'comments#create'
+
   # POST  /posts  posts#create  create post in database (associated to logged in user)
   post 'posts' => 'posts#create'
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
