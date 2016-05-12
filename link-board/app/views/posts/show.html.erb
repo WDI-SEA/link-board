@@ -7,11 +7,14 @@
     <h3><%= @post.title  %></h3> <span><a href="#"><%= image_tag 'grayarrow.gif' %></a> </span>
       <span><%= @post.link  %></span>
       <%= @vote.value  %> vote
+      <%  @comments.each do |comment| %>
+      
+      <h5>Comments: <%= comment.content %> </h5>
+      <%end%>
 
-      <h5><%= @comment %></h5>
    
   </td>
-  </tr>    
+  </tr>   
   </tbody>
 </table>
 <div class="comments"></div>
@@ -32,9 +35,9 @@
         <%= form_for :comment do |c| %>
         <%= c.text_area :content, placeholder: "content" %>
         <%= c.hidden_field :user_id, value: @current_user.id %>
-         <%= c.hidden_field :post_id%>
+         <%= c.hidden_field :post_id, value: params[:id]  %>
 
-        <%= c.submit "Submit" %>
+        <%= c.submit "Submit"  %>
         <%end%>
       </div>
       <div class="modal-footer">

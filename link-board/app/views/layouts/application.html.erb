@@ -34,13 +34,13 @@
         </ul>
       <ul class="nav navbar-nav navbar-right">
 
-        <li><a href="#"><% if @current_user %>
-        <li><%= @current_user.email %></li>
+        <% if @current_user %>
+        <li><a href="#"><%= @current_user.email %></a></li>
         <li><%= link_to 'Logout', logout_path %> </li>
         <% else  %>
         <li><%= link_to 'Login', login_path %> </li>
         <li><%= link_to 'Signup', signup_path %></li>
-        <%end %></a></li>
+        <%end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   # GET show single post
   get 'posts/:id'=> 'posts#show'
 
-  post 'posts/:id' => 'comments#create'
+  post 'posts/:post_id' => 'comments#create'
 
   # POST  /posts  posts#create  create post in database (associated to logged in user)
   post 'posts' => 'posts#create'

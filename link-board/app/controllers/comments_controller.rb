@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   before_action :is_authenticated?
 def create
   @comment = Comment.create comment_params
-  puts @comment
   redirect_to root_path
 end
 
