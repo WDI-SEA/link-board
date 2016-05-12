@@ -36,6 +36,45 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def upvote
+    @votes = Vote.all
+    post = Post.find(params[:post_id])
+    if post.votes.find_by_user_id(@current_user.id)
+      vote = Vote.where(votable_id: post.id, user_id: @current_user.id, votable_type: 'Post').take
+      if post.votes.find_by_user_id(@current_user.id).value == 1
+        flash[:warning] = 'You already voted'
+      else
+        vote.update_attribute(:value, 1)
+        flash[:success] = 'Updated!'
+      end
+    else
+      vote = Vote.create(value: 1, user_id: @current_user.id)
+      post.votes << vote
+      flash[:success] = 'Voted!'
+    end
+
+    redirect_to root_path
+  end
+
+  def downvote
+    post = Post.find(params[:post_id])
+    if post.votes.find_by_user_id(@current_user.id)
+      vote = Vote.where(votable_id: post.id, user_id: @current_user.id, votable_type: 'Post').take
+      if post.votes.find_by_user_id(@current_user.id).value == -1
+        flash[:warning] = 'You already voted'
+      else
+        vote.update_attribute(:value, -1)
+        flash[:success] = 'Updated!'
+      end
+    else
+      vote = Vote.create(value: -1, user_id: @current_user.id)
+      post.votes << vote
+      flash[:success] = 'Voted!'
+    end
+
+    redirect_to root_path
+  end
+
   private
 
   def post_params

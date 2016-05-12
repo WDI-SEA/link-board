@@ -1,6 +1,7 @@
 <% @comments.each do |comment| %>
     <h2><%= comment.content %></h2>
     <p>By <%= comment.user.email %></p>
-    <%= link_to 'Edit', edit_comment_path(comment) %>
-    <%= link_to 'Delete', comment, method: :delete %>
+      <%= render partial: 'comments/voting', locals: {post: @post, comment: comment} %>
+    <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+    <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete %>
 <% end %>

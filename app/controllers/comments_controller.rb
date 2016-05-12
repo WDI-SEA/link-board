@@ -38,6 +38,45 @@ class CommentsController < ApplicationController
     redirect_to :back
   end
 
+  def upvote
+    comment = Comment.find(params[:comment_id])
+    if comment.votes.find_by_user_id(@current_user.id)
+      vote = Vote.where(votable_id: comment.id, user_id: @current_user.id, votable_type: 'Comment').take
+      if comment.votes.find_by_user_id(@current_user.id).value == 1
+        flash[:warning] = 'You already voted'
+      else
+        vote.update_attribute(:value, 1)
+        flash[:success] = 'Updated!'
+      end
+    else
+      vote = Vote.create(value: 1, user_id: @current_user.id)
+      comment.votes << vote
+      flash[:success] = 'Voted!'
+    end
+
+    redirect_to root_path
+  end
+
+  def downvote
+    comment = Comment.find(params[:comment_id])
+    if comment.votes.find_by_user_id(@current_user.id)
+      vote = Vote.where(votable_id: comment.id, user_id: @current_user.id, votable_type: 'Comment').take
+      if comment.votes.find_by_user_id(@current_user.id).value == -1
+        flash[:warning] = 'You already voted'
+      else
+        vote.update_attribute(:value, -1)
+        flash[:success] = 'Updated!'
+      end
+    else
+      vote = Vote.create(value: -1, user_id: @current_user.id)
+      comment.votes << vote
+      flash[:success] = 'Voted!'
+    end
+
+    redirect_to root_path
+  end
+
+
   private
 
   def comment_params

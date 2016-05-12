@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   get 'posts/update'
 
-  get "delete" => 'posts/destroy'
+  get "posts/delete" => 'posts#destroy'
 
   root 'posts#index'
 
@@ -35,15 +35,20 @@ Rails.application.routes.draw do
 
   get 'restricted' => 'main#restricted'
 
-
   get "login" => "sessions#new"
 
   post "login" => "sessions#create"
 
   get "logout" => "sessions#destroy"
 
-  resources :posts
-  resources :comments
+  resources :posts do
+  post 'upvote' => 'posts#upvote'
+    post 'downvote' => 'posts#downvote'
+  resources :comments do
+      post 'upvote' => 'comments#upvote'
+      post 'downvote' => 'comments#downvote'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
