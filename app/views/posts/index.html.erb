@@ -11,7 +11,7 @@
               <a class="nav-links" href="#">show</a> |
               <a class="nav-links" href="#">ask</a> |
               <a class="nav-links" href="#">jobs</a> |
-              <a class="nav-links" href="/posts/new">submit</a>
+              <a class="nav-links" data-toggle="modal" href='#modal-id'>submit</a>
           </td>
           <td style="vertical-align: middle;" class="header-row">
           <% if @current_user %>
@@ -37,7 +37,8 @@
            <span style="color: #777777;"><%=post.id%>.</span>
            <img style="vertical-align: top; height:12px" src='<%= image_url "grayarrow2x.gif" %>' />
            <span><%= post.title %></span><a class="main-link" href="<%=post.link%>"> (<%= uri.host%>)</a><br>
-           <span style="padding-left:37px;" class="by-line">by <%=post.user.name%></span>
+           <span style="padding-left:37px;" class="by-line">by <%=post.user.name%>   |</span> 
+           <span class="comment-link"><a href="/posts/<%=post.id%>/comments">  <%= post.comments.count %> Comments</a></span> 
           </td>
         </tr>
       <% end %>
@@ -45,4 +46,27 @@
     </table>
   </div>
 </div>
+</div>
+
+
+<div class="modal fade" id="modal-id">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Create New Post</h4>
+      </div>
+      <div class="modal-body">
+        <%= bootstrap_form_for :post do |f| %>
+       <%= f.text_field :title, placeholder: "Enter a title" %>
+      <%= f.url_field :link, placeholder: "Enter a link"%>
+      <%= f.primary %>
+      <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
 </div>
