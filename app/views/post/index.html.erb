@@ -1,5 +1,35 @@
-<h1>Post#index</h1>
+<h1 style="margin-top: 60px;">Post#index</h1>
 <p>Find me in app/views/post/index.html.erb</p>
+
+<div class="modal fade" id="myPostModal" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="form">
+              <p>New post</p>
+              <ul>
+                <%= form_for :post, action:'create', method:'post' do |f| %>
+                  <li>Title:<%= f.text_field :title, placeholder: "Enter Title" %></li>
+                  <li>Link:<%= f.text_field :link, placeholder: "Enter Link" %></li>
+                  <%= f.submit "Post"%>
+                <% end %>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+<button data-toggle="modal" data-target="#myPostModal">Add Post</button>
+
 
 
 <% @posts.each do |post|  %>

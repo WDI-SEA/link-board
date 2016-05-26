@@ -1,8 +1,8 @@
-<h1>Post#new</h1>
+<h1 style="margin-top: 60px;" >Post#new</h1>
 <p>Find me in app/views/post/new.html.erb</p>
 
 <div class="form">
-  <p>Sign Up</p>
+  <p>New post</p>
   <ul>
     <%= form_for :post, action:'create', method:'post' do |f| %>
       <li>Title:<%= f.text_field :title, placeholder: "Enter Title" %></li>

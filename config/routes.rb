@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
   
 
-  root 'post#index'
+  root 'post#welcome'
+
+  post '/' => 'sessions#create'
+
+
+
+  get 'post/index' => "post#index"
+
+  post 'post/index' => "post#create"
 
   get 'post/new' => "post#new"
 

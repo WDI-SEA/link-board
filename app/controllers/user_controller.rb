@@ -9,7 +9,7 @@ class UserController < ApplicationController
     user.save!
     flash[:success] = "User created! Please log in!"
     
-    redirect_to login_path
+    redirect_to post_index_path
   end
   private
   def user_params 

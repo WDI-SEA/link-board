@@ -5,6 +5,8 @@ class PostController < ApplicationController
     @posts = Post.all
   end
 
+
+
   def new
     @posts = Post.new
   end
@@ -12,7 +14,7 @@ class PostController < ApplicationController
   def create
     post = Post.create post_params
     puts post
-    redirect_to root_path
+    redirect_to post_index_path
 
   end
 
