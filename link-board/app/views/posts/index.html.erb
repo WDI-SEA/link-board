@@ -1,0 +1,27 @@
+<h1>Posts</h1>
+<p>These are the posts:</p>
+
+
+<br>
+<div class="table">
+<tbody>
+<tr style="height:10px"></tr>
+<% @posts.each do |post| %>
+<td>
+  <span>
+    <a href="posts/<%=post.id%>"><%= post.title %></a>
+  </span>
+</td>
+<td>
+  <span>
+    <%= post.link %>
+  </span>
+</td>
+<br>
+<% end %>
+</tbody>
+</div>
+
+
+
+
