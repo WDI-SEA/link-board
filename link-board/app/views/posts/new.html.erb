@@ -1,0 +1,7 @@
+<h1>Create Post</h1>
+
+<%= form_for :post do |f| %>
+  <%= f.text_field :title, placeholder: "Enter a title for your post" %>
+  <%= f.text_field :link, placeholder: "Enter a link for your post" %>
+  <%= f.submit "Post"%>
+<% end %>
