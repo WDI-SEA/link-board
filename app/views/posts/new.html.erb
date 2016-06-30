@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <h1> New Post </h1>
+
+  <%= bootstrap_form_for @post do |p| %>
+      <%= p.text_field :title %>
+      <%= p.text_field :link %>
+    <%= p.submit %>
+  <% end %>
+
+</div>
