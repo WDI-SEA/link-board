@@ -27,6 +27,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# This gem adds the capability of validating URLs to ActiveRecord and ActiveModel (Rails 3). - https://github.com/perfectline/validates_url
+gem 'validate_url'
+
+# Creates divs for forms
+gem 'bootstrap_form'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

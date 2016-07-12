@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user
       flash[:success] = 'You have logged in'
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to profile_path
     else
       flash[:danger] = 'Invalid email and/or password'
       redirect_to login_path
