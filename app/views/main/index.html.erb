@@ -3,7 +3,7 @@
 
 <% @posts.each do |post| %>  
 
-<h2 class="well"><%= post.title %></h2>
+<h2 class="well"><%= post.title %> <br> <a href="<%= post.link %>"><%= post.link %></a></h2>
 
   
 <% end %>
