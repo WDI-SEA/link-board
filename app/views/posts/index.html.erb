@@ -1,2 +1,17 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<%= link_to('Login', login_path) %>
+<%= link_to('Signup', signup_path) %>
+<%= link_to('Logout', logout_path, method: :delete) %>
+
+
+<h1>Welcome to Hacked Hacker News</h1>
+<p>Check out the news from hacker-types</p>
+
+<button><%= link_to('Post Something!', posts_new_path) %></button>
+<br>
+<br>
+<hr>
+<%= @posts.each do |post| %>
+  <h3><%= post.title %></h3>
+  <p><a href='<%= post.link %>'><%= post.link %></a></p>
+  <hr>
+<% end %>

@@ -1,18 +1,12 @@
-<h1>Signup</h1>
+<h1>Login</h1>
 
 <%= form_for (:user) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
   <%= f.label :email %>
   <%= f.text_field :email %>
   <br>
   <%= f.label :password %>
   <%= f.password_field :password %>
   <br>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <br>
-  <%= f.submit 'Signup' %>
+  <%= f.submit 'Login' %>
   <%= link_to('Cancel', root_path) %>
 <% end %>
