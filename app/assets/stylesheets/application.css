@@ -16,11 +16,7 @@
 
 
 html body {
-  background: url('http://www.1800pocketpc.com/wp-content/uploads/2014/12/Hacky-News-logo-Windows-Phone-700x437.jpg') no-repeat center center fixed;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;;
+  background-color: #ff6600;
 }
 
 p {
