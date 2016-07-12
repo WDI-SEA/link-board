@@ -1,0 +1,14 @@
+<h1>Snacker Snews</h1>
+<p>Find me in app/views/posts/index.html.erb</p>
+
+<%= link_to('Signup', signup_path) %>
+<%= link_to('Login', login_path) %>
+<%= link_to('Create Post', posts_path) %>
+<%= link_to('Logout', logout_path, method: :delete) %>
+
+<% @posts.each do |p| %>
+  <div class="well">
+    <h1><%= p.title %></h1>
+    <h3><a href="<%= p.link %>">Link To Page</a></h3>
+  </div>
+<% end %>
