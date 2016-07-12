@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-  before_action :is_authenticated, only: [:new]
+  before_action :is_authenticated, only: [:new, :create]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.includes(:user)
   end
 
   def new
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
       session[:post_id] = @post.id
       redirect_to root_path
     else
-      render json: @post
+      render :new
     end
   end
 

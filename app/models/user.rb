@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
   length: { in: 1...20 },
   on: :create
 
-  validates :email, email: true
+  validates :email,
+  email: true,
+  uniqueness: { case_sensitive: false }
 
   validates :password,
   length: { in: 8..72 },

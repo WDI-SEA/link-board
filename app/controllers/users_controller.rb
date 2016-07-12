@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else 
-      flash[:danger] = user.error.messages
+      flash[:danger] = user.errors.messages
       redirect_to signup_path
     end
   end
