@@ -1,12 +1,14 @@
 <h1>Create a Post</h1>
 
-<%= form_for(:post) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<div class="well">
+  <%= form_for(:post) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
 
-  <%= f.label :link %>
-  <%= f.text_field :link %>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
 
-  <%= f.submit 'Create Post' %>
+    <%= f.submit 'Create Post' %>
 
-<% end %>
+  <% end %>
+</div>

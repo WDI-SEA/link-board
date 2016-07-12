@@ -1,13 +1,14 @@
-<h1>Hacker News</h1>
+<div class="titleLinks well">
+  <p><%= link_to('Signup', new_user_path) %></p>
+  <p><%= link_to('Login', login_path) %></p>
+  <p><%= link_to('Logout', logout_path, method: :delete) %></p>
+  <p><%= link_to('New Post', post_new_path) %></p>
+</div>
 
-<%= link_to('Signup', new_user_path) %>
-<%= link_to('Login', login_path) %>
-<%= link_to('Logout', logout_path, method: :delete) %>
-<%= link_to('New Post', post_new_path) %>
-
-<%= @post.each do |f| %>
-  <h1><%= f.title %></h1>
-  <h2><%= f.link %></h2>
+<% @post.each do |f| %>
+  <div class="well">
+    <h1><a href="<%= f.link %>"><%= f.title %></a></h1>
+  </div>
 <% end %>
 
 
