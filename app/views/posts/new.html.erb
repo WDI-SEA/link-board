@@ -1,5 +1,4 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Create a Post</h1>
 
 <%= form_for(:post) do |f| %>
   <%= f.label :title %>
@@ -8,6 +7,6 @@
   <%= f.label :link %>
   <%= f.text_field :link %>
 
-  <%= f.submit %>
+  <%= f.submit 'Create Post' %>
 
 <% end %>

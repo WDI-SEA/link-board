@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :user, only: [:new, :create]
   resources :posts
 
+  post 'posts/new' => 'posts#create'
+
   get 'post/new' => 'posts#new'
   
   post 'user/new' => 'user#create'
