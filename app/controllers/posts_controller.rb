@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   		session[:post_id] = @post.id
   		redirect_to root_path
   	else
-  		render json: @post
+  		render json: @post.errors.messages
   	end
   end
 

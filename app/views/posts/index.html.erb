@@ -8,6 +8,5 @@
 <%= link_to('make new POST', post_new_path) %>
 
 <% @post.each do |f| %>
-	<h1><%= f.title %></h1>
-	<p><%= f.link %></p>
+	<h1><%= link_to(f.title, f.link, target: "_blank") %></h1>
 <% end %>
