@@ -8,6 +8,7 @@ class Post < ApplicationRecord
 
   validates :link, 
     presence: true,
-    length: { in: 8..72 },
-    on: :create
+    on: :create,
+    url: true
+
 end

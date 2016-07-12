@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # This gem adds the capability of validating URLs to ActiveRecord and ActiveModel (Rails 3). - https://github.com/perfectline/validates_url
 gem 'validate_url'
+gem 'email_validator'
 
 # Creates divs for forms
 gem 'bootstrap_form'
