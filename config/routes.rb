@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  root 'main#index'
+  root 'posts#index'
 
   resources :user, only: [:new, :create]
+  resources :posts
 
+  get 'post/new' => 'posts#new'
+  
   post 'user/new' => 'user#create'
 
   get 'login', to: 'sessions#new'
