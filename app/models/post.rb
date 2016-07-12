@@ -5,8 +5,4 @@ class Post < ActiveRecord::Base
     presence: :true, 
     length: { in: 10..100 }
 
-  # validates :link,
-  #   presence: :true,
-  #   url: :true
-    
 end
