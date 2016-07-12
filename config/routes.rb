@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'posts#index'
 
   get 'posts/new', to: 'posts#new'
@@ -8,6 +9,14 @@ Rails.application.routes.draw do
   # get 'posts/show'
 
   get 'signup', to: 'users#new'
+
+  post 'signup', to: 'users#create'
+
+  get 'login', to: 'sessions#new'
+
+  post 'login', to: 'sessions#create'
+
+  delete 'login', to: 'sessions#destoy'
 
 
 
