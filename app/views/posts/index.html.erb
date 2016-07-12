@@ -1,0 +1,13 @@
+<h1>Bring Me The News</h1>
+<p>Find me in app/views/posts/index.html.erb</p>
+
+<%= link_to('Signup', new_user_path) %>
+<%= link_to('Login', login_path) %>
+<%= link_to('Logout', logout_path, method: :delete) %>
+
+<%= link_to('make new POST', post_new_path) %>
+
+<%= @post.each do |f| %>
+	<h1><%= f.title %></h1>
+	<p><%= f.link %></p>
+<% end %>

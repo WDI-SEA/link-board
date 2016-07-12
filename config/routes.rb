@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  root 'main#index'
+
+  root 'posts#index'
 
   resources :user, only: [:new, :create]
+  resources :posts
+
+  post 'posts/new' => 'posts#create'
+
+  get 'post/new' => 'posts#new'
 
   post 'user/new' => 'user#create' 
 
