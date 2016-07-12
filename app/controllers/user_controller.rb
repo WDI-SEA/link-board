@@ -11,6 +11,7 @@ class UserController < ApplicationController
   	else
   		flash[:danger] = user.errors.messages.map do |key, value|
   		redirect_to user_index_path
+      end
   	end
   end
 

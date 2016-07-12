@@ -7,7 +7,7 @@
 
 <%= link_to('make new POST', post_new_path) %>
 
-<%= @post.each do |f| %>
+<% @post.each do |f| %>
 	<h1><%= f.title %></h1>
 	<p><%= f.link %></p>
 <% end %>
