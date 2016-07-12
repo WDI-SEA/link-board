@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>LinkBoard</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<%= render "partials/flash" %>
-<%= yield %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-</body>
+    <title><%= content_for?(:title) ? yield(:title) : "LinkBoard" %></title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <%= render "partials/flash" %>
+    <%= yield %>
+
+  </body>
 </html>

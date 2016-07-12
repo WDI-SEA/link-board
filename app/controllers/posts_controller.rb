@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :is_authenticated, only: [:new]
+
   def index
     @posts = Post.first(limit=10)
   end

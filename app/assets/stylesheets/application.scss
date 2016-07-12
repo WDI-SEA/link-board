@@ -10,6 +10,36 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require foundation_and_overrides
  *= require_tree .
  *= require_self
+
  */
+
+body {
+  background-image: url('asanoha-400px.png');
+}
+
+.postbox {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #797b8c;
+  a {
+    font-weight: bold;
+    color: white;
+    &:hover {
+      color: violet;
+    }
+    &:active {
+      color: purple;
+    }
+  }
+}
+
+.partial {
+  padding: 5px;
+  margin: 10px;
+  background-color: pink;
+  border-radius: 5px;
+  border: 1px solid #e486ad;
+}
