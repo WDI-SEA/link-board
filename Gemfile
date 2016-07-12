@@ -32,6 +32,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Email Validator from balexand
 gem 'email_validator'
 
+# Use Url Validator from perfectline
+gem 'validate_url'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
