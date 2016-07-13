@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 
 
-  root 'main#index'
+  root 'posts#index'
 
-  resources :users, only: [:new, :create, :show]
+  get 'posts/new', to: 'posts#new'
+  post 'posts/new', to: 'posts#create'
+
+  # resources :users, only: [:new, :create, :show]
+
 
   get 'profile', to: 'users#show'
+  get 'signup', to: 'users#new'
+  post 'signup', to: 'users#create'
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
