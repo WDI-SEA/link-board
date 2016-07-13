@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    # includes cuts down on querires to display each post
     @posts = Post.all.includes(:user)
   end
 
@@ -14,7 +15,9 @@ class PostsController < ApplicationController
       redirect_to root_path
     else
       # this render function may not be necessary
-      render json: @post.errors.messages
+      # render json: @post.errors.messages
+      flash[:danger] = 'Your post title was too long or your URL was invalid'
+      redirect_to posts_new_path
     end
   end
 
