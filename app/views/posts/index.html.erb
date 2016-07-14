@@ -1,0 +1,14 @@
+<h1>Hacker news clone</h1>
+<!-- Find me in app/views/posts/index.html.erb -->
+
+<%= link_to('Singup', signup_path) %>
+<%= link_to('Login', login_path) %>
+<%= link_to('Logout', logout_path, method: :delete) %>
+<%= link_to('Create Post', posts_path) %>
+
+<% @posts.each do |p| %>
+<div class="well">
+  <h2><%= p.title %></h2>
+  <a href="<%= p.link %>"><%= p.link %></a>
+</div>
+<% end %>
