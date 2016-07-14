@@ -1,0 +1,9 @@
+<h1>Posts</h1>
+<button><%= link_to('LogIn', login_path) %></button>
+
+<button><%= link_to('Post Something', posts_new_path) %> </button>
+
+<%= @posts.each do |post| %>
+<h1><%= post.title %></h1>
+<a href="<%=post.link%>"><%=post.link%></a>
+<% end %>

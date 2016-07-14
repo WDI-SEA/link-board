@@ -1,0 +1,11 @@
+<h1>Write A Post</h1>
+
+<%= form_for :post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :link %>
+  <%= f.text_field :link %>
+  <%= f.submit %>
+  <%= link_to('Cancel', root_path) %>
+<% end %>
+
