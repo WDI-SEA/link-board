@@ -1,0 +1,14 @@
+<div class="titleLinks well">
+  <p><%= link_to('Signup', new_user_path) %></p>
+  <p><%= link_to('Login', login_path) %></p>
+  <p><%= link_to('Logout', logout_path, method: :delete) %></p>
+  <p><%= link_to('New Post', post_new_path) %></p>
+</div>
+
+<% @post.each do |f| %>
+  <div class="well">
+    <h1><a href="<%= f.link %>"><%= f.title %></a></h1>
+  </div>
+<% end %>
+
+
