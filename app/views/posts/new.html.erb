@@ -1,0 +1,12 @@
+<h1>Post something Hacky</h1>
+
+<%= form_for (:post) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :link %>
+  <%= f.text_field :link %>
+  <br>
+  <%= f.submit 'POST!' %>
+  <%= link_to('Cancel', root_path) %>
+<% end %>
