@@ -1,0 +1,24 @@
+
+<% if @posts %>
+	<div class="post_list">
+		<ol>	
+				<% (0...@posts.length).each do |i| %>
+					<li>
+						<div><a href="<%= @posts[i].link %>" class="title"><%= @posts[i].title %></a></div>
+						<div class="author"> by <%= @posts[i].user.name %></div>
+						<br>
+						<%= link_to "Edit", edit_post_path(@posts[i]) %>
+						<%= link_to "Delete", post_path(@posts[i]), method: :delete %>
+					</li>
+				<% end %>
+		</ol>
+	</div>
+
+<% else %>
+	(No posts)
+<% end %>
+
+<%= link_to "New Post", new_post_path %>
+
+
+

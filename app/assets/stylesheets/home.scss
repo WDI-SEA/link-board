@@ -1,3 +1,22 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+header {
+	background-color: rgb(255, 102, 0);
+	display: flex;
+	position: relative;
+	justify-content: space-between;
+	margin-bottom: 10px;
+
+	.page_title {
+		font-size: 15px;
+		font-weight: bold;
+		padding: 10px;
+		font-family: Verdana, Geneva, sans-serif;
+	}
+
+	.login_out {
+		padding: 10px;
+	}
+}

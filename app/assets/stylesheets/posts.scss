@@ -1,0 +1,33 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.body {
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+.post_list {
+
+	.title {
+		font-size: 11pt;
+		line-height: 14pt;
+		color: black;
+		font-weight: normal;
+		text-decoration: none;
+	}
+
+	.author {
+		font-size: 9pt;
+		color: #828282;
+		font-weight: normal;
+		font-family: Verdana, Geneva, sans-serif;
+	}
+}
+
+.page_title {
+	font-size: 15px;
+	font-weight: bold;
+	padding: 10px;
+	font-family: Verdana, Geneva, sans-serif;
+}
+

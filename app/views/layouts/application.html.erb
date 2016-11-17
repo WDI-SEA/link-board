@@ -15,15 +15,24 @@
   	<%= render "partials/flash" %>
 
    	<header>
-  		<% if @current_user %>
-  			<%= form_for :user, :url => logout_path, method: :delete do |form| %>
-  				<%= form.submit 'Logout' %>
-  			<% end %>
-  		<% else %>
-  			<a href="/login">Login</a>
-  		<% end %>
+
+			<div class="page_title">Hacker News</div>
+
+			<div class="login_out">
+	  		<% if @current_user %>
+	  			<%= form_for :user, :url => logout_path, method: :delete do |form| %>
+	  				<%= form.submit 'Logout' %>
+	  			<% end %>
+	  		<% else %>
+	  			<a href="/login">Login</a>
+	  		<% end %>
+	  	</div>
   	</header>
 
-    <%= yield %>
+  	<h1>here: <%= @current_user[:name] %></h1>
+
+  	<div class="container">
+    	<%= yield %>
+    </div>
   </body>
 </html>
