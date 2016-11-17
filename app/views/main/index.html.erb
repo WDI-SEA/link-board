@@ -1,0 +1,19 @@
+<h1>Link Board</h1>
+
+<% if @current_user %>
+  <h3>Welcome <%= @current_user[:email] %></h3>
+<% else %>
+  <h3>Please Login or Sign Up</h3>
+<% end %>
+<a href="/login">Login</a>
+<a href="/signup">Sign Up</a>
+
+<% @posts.each do |post| %>
+
+  <p><strong><%= post.title %></strong></p>
+
+  <p><%= post.link %></p>
+
+  <p><%= post.user %></p>
+
+<% end %>
