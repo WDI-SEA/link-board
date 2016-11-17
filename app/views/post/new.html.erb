@@ -1,0 +1,15 @@
+<% if @current_user %>
+
+  <h1>Create a New Post</h1>
+
+  <% form.for @post do |p| %>
+
+    <%= p.type_field :title, placeholder: "Enter title" %>
+    <%= p.type_field :link, placeholder: "Enter link address" %>
+    <%= form.submit "Create Post" %>
+
+<% else %>
+
+  <p>Please <a href="/login"></a>login first to post!</p>
+
+<% end %>
