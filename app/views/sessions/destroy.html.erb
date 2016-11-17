@@ -1,2 +1,4 @@
-<h1>Sessions#destroy</h1>
-<p>Find me in app/views/sessions/destroy.html.erb</p>
+<% if @current_user %>
+        <%= form_for :user, :url => logout_path, method: :delete do |form| %>
+          <%= form.submit "Logout" %>
+          <% end %>

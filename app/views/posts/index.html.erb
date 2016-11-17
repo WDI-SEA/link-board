@@ -1,0 +1,24 @@
+<h1>LinkBoard</h1>
+
+
+<% if @current_user %>
+  <h3>Welcome <%= @current_user[:email] %></h3>
+  <%= form_for :user, :url => logout_path, method: :delete do |form| %>
+  <%= form.submit "Logout" %>
+          <% end %>
+<% else %>
+  <h3>Please Login</h3>
+  <%= link_to('Login', login_path) %>
+  <p>Don't Have An Account? Sign Up!</p>
+  <%= link_to('Signup', signup_path) %>
+<% end %>
+
+<%= link_to('Create Post', posts_path) %>
+
+<br>
+
+
+<% @posts.each do |post| %>
+  <h1><%= post.title %></h1>
+  <a href="<%= post.link %>"><%= post.link %></a>
+<% end %>
