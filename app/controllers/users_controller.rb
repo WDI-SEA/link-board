@@ -4,12 +4,13 @@ class UsersController < ApplicationController
 
   def create
 		user = User.create(user_params)
-		# after_save {id = self.id}
+		redirect_to login_path
 		# user = User.authenticate(user)
-		# puts user
-		# session[:user_id] = user.id
+		# puts user._id
+		# sessionsController.create
+		# session[:user_id] = user._id
 		# flash[:success] = "You are logged in"
-		redirect_to root_path
+		# redirect_to root_path
 	end
 
   private
