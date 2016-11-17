@@ -1,0 +1,7 @@
+<h1>Home</h1>
+<% if @current_user %>
+  <h3>Welcome <%= @current_user[:email] %></h3>
+<% else %>
+  <h3>Please Login</h3>
+<% end %>
+
