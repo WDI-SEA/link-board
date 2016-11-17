@@ -6,10 +6,11 @@ class PostsController < ApplicationController
   end
 
   def new
-  	@post = Post.new
+  	@post = Post.new :user => :current_user
   end
 
   def create
+  	#@post = current_user.posts.build(params[:post])
   	Post.create(post_params)
   	redirect_to posts_path
   end
@@ -35,6 +36,7 @@ class PostsController < ApplicationController
 
   def post_params 
   	params.require(:post).permit(:title, :link, :user)
+  	
   end
 
 end
