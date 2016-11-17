@@ -12,4 +12,8 @@ class User < ApplicationRecord
 	length: {in: 0..30}
 
 	has_secure_password
+
+	def self.authenticate(params)
+		User.find_by_email(params[:email]).try(:authenticte, params[:password]);
+	end
 end
