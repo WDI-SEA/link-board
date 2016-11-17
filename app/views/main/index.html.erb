@@ -1,0 +1,17 @@
+<h1>Main#index</h1>
+<% if @current_user %>
+	<h3>Welcome <%= @current_user[:email] %> </h3>
+<% else %>
+	<h3>Please Login</h3>
+<% end %>
+<h1>ALL POSTS</h1>
+<% if @posts %>
+	<% @posts.each do |post| %>
+		<div>
+			<strong><%= post.title %></strong><br>
+			<em>-<%= post.user %></em>
+		</div>
+	<% end %>
+	<% else %>
+	Parks not found
+<% end %>

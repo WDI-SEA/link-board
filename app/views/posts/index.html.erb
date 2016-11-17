@@ -1,0 +1,12 @@
+<h1>ALL POSTS</h1>
+<% if @posts %>
+	<% @posts.each do |post| %>
+		<div>
+			<strong><%= post.title %></strong><br>
+			<em>-<%= post.user %></em>
+		</div>
+	<% end %>
+	<% else %>
+	Parks not found
+<% end %>
+
