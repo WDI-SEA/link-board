@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
   	if user
   		session[:user_id] = user.id
-  		flash[:success] = "User logged in"
+  		flash[:success] = "You are logged in"
   		redirect_to root_path
   	else
   		flash[:danger] = "User creds invalid."
@@ -27,6 +27,6 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-  	params.require(:user).permit(:email, :password, :name)
+  	params.require(:user).permit(:email, :password)
   end
 end

@@ -1,0 +1,10 @@
+<h1>View all Posts</h1>
+
+<% if @posts %>
+	<% (0...@posts.length).each do |i| %>
+		<div><%= posts[i].title %></div>
+	<% end %>	
+	No posts found.
+<% end %>
+<hr>
+<%= link_to "Add Post", new_post_path %>
