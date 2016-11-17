@@ -1,0 +1,16 @@
+<h1>Posts</h1>
+
+<h2> Viewing all posts </h2>
+
+<% (0...@posts.length).each do |i| %>
+  <div>
+  <p><%= @posts[i].title %></p>
+  <p><%= @posts[i].link %></p>
+  <p><%= @posts[i].user %></p>
+  <br>
+  <%= link_to "Edit", edit_post_path(@posts[i]) %>
+  <%= link_to "Delete", post_path(@posts[i]), method: :delete %>
+  </div>
+<% end %>
+
+<%= link_to "New Post!", new_post_path() %>
