@@ -3,7 +3,6 @@
 <% if @posts %>
 	<% (0...@posts.length).each do |i| %>
 		<div><%= @posts[i].title %>
-			<a href="<%= @posts[i].link %>"><%= @posts[i].link %></a>
 		</div>
 	<% end %>
 <% else %>	

@@ -14,6 +14,16 @@ class PostsController < ApplicationController
   	redirect_to posts_path
   end
 
+  def show
+    @post = Post.find(params[:id]) 
+
+  end
+
+  def createComment
+    @current_user.posts.comments.create(comment_params)
+    redirec_to post_show
+  end
+
   private
 
   def post_params

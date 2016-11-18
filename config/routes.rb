@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'posts/create'
 
+  get "posts/show/:id" => "posts#show"
+
   root 'home#index'
 
   get "signup" => "users#new"
