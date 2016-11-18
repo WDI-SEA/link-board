@@ -24,7 +24,7 @@
 	<% @comments.each do |c| %>
 		<div>
 			<p><%= c.content %></p>
-			<p>Add user name</p>
+			<p>- <i><%= c.user.name %></i></p>
 		</div>
 	<% end %>
 	loop through comments
