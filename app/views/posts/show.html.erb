@@ -1,2 +1,25 @@
 <h1><%= @post.title %></h1>
 <div><%= @post.link %></div>
+
+<% if @current_user %>
+	<hr>
+	<div>
+		<h4>Leave a comment</h4>
+		<div>
+			<%= form_for @comment_new, :url => {:action => "createComment", :method => :post} do |form| %>
+				<%= form.text_area :content, placeholder: "Please leave a comment" %>
+				<%= form.hidden_field :user_id, :value => @current_user.id %>
+				<%= form.hidden_field :post_id, :value => @post.id %>
+				<div>
+					<%= form.submit "post", class: "button"%>
+				</div>
+			<% end %>
+		</div>
+	</div>
+<% end %>
+
+<hr>
+<div>
+	loop through comments
+	each comment should have an upvote button and downvote button and nummbers for each.
+</div>

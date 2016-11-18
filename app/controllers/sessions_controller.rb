@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	user = User.authenticate(user_params)
+    user = User.authenticate(user_params)
 
   	if user
   		session[:user_id] = user.id
