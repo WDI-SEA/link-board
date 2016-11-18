@@ -19,7 +19,14 @@
 <% end %>
 
 <hr>
+<h4>Comments - <%= @comments.length %></h4>
 <div>
+	<% @comments.each do |c| %>
+		<div>
+			<p><%= c.content %></p>
+			<p>Add user name</p>
+		</div>
+	<% end %>
 	loop through comments
 	each comment should have an upvote button and downvote button and nummbers for each.
 </div>
