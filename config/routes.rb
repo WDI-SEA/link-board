@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   post 'posts/createComment'
 
+  post "posts/up_vote"
+
+  post "posts/down_vote"
+
   get 'posts/index'
 
   get 'posts/new'

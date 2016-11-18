@@ -26,7 +26,13 @@
 			<p><%= c.content %></p>
 			<p>- <i><%= c.user.name %></i></p>
 		</div>
+		<%= button_tag type: "button", :action => "up_vote", :method => :post do %>
+			<span class="glyphicon glyphicon-thumbs-down"></span>
+		<% end %>
+		total up votes 
+		<%= button_tag(type: "button", :action => "down_vote", :method => :post) do %>
+			<span class="glyphicon glyphicon-thumbs-up"></span>
+		<% end %>
+		total down votes
 	<% end %>
-	loop through comments
-	each comment should have an upvote button and downvote button and nummbers for each.
 </div>

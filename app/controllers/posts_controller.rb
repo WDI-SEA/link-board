@@ -25,6 +25,14 @@ class PostsController < ApplicationController
     redirect_back(fallback_location: posts_path)
   end
 
+  def up_vote
+    puts "!!!called upvote"
+  end
+
+  def down_vote
+    puts "!!!called downvote"
+  end
+
   private
 
   def post_params
