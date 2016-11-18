@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :is_authenticated, only: [:new, :create]
+  before_action :current_user, only: [:index]
   def index
   	@posts = Post.all
   end
@@ -8,13 +10,13 @@ class PostsController < ApplicationController
   end
 
   def create
-  	Post.create(post_params)
+  	@current_user.posts.create(post_params)
   	redirect_to posts_path
   end
 
   private
 
   def post_params
-  	params.require(:post).permit(:title, :link, :user_id)
+  	params.require(:post).permit(:title, :link)
   end
 end
