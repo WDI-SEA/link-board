@@ -26,11 +26,11 @@
 			<p><%= c.content %></p>
 			<p>- <i><%= c.user.name %></i></p>
 		</div>
-		<%= button_tag type: "button", :action => "up_vote", :method => :post do %>
-			<span class="glyphicon glyphicon-thumbs-down"></span>
+		<%= form_tag :action => "up_vote", :method => :post do %>
+			<%= submit_tag nil, class: "glyphicon glyphicon-thumbs-down" %>
 		<% end %>
 		total up votes 
-		<%= button_tag(type: "button", :action => "down_vote", :method => :post) do %>
+		<%= form_tag(type: "button", :action => "down_vote", :method => :post) do %>
 			<span class="glyphicon glyphicon-thumbs-up"></span>
 		<% end %>
 		total down votes
