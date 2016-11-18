@@ -9,6 +9,7 @@ class UserController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
+      flash[:success] = 'User logged in'
       redirect_to root_path
     else 
       flash[:danger] = user.errors.messages
