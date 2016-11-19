@@ -4,14 +4,16 @@
 <% else %>
 	<h3>Please Login</h3>
 <% end %>
-<h1>ALL POSTS</h1>
+<h1>ALL POSTS TESTING!</h1>
 <% if @posts %>
 	<% @posts.each do |post| %>
-		<div>
-			<strong><%= post.title %></strong><br>
-			<em>-<%= post.user %></em>
+		<div class="well">
+			<strong><a href='<%= post.link %>'><%= post.title %></a></strong><br>
+			<em>-<%= post.user.name %></em><br>
+			<%= link_to "Delete", post_path(post), method: :delete %>
+			<%= link_to "Comments", post %>
 		</div>
 	<% end %>
 	<% else %>
-	Parks not found
+	Posts not found
 <% end %>
