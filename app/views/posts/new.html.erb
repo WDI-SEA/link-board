@@ -1,0 +1,6 @@
+<h1>New Post</h1>
+<%= form_for @post do |form| %>
+  <%= form.text_field :title, placeholder: "ENTER TITLE OR DIE" %>
+  <%= form.url_field :link, placeholder: "ENTER LINK OR DIE" %>
+  <%= form.submit "Create Post" %> 
+<% end %>

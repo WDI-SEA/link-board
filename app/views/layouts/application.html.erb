@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Auth</title>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render "partials/flash" %>
+    <header>
+      <% if @current_user %>
+        <%= form_for :user, :url => logout_path, method: :delete do |form| %>
+          <%= form.submit "Logout, I dare ya" %>
+          <% end %>
+      <% else %>
+        <a href="/login">login</a>
+      <% end %>
+    </header>
+    <%= yield %>
+  </body>
+</html>
