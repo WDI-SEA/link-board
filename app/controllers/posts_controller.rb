@@ -1,34 +1,35 @@
 class PostsController < ApplicationController
+  before_action :is_authenticated, only: [:new, :create, :create_comment]
+  before_action :current_user, only: [:index]
+
   def index
     @posts = Post.all
+    @comments = Comment.all
+    @users = User.all
   end
 
   def new
     @post = Post.new
+    @comment = Comment.new
   end
 
   def create
-    Post.create(post_params)
-    redirect_to posts_path
+    @current_user.posts.create(post_params)
+    redirect_to root_path
   end
 
-  def edit
-    @post = Post.find(params[:id])
-  end
-
-  def update
-    p = Post.find(params[:id])
-    p.update(post_params)
-    redirect_to posts_path
-  end
-
-  def destroy
-    Post.find(params[:id]).delete
-    redirect_to posts_path
+  def create_comment
+    @current_user.comments.create(comment_params)
+    redirect_to comments_path
   end
 
   private
+
+  def comment_params 
+    params.require(:comment).permit(:content)
+  end
+
   def post_params
-    params.require(:post).permit(:title, :link, :user)
+    params.require(:post).permit(:title, :link)
   end
 end

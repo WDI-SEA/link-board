@@ -1,26 +1,25 @@
 Rails.application.routes.draw do
+  get 'comments/index'
+
+  get 'comments/new'
+
   root 'posts#index'
 
-  get 'posts/new' => 'posts#new'
+  post '/comment' => 'comments#create'
 
-  post 'posts/posts' => 'posts#create'
+  get 'posts/new' => "posts#new"
 
-  get 'posts/edit' => 'posts#edit'
-
-  put 'postsupdate' => 'posts#update'
-
-  delete 'posts/delete' => 'posts#destroy'
-
+  post 'posts' => "posts#create"
+  
   get 'signup' => 'users#new'
 
   post 'signup' => 'users#create'
 
-  get 'login' => 'sessions#new'
+  get "login" => 'sessions#new'
 
-  post 'login' => 'sessions#create'
+  post "login" => 'sessions#create'
 
-  delete 'logout' => 'sessions#destroy'
+  delete "logout" => 'sessions#destroy'
 
-  resources :posts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

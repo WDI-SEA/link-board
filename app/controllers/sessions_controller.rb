@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       flash[:success] = 'User logged in'
-      redirect_to new_post_path
+      redirect_to root_path
     else
-      flash[:danger] = 'Credentials invalid'
+      flash[:danger] = "Credentials Invalid"
       redirect_to login_path
     end
   end

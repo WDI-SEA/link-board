@@ -1,7 +1,17 @@
-<h1>Home</h1>
-<% if @current_user %>
-<h2>Welcome <%= @current_user[:email] %></h2>
-<% else %>
-  <h3>Please login</h3>
+<h1>Posts</h1>
+<% @posts.each do |post| %>
+  <div class="well">
+  <h3><%= post.title %></h3>
+  <a href="<%= post.link %>"><%= post.link %></a>
+  <p>posted by: <%= @users.find(post.user_id).name %></p>
+  <h4>Comments:</h4>
+  <% @comments.where(:post_id => post.id).each do |c| %>
+        <p><%= c.content %></p>
+  <% end %>
+  <%= form_for :comment, :url => '/comment' do |form| %>
+    <%= form.text_field :content, placeholder: "What'd you think about this?" %>
+    <%= form.hidden_field :post_id, :value => post.id %>
+    <%= form.submit 'comment' %>
+  <% end %>
+  </div>
 <% end %>
-<a href="/login">login</a>

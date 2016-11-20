@@ -1,18 +1,2 @@
-<h1>Create a new post</h1>
-
-
-<%= form_for @post, url: {action: "create"}, html: {class: "form"} do |p| %>
-  
-    <%= p.label :title %>
-    <%= p.string :title %>
-
-    <%= p.label :link %>
-    <%= p.string :link %>
-
-    <%= p.label :user %>
-    <%= p.string :user %>
-  
-  <%= p.submit %>
-<% end %>
-
-<%= link_to "Back to All Posts", "/posts" %>
+<h1>Posts#create</h1>
+<p>Find me in app/views/posts/create.html.erb</p>

@@ -1,16 +1,6 @@
-<h1>Posts</h1>
-
-<h2> Viewing all posts </h2>
-
-<% (0...@posts.length).each do |i| %>
-  <div>
-  <p><%= @posts[i].title %></p>
-  <p><%= @posts[i].link %></p>
-  <p><%= @posts[i].user %></p>
-  <br>
-  <%= link_to "Edit", edit_post_path(@posts[i]) %>
-  <%= link_to "Delete", post_path(@posts[i]), method: :delete %>
-  </div>
+<h1>New Post</h1>
+<%= form_for @post do |form| %>
+  <%= form.text_field :title, placeholder: "ENTER TITLE OR DIE" %>
+  <%= form.url_field :link, placeholder: "ENTER LINK OR DIE" %>
+  <%= form.submit "Create Post" %> 
 <% end %>
-
-<%= link_to "New Post!", new_post_path() %>
