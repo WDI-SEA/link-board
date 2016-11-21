@@ -1,17 +1,21 @@
-<h1>Main#index</h1>
+
 <% if @current_user %>
 	<h3>Welcome <%= @current_user[:email] %> </h3>
 <% else %>
 	<h3>Please Login</h3>
 <% end %>
-<h1>ALL POSTS TESTING!</h1>
 <% if @posts %>
 	<% @posts.each do |post| %>
-		<div class="well">
-			<strong><a href='<%= post.link %>'><%= post.title %></a></strong><br>
+		<div class="well posts">
+			<div class="voting">
+				<%= pluralize post.reputation_for(:votes).to_i, "vote" %>
+				<%= link_to "▲", vote_post_path(post, type: "up"), method: "post" %>
+				<%= link_to "▼", vote_post_path(post, type: "down"), method: "post" %>
+			</div>
+			<strong><h4><a href='<%= post.link %>'><%= post.title %></a></h4></strong>
 			<em>-<%= post.user.name %></em><br>
-			<%= link_to "Delete", post_path(post), method: :delete %>
-			<%= link_to "Comments", post %>
+			<%= post.created_at.time.to_formatted_s(:long) %> | <%= link_to "Comments", post %>
+		
 		</div>
 	<% end %>
 	<% else %>

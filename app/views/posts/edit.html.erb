@@ -2,17 +2,13 @@
 <p>Find me in app/views/posts/edit.html.erb</p>
 
 <%= form_for @post do |t| %>
-	<div>
+	<div class="form-group">
 		<%= t.label :title %>
-		<%= t.text_area :title %>
+		<%= t.text_area :title, class: 'form-control' %>
 	</div>
-	<div>
+	<div class="form-group">
 		<%= t.label :link %>
-		<%= t.text_area :link %>
+		<%= t.text_area :link, class: 'form-control' %>
 	</div>
-	<div>
-		<%= t.label :user %>
-		<%= t.text_area :user %>
-	</div>
-	<%= t.submit %>
+	<%= t.submit 'Update Post', class: 'btn btn-info' %>
 <% end %>

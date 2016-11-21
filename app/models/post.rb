@@ -10,4 +10,6 @@ class Post < ApplicationRecord
   presence: true,
   length: {in: 10..100}
 
+  has_reputation :votes, source: :user, aggregated_by: :sum
+
 end

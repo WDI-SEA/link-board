@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :is_authenticated, only: [:new, :create]
   before_action :current_user, only: [:index, :show]
+
+
   def index
   
   end
@@ -25,14 +27,25 @@ class PostsController < ApplicationController
   end
 
   def update
-    t = Post.find(params[:id])
-    t.update(post_params)
-    redirect_to posts_path
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-    Post.find(params[:id]).delete
-    redirect_to posts_path
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path, :notice => "Your post has been deleted"
+  end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @post = Post.find(params[:id]) 
+    @post.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting"
   end
 
   private

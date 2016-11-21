@@ -26,13 +26,6 @@ header {
 	margin-right:10px;
 }
 
-.logo {
-	margin-top:20px;
-	margin-left:0;
-}
-.logo h1 {
-	display:inline;
-	margin-left:0;
-	font-size:43pt;
-	color:white;
+.comment-form {
+	width: 400px;
 }
