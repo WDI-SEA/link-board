@@ -1,0 +1,22 @@
+<h3><%= @current_user[:name] %>, this is your profile page.</h3>
+<br>
+<h4>Username: <%= @current_user[:name] %></h4>
+<h4>Email: <%= @current_user[:email] %></h4>
+
+<h3>Below is a list of all your posts</h3>
+
+<% @posts.each do |post| %>
+  <% if @current_user.id == post.user_id %>
+    <div class="well">
+
+      <h4> Title: <%= post.title %> </h4>
+      <a href="<%=post.link%>"><%= post.link %></p></a>
+      <%= link_to "Delete Post", "/posts/" + post.id.to_s, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn-xs btn-danger' %>
+    </div>  
+  <% end %>
+<% end %>
+
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+<a href="/posts/new">Add a New Post</a>
+<br>
