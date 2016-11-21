@@ -1,0 +1,13 @@
+
+<h2>Comment on this post</h2>
+<%= link_to "Back to All Posts", root_path %>
+
+<%= form_for @comment do |c| %>
+  <div>
+    <%= c.label :content %>
+    <%= c.text_area :content %>    
+  </div>
+
+  <%= c.submit %>
+
+<% end %>
