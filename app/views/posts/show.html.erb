@@ -1,0 +1,12 @@
+<h2><%= @post.title %></h2>
+<p><%= @post.link %></p>			
+<p><em>-<%= @post.user.name %></em></p>
+<%= link_to "Edit Post", edit_post_path(@post) %>&nbsp;&nbsp; | &nbsp;&nbsp; 
+<%= link_to "Delete", post_path(@post), method: :delete %>
+<hr>
+<h3><%= @post.comments.count %> Comments</h3>
+<%= render @post.comments %>
+<h3>Add a comment:</h3>
+<%= render "comments/form" %>
+<br>
+

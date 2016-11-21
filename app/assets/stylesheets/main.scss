@@ -1,0 +1,39 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.container {
+	width: 700px;
+}
+
+.posts {
+	h4 {
+		font-size:18pt;
+		margin-bottom:6px;
+	}
+}
+
+.logo {
+	margin-top:20px;
+	margin-left:0;
+
+	h1 {
+	display:inline;
+	margin-left:0;
+	font-size:43pt;
+	color:white;
+	}
+}
+
+a  {
+	color: #31b0d5;
+}
+a:hover {
+	color: #31b0d5;
+	
+}
+
+.well {
+	border:none;
+}
