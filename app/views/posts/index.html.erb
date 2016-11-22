@@ -1,0 +1,54 @@
+<h1 class="text-center">LinkBoard</h1>
+
+  <div class="container">
+  <% if @current_user %>
+    <h3 class="text-center">Welcome <%= @current_user[:email] %></h3>
+    <%= form_for :user, :url => logout_path, method: :delete do |form| %>
+            <% end %>
+  <% else %>
+    <p>Don't Have An Account? Sign Up!</p>
+    <%= link_to('Signup', signup_path) %>
+  <% end %>
+    <h3>Please Login</h3>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Login</button>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Login</h4>
+          </div>
+          <div class="modal-body">
+              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="row text-center">
+    <%= link_to('Create Post', posts_new_path) %>
+  </div>
+  <br>
+  <div class="container">
+    <div class="well">
+      <% @posts.each do |post| %>
+        <h1><%= post.title %></h1>
+        <a href="<%= post.link %>"><%= post.link %></a>
+        <%= link_to "Delete Post", post_path(:id => post.id), method: :delete, class: "btn-sm btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+</div>
