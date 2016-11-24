@@ -10,15 +10,20 @@
 
   <body>
   <%= render 'partials/flash' %>
+
   	<header>
+      <h1>Share A Cool Link</h1>
   		<% if @current_user %>
   			<%= form_for :user, :url => logout_path, method: :delete do |form| %>
   				<%= form.submit 'Logout' %>
   			<% end %>
   		<% else %>
-  			<a href="/login"><button class="btn btn-primary">Login</button></a>
+  			<a class="login" href="/login"><button class="btn btn-success">Login</button></a>
+        <a href="/signup"><button class="btn btn-primary">Sign Up</button></a>
   		<% end %>
   	</header>
+
     <%= yield %>
+
   </body>
 </html>

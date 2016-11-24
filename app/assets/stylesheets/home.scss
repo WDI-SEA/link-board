@@ -8,8 +8,27 @@ body {
 }
 
 header {
+	margin-top: 2%;
+}
+
+header h1 {
+	display: inline;
+	float: left;
+	margin-left: 10%;
+}
+
+header a {
 	float: right;
+}
+
+h2 {
+	clear: both;
+}
+
+
+.login {
 	margin-right: 10%;
+	margin-left: 3%;
 }
 
 .well {
