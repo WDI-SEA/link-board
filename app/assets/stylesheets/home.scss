@@ -7,21 +7,29 @@ body {
 	background-color: gray;
 }
 
-header {
-	margin-top: 2%;
-}
-
 header h1 {
 	display: inline;
 	float: left;
 	margin-left: 10%;
 }
 
+.title {
+	margin: 0;
+	text-decoration: none;
+	color: black;
+}
+
 header a {
 	float: right;
+	margin-top: 20px;
 }
 
 h2 {
+	clear: both;
+}
+
+.welcome {
+	display: block;
 	clear: both;
 }
 
@@ -31,7 +39,16 @@ h2 {
 	margin-left: 3%;
 }
 
+.logout {
+	float: right;
+	margin: 25px 10% 0 3%;
+}
+
 .well {
 	max-width: 80%;
 	margin: 10px auto;
+}
+
+.collapse {
+	margin-top: 2%;
 }

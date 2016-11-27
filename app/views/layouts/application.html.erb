@@ -6,16 +6,18 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
 
   <body>
   <%= render 'partials/flash' %>
 
   	<header>
-      <h1>Share A Cool Link</h1>
+      <h1><a class="title" href="/">Share A Cool Link</a></h1>
   		<% if @current_user %>
   			<%= form_for :user, :url => logout_path, method: :delete do |form| %>
-  				<%= form.submit 'Logout' %>
+  				<button class="logout"><%= form.submit 'Logout' %></button>
+          <a href="/profile"><button><%= @current_user.name %>'s profile</button></a>
   			<% end %>
   		<% else %>
   			<a class="login" href="/login"><button class="btn btn-success">Login</button></a>

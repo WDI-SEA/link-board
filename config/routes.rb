@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   post "login" => 'sessions#create'
 
+  get "/profile" => 'profile#index'
+
   delete "logout" => 'sessions#destroy'
 
 

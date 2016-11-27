@@ -1,5 +1,5 @@
 <% if @current_user %>
-	<h3>Welcome <%= @current_user.name %></h3>
+	<h3 class="welcome">Welcome <%= @current_user.name %></h3>
 <% end %>
 
 <% if @current_user %>
@@ -11,23 +11,21 @@
 <% end %>
 
 <h2>Check Out These Sick Posts</h2>
-<% @posts.each do |post| %>
+<% @posts.reverse.each do |post| %>
 <div class="well">
 	<a href="<%= post.link %>"><h3><%= post.title %></h3></a>
-	<% if @current_user %>
-		<% if @current_user.id == post.user_id %>
-			<%= link_to "Delete Post", "/remove/" + post.id.to_s, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn-xs btn-danger' %>
-		<% end %>
-	<% end %>
 	<p>posted by: <%= @users.find(post.user_id).name %></p>
-	<h4>Comments:</h4>
-	<% @comments.where(:post_id => post.id).each do |c| %>
-		<p><%= c.content %></p>
-	<% end %>
-	<%= form_for :comment, :url => '/comment' do |form| %>
-		<%= form.text_field :content, placeholder: "What'd you think about this?" %>
+	<button data-toggle="collapse" data-target="#<%= post.id %>">Comments Section</button>
+	<div id="<%= post.id %>" class="collapse">
+		<%= form_for :comment, :remote => true, :url => '/comment' do |form| %>
+		<%= form.text_field :content, placeholder: "Anything to say?" %>
 		<%= form.hidden_field :post_id, :value => post.id %>
 		<%= form.submit 'comment' %>
-	<% end %>
+		<% end %>
+		<h4>Comments:</h4>
+		<% @comments.where(:post_id => post.id).each do |c| %>
+			<p><strong><%= @users.find(c.user_id).name %>:</strong> <%= c.content %></p>
+		<% end %>
+	</div>
 </div>
 <% end %>
