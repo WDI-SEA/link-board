@@ -11,7 +11,7 @@ class HomeController < ApplicationController
 
 	def create
 		@current_user.posts.create(post_params)
-		redirect_to root_path
+		redirect_to "/home"
 	end
 
 	def create_comment
