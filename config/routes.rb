@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get "/home" => "home#index"
 
-  post "/" => "home#create"
+  post "/home" => "home#create"
 
   post "/comment" => "home#create_comment"
 
