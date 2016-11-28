@@ -1,3 +1,4 @@
+
 <% if @current_user %>
 	<h3 class="welcome">Welcome <%= @current_user.name %></h3>
 <% end %>
@@ -14,7 +15,28 @@
 <div class="well">
 	<a href="<%= post.link %>"><h3><%= post.title %></h3></a>
 	<p>posted by: <%= @users.find(post.user_id).name %></p>
-	<button data-toggle="collapse" data-target="#<%= post.id %>">Comments Section</button>
+	<button class="btn btn-primary" data-toggle="collapse" data-target="#<%= post.id %>">Comments Section</button>
+
+	<div class="downvoteForm">
+	<% if @current_user %>
+		<%= form_for :post do |form| %>
+			 <p class="thumbBtn"><%= image_submit_tag("thumb-down.png") %></p>
+			 <p>10</p>
+		<% end %>
+	<% end %>
+	</div>
+	
+	<div class="upvoteForm">
+	<% if @current_user %>
+		<%= form_for :post do |form| %>
+			 <p class="thumbBtn"><%= image_submit_tag("thumb.png") %></p>
+			 <p>10</p>
+		<% end %>
+	<% end %>
+	</div>
+
+
+
 	<div id="<%= post.id %>" class="collapse">
 		<% if @current_user %>
 			<%= form_for :comment, :remote => true, :url => '/comment' do |form| %>
