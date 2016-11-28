@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  root "landing#index"
+
+  get "/home" => "home#index"
 
   post "/" => "home#create"
 

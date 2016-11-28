@@ -4,19 +4,20 @@
 
 body {
 	text-align: center;
-	background-color: gray;
+	background-color: #262626;
 }
 
 header h1 {
+	color: white;
 	display: inline;
 	float: left;
 	margin-left: 10%;
 }
 
 .title {
+	color: white;
 	margin: 0;
 	text-decoration: none;
-	color: black;
 }
 
 header a {
@@ -25,10 +26,12 @@ header a {
 }
 
 h2 {
+	color: white;
 	clear: both;
 }
 
 .welcome {
+	color: white;
 	display: block;
 	clear: both;
 }
