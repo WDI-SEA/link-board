@@ -17,8 +17,8 @@ class HomeController < ApplicationController
 	def create_comment
 		puts comment_params.inspect
 		@current_user.comments.create(comment_params)
-		redirect_to root_path
-	end
+		render :action => 'index'
+ 	end
 
 
 	def destroy
