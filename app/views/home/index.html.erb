@@ -10,17 +10,18 @@
 	<% end %>
 <% end %>
 
-<h2>Check Out These Sick Posts</h2>
 <% @posts.reverse.each do |post| %>
 <div class="well">
 	<a href="<%= post.link %>"><h3><%= post.title %></h3></a>
 	<p>posted by: <%= @users.find(post.user_id).name %></p>
 	<button data-toggle="collapse" data-target="#<%= post.id %>">Comments Section</button>
 	<div id="<%= post.id %>" class="collapse">
-		<%= form_for :comment, :remote => true, :url => '/comment' do |form| %>
-		<%= form.text_field :content, placeholder: "Anything to say?" %>
-		<%= form.hidden_field :post_id, :value => post.id %>
-		<%= form.submit 'comment' %>
+		<% if @current_user %>
+			<%= form_for :comment, :remote => true, :url => '/comment' do |form| %>
+			<%= form.text_field :content, placeholder: "Anything to say?" %>
+			<%= form.hidden_field :post_id, :value => post.id %>
+			<%= form.submit 'comment' %>
+			<% end %>
 		<% end %>
 		<h4>Comments:</h4>
 		<% @comments.where(:post_id => post.id).each do |c| %>
