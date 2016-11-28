@@ -3,6 +3,7 @@
 <% @posts.where(:user_id => @current_user.id).reverse.each do |post| %>
 	<div class="well">
 			<a href="<%= post.link %>"><h3><%= post.title %></h3></a>
+			<%= link_to "Delete Post", "/DELETE/" + post.id.to_s, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn-xs btn-danger' %>			
 			<button data-toggle="collapse" data-target="#<%= post.id %>">Read Comments</button>
 
 			<div id="<%= post.id %>" class="collapse">

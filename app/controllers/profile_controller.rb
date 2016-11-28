@@ -8,4 +8,9 @@ class ProfileController < ApplicationController
   	@users = User.all
   end
 
+  def destroy
+   	Post.find(params[:id]).delete
+   	redirect_to '/profile'
+  end
+
 end

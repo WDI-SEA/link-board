@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   post "/comment" => "home#create_comment"
 
-  delete "/remove/:id" => "home#destroy"
+  delete "/DELETE/:id" => "home#destroy"
 
   get 'signup' => "users#new"
 
