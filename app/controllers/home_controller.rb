@@ -20,6 +20,19 @@ class HomeController < ApplicationController
 		render :action => 'index'
  	end
 
+ 	def add_upvote
+ 		puts "upvote added!"
+ 		post = Post.find(params[:id])
+ 		post.upvotes = post.upvotes + 1
+ 		post.save
+ 	end
+
+ 	 def add_downvote
+ 		puts "downvote added!"
+ 		post = Post.find(params[:id])
+ 		post.downvotes = post.downvotes + 1
+ 		post.save
+ 	end
 
 	def destroy
    		Post.find(params[:id]).delete

@@ -1,4 +1,3 @@
-
 <% if @current_user %>
 	<h3 class="welcome">Welcome <%= @current_user.name %></h3>
 <% end %>
@@ -15,22 +14,23 @@
 <div class="well">
 
 	<div class="downvoteForm">
-	<% if @current_user %>
-		<%= form_for :post do |form| %>
-			 <p class="thumbBtn"><%= image_submit_tag("thumb-down.png") %></p>
-			 <p><%= post.downvotes %></p>
-		<% end %>
-	<% end %>
-	</div>
-	
-	<div class="upvoteForm">
-	<% if @current_user %>
-		<%= form_for :post do |form| %>
-			 <p class="thumbBtn"><%= image_submit_tag("thumb.png") %></p>
-			 <p><%= post.upvotes %></p>
-		<% end %>
-	<% end %>
-	</div>
+   <% if @current_user %>
+       <%= form_for :post, :url => "/downvote/" + post.id.to_s do |form| %>
+            <p class="thumbBtn"><%= image_submit_tag("thumb-down.png") %></p>
+            <p><%= post.downvotes %></p>
+       <% end %>
+   <% end %>
+   </div>
+
+   
+   <div class="upvoteForm">
+   <% if @current_user %>
+       <%= form_for :post, :url => "/upvote/" + post.id.to_s do |form| %>
+            <p class="thumbBtn"><%= image_submit_tag("thumb.png") %></p>
+            <p><%= post.upvotes %></p>
+       <% end %>
+   <% end %>
+   </div>
 
 	<a href="<%= post.link %>"><h3><%= post.title %></h3></a>
 	<p>posted by: <%= @users.find(post.user_id).name %></p>
@@ -63,6 +63,6 @@
 		var content = $('.' + postId).val();
 		$('#comments_for_' + postId).append('<p><strong>' + userName + ": </strong>" + content +  '</p>');
 		$("." + postId).val("");
-	})
+	});
 
 </script>
