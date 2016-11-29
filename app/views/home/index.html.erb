@@ -13,9 +13,6 @@
 
 <% @posts.reverse.each do |post| %>
 <div class="well">
-	<a href="<%= post.link %>"><h3><%= post.title %></h3></a>
-	<p>posted by: <%= @users.find(post.user_id).name %></p>
-	<button class="btn btn-primary" data-toggle="collapse" data-target="#<%= post.id %>">Comments Section</button>
 
 	<div class="downvoteForm">
 	<% if @current_user %>
@@ -35,20 +32,46 @@
 	<% end %>
 	</div>
 
+	<a href="<%= post.link %>"><h3><%= post.title %></h3></a>
+	<p>posted by: <%= @users.find(post.user_id).name %></p>
+	<button class="btn btn-primary collapseBtn" data-toggle="collapse" data-target="#<%= post.id %>">Comments Section</button>
 
 
 	<div id="<%= post.id %>" class="collapse">
 		<% if @current_user %>
 			<%= form_for :comment, :remote => true, :url => '/comment' do |form| %>
-			<%= form.text_field :content, placeholder: "Anything to say?" %>
+			<%= form.text_field :content, class: post.id, placeholder: "Anything to say?" %>
 			<%= form.hidden_field :post_id, :value => post.id %>
-			<%= form.submit 'comment' %>
+			<%= form.submit 'comment', class: 'submitComment', id: post.id, 'name': @current_user.name %>
 			<% end %>
 		<% end %>
 		<h4>Comments:</h4>
-		<% @comments.where(:post_id => post.id).each do |c| %>
-			<p><strong><%= @users.find(c.user_id).name %>:</strong> <%= c.content %></p>
-		<% end %>
+		<div id="comments_for_<%= post.id %>">
+			<% @comments.where(:post_id => post.id).each do |c| %>
+				<p><strong><%= @users.find(c.user_id).name %>:</strong> <%= c.content %></p>
+			<% end %>
+		</div>
 	</div>
 </div>
 <% end %>
+
+<script>
+	
+	// $('.submitComment').on('click', function(){
+	// 	$ajax({
+	// 		url: '/comment',
+
+	// 	}).done(function(){
+	// 		console.log("ajax call completed!");
+	// 	})
+	// });
+
+	$('.submitComment').on('click', function(){
+		var postId = this.id;
+		var userName = this.name;
+		var content = $('.' + postId).val();
+		$('#comments_for_' + postId).append('<p><strong>' + userName + ": </strong>" + content +  '</p>');
+		$("." + postId).val("");
+	})
+
+</script>

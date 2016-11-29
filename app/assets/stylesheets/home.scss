@@ -72,15 +72,19 @@ h2 {
 	margin-top: 2%;
 }
 
+.collapseBtn {
+	margin-bottom: 2%;
+}
+
 .upvoteForm{
-	position: relative;
-	margin-top:-90px; 
-	margin-right: -430px; 
+	float: right;
+	margin-top: 50px;
+	margin-right: 10%;
 }
 .downvoteForm{
-	position: relative;
-	margin-top:-90px; 
-	margin-left: -430px; 
+	float: left;
+	margin-top: 50px;
+	margin-left: 10%;
 }
 
 .delete {
