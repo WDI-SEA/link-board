@@ -18,7 +18,7 @@
 	<% if @current_user %>
 		<%= form_for :post do |form| %>
 			 <p class="thumbBtn"><%= image_submit_tag("thumb-down.png") %></p>
-			 <p>10</p>
+			 <p><%= post.downvotes %></p>
 		<% end %>
 	<% end %>
 	</div>
@@ -27,7 +27,7 @@
 	<% if @current_user %>
 		<%= form_for :post do |form| %>
 			 <p class="thumbBtn"><%= image_submit_tag("thumb.png") %></p>
-			 <p>10</p>
+			 <p><%= post.upvotes %></p>
 		<% end %>
 	<% end %>
 	</div>
@@ -56,15 +56,6 @@
 <% end %>
 
 <script>
-	
-	// $('.submitComment').on('click', function(){
-	// 	$ajax({
-	// 		url: '/comment',
-
-	// 	}).done(function(){
-	// 		console.log("ajax call completed!");
-	// 	})
-	// });
 
 	$('.submitComment').on('click', function(){
 		var postId = this.id;
