@@ -16,7 +16,7 @@
   <%= render 'partials/flash' %>
 
   	<header>
-      <h1><a class="title" href="/home">Share A Cool Link</a></h1>
+      <h1><a class="title" href="/home">JT Worldwide</a></h1>
   		<% if @current_user %>
   			<%= form_for :user, :url => logout_path, method: :delete do |form| %>
   				<%= form.submit 'Logout', class: 'logout btn btn-danger' %>
