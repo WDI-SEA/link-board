@@ -1,2 +1,2 @@
       invoke  active_record
-      create    db/migrate/20161128220554_add_upvotes_to_posts.rb
+      create    db/migrate/20161129052822_add_downvotes_to_posts.rb
