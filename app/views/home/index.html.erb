@@ -17,23 +17,23 @@
 	<p>posted by: <%= @users.find(post.user_id).name %></p>
 	<button class="btn btn-primary" data-toggle="collapse" data-target="#<%= post.id %>">Comments Section</button>
 
-		<div class="downvoteForm">
-			<% if @current_user %>
-				<%= form_for :post do |form| %>
-					 <p class="thumbBtn"><%= submit_tag("thumb-down.png") %></p>
-					 <p>10</p>
-				<% end %>
+	<div class="downvoteForm">
+		<% if @current_user %>
+			<%= form_for :post do |form| %>
+				 <p class="thumbBtn"><%= image_submit_tag("thumb-down.png") %></p>
+				 <p>10</p>
 			<% end %>
-		</div>
-		
-		<div class="upvoteForm">
-			<% if @current_user %>
-				<%= form_for :post do |form| %>
-					 <p class="thumbBtn"><%= image_submit_tag("thumb.png") %></p>
-					 <p>10</p>
-				<% end %>
+		<% end %>
+	</div>
+	
+	<div class="upvoteForm">
+		<% if @current_user %>
+			<%= form_for :post do |form| %>
+				 <p class="thumbBtn"><%= image_submit_tag("thumb.png") %></p>
+				 <p>10</p>
 			<% end %>
-		</div>
+		<% end %>
+	</div>
 
 
 
