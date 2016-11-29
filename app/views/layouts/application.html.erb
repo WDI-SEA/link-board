@@ -21,7 +21,7 @@
   			<%= form_for :user, :url => logout_path, method: :delete do |form| %>
   				<%= form.submit 'Logout', class: 'logout btn btn-danger' %>
   			<% end %>
-        <a href="/profile" class="profileLink"><button class="btn btn-primary profileBtn"><%= @current_user.name %>'s profile</button></a>
+        <a href="/profile" class="profileLink"><button class="btn btn-info profileBtn"><%= @current_user.name %>'s profile</button></a>
   		<% else %>
   			<a class="login" href="/login"><button class="btn btn-success">Login</button></a>
         <a href="/signup"><button class="btn btn-primary">Sign Up</button></a>
