@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   post "/home" => "home#create"
 
+  post "/vote" => "home#add_vote"
+
   post "/comment" => "home#create_comment"
 
   delete "/DELETE/:id" => "home#destroy"
@@ -22,6 +24,6 @@ Rails.application.routes.draw do
 
   delete "logout" => 'sessions#destroy'
 
-
+  resources :home
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
