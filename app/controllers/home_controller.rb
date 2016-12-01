@@ -17,21 +17,14 @@ class HomeController < ApplicationController
 	def create_comment
 		puts comment_params.inspect
 		@current_user.comments.create(comment_params)
-		render :action => 'index'
  	end
 
- 	def add_upvote
- 		puts "upvote added!"
- 		post = Post.find(params[:id])
- 		post.upvotes = post.upvotes + 1
- 		post.save
- 	end
-
- 	 def add_downvote
- 		puts "downvote added!"
- 		post = Post.find(params[:id])
- 		post.downvotes = post.downvotes + 1
- 		post.save
+ 	def add_vote
+ 		# @vote = Vote.new(params)
+ 		# @vote.save
+ 		Vote.create(params)
+ 		puts params.inspect
+ 		redirect_to "/home"
  	end
 
 	def destroy

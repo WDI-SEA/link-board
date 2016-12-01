@@ -6,9 +6,7 @@ Rails.application.routes.draw do
 
   post "/home" => "home#create"
 
-  post "/upvote/:id" => "home#add_upvote"
-
-  post "/downvote/:id" => "home#add_downvote"
+  post "/vote" => "home#add_vote"
 
   post "/comment" => "home#create_comment"
 

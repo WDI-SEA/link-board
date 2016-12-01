@@ -15,20 +15,16 @@
 
 	<div class="downvoteForm">
    <% if @current_user %>
-       <%= form_for :post, :url => "/downvote/" + post.id.to_s do |form| %>
-            <p class="thumbBtn"><%= image_submit_tag("thumb-down.png") %></p>
-            <p><%= post.downvotes %></p>
-       <% end %>
+        	<p data-choice="down" data-post="<%= post.id %>" data data-user="<%= @current_user.id.to_s %>"  class="downBtn"><%= image_tag("thumb-down.png") %></p>
+        	<p><%= post.downvotes %></p>
    <% end %>
    </div>
 
    
-   <div class="upvoteForm">
+   	<div class="downvoteForm">
    <% if @current_user %>
-       <%= form_for :post, :url => "/upvote/" + post.id.to_s do |form| %>
-            <p class="thumbBtn"><%= image_submit_tag("thumb.png") %></p>
-            <p><%= post.upvotes %></p>
-       <% end %>
+        	<p data-choice="down" data-post="<%= post.id %>" data data-user="<%= @current_user.id.to_s %>"  class="downBtn"><%= image_tag("thumb-down.png") %></p>
+        	<p><%= post.downvotes %></p>
    <% end %>
    </div>
 
@@ -40,9 +36,9 @@
 	<div id="<%= post.id %>" class="collapse">
 		<% if @current_user %>
 			<%= form_for :comment, :remote => true, :url => '/comment' do |form| %>
-			<%= form.text_field :content, class: post.id, placeholder: "Anything to say?" %>
+			<%= form.text_field :content, placeholder: "Anything to say?" %>
 			<%= form.hidden_field :post_id, :value => post.id %>
-			<%= form.submit 'comment', class: 'submitComment', id: post.id, 'name': @current_user.name %>
+			<%= form.submit 'comment' %>
 			<% end %>
 		<% end %>
 		<h4>Comments:</h4>
@@ -57,12 +53,25 @@
 
 <script>
 
-	$('.submitComment').on('click', function(){
-		var postId = this.id;
-		var userName = this.name;
-		var content = $('.' + postId).val();
-		$('#comments_for_' + postId).append('<p><strong>' + userName + ": </strong>" + content +  '</p>');
-		$("." + postId).val("");
+	$('.downBtn').on('click', function(){
+		console.log("downBtn clicked!");
+		var user = this.getAttribute("data-user");
+		var post = this.getAttribute("data-post");
+		var choice = this.getAttribute("data-choice");
+		console.log("user" + user);
+		console.log("post" + post);
+		console.log("choice" + choice);
+		$.ajax({
+			url: "/vote",
+			method: "POST", 
+			data: {
+				user_id: user,
+				post_id: post,
+				choice: choice
+			}
+		}).done(function(response){
+			console.log("vote submitted");
+		})
 	});
 
 </script>
