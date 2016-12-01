@@ -41,7 +41,7 @@ class HomeController < ApplicationController
 	private
 
 	def vote_params
-		params.permit(:choice, :post_id, :user_id)
+		params.require(:vote).permit(:choice, :post_id, :user_id)
 	end
 	def comment_params
 		params.require(:comment).permit(:content, :post_id)
