@@ -108,3 +108,13 @@ h2 {
 .btn-primary a {
 	color: white;
 }
+
+.down-voted {
+	background-color: rgba(255, 5, 7, 0.5);
+	box-shadow: 0 0 5px #f73707, 0 0 10px #f73707, 0 0 20px #c90202, 0 0 30px #c90202, 0 0 40px #c90202, 0 0 55px 			  #c90202, 0 0 75px #c90202;
+}
+
+.up-voted {
+	background-color:rgba(102, 179, 255, 0.5);
+	box-shadow: 0 0 5px #6666ff, 0 0 10px #6666ff, 0 0 20px #0000cc, 0 0 30px #0000cc, 0 0 40px #0000cc, 0 0 55px 			  #0000cc, 0 0 75px #0000cc;
+}

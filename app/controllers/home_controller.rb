@@ -3,9 +3,11 @@ class HomeController < ApplicationController
 	before_action :current_user, only: [:index, :add_vote]
 
     def index
-  	  @posts = Post.all
+  	  @posts = Post.all.reverse
   	  @users = User.all
-  	  @votes  = Vote.all
+  	  if @current_user
+  	  	@votes  = @current_user.votes
+  	  end
   	  @comments = Comment.all
   	  @post = Post.new
   	  @comment = Comment.new
@@ -27,8 +29,14 @@ class HomeController < ApplicationController
 	def add_vote
         @vote = Vote.new(vote_params)
         @vote.save
-        # Vote.create(params)
-        # @current_user.votes.create(params)
+        post = Post.find(vote_params[:post_id])
+        if vote_params['choice'] == 'up'
+			post.upvotes = post.upvotes + 1
+		else
+			post.downvotes = post.downvotes + 1
+		end
+		post.save
+		@posts = Post.all.reverse
         puts params.inspect
         redirect_to "/home"
     end
@@ -41,7 +49,7 @@ class HomeController < ApplicationController
 	private
 
 	def vote_params
-		params.require(:vote).permit(:choice, :post_id, :user_id)
+		params.permit(:choice, :post_id, :user_id)
 	end
 	def comment_params
 		params.require(:comment).permit(:content, :post_id)
