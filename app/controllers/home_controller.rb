@@ -1,12 +1,16 @@
 class HomeController < ApplicationController
 	before_action :is_authenticated, only: [:create, :create_comment]
-	before_action :current_user, only: [:index]
+	before_action :current_user, only: [:index, :add_vote]
+
     def index
   	  @posts = Post.all
   	  @users = User.all
+  	  @votes  = Vote.all
   	  @comments = Comment.all
   	  @post = Post.new
   	  @comment = Comment.new
+  	  @vote = Vote.new
+  	
     end
 
 	def create
@@ -20,19 +24,14 @@ class HomeController < ApplicationController
 		render :action => 'index'
  	end
 
- 	def add_upvote
- 		puts "upvote added!"
- 		post = Post.find(params[:id])
- 		post.upvotes = post.upvotes + 1
- 		post.save
- 	end
-
- 	 def add_downvote
- 		puts "downvote added!"
- 		post = Post.find(params[:id])
- 		post.downvotes = post.downvotes + 1
- 		post.save
- 	end
+	def add_vote
+        @vote = Vote.new(vote_params)
+        @vote.save
+        # Vote.create(params)
+        # @current_user.votes.create(params)
+        puts params.inspect
+        redirect_to "/home"
+    end
 
 	def destroy
    		Post.find(params[:id]).delete
@@ -41,6 +40,9 @@ class HomeController < ApplicationController
 
 	private
 
+	def vote_params
+		params.require(:vote).permit(:choice, :post_id, :user_id)
+	end
 	def comment_params
 		params.require(:comment).permit(:content, :post_id)
 	end

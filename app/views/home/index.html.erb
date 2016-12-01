@@ -1,68 +1,83 @@
 <% if @current_user %>
-	<h3 class="welcome">Welcome <%= @current_user.name %></h3>
+    <h3 class="welcome">Welcome <%= @current_user.name %></h3>
 <% end %>
 
 <% if @current_user %>
-	<%= form_for :post do |form| %>
-		<%= form.text_field :title, placeholder: "Title Here" %>
-		<%= form.url_field :link, placeholder: "Share a cool link!" %>
-		<%= form.submit 'Post' %>
-	<% end %>
+    <%= form_for :post do |form| %>
+        <%= form.text_field :title, placeholder: "Title Here" %>
+        <%= form.url_field :link, placeholder: "Share a cool link!" %>
+        <%= form.submit 'Post' %>
+    <% end %>
 <% end %>
 
 <% @posts.reverse.each do |post| %>
 <div class="well">
 
-	<div class="downvoteForm">
-   <% if @current_user %>
-       <%= form_for :post, :url => "/downvote/" + post.id.to_s do |form| %>
-            <p class="thumbBtn"><%= image_submit_tag("thumb-down.png") %></p>
-            <p><%= post.downvotes %></p>
-       <% end %>
-   <% end %>
-   </div>
 
-   
-   <div class="upvoteForm">
-   <% if @current_user %>
-       <%= form_for :post, :url => "/upvote/" + post.id.to_s do |form| %>
-            <p class="thumbBtn"><%= image_submit_tag("thumb.png") %></p>
-            <p><%= post.upvotes %></p>
-       <% end %>
-   <% end %>
-   </div>
+<div class="downvoteForm">
+  <% if @current_user %>
+           <p data-choice="down" data-post="<%= post.id %>" data-user="<%= @current_user.id.to_s %>"  class="downBtn"><%= image_tag("thumb-down.png") %></p>
+  <% end %>
+  </div>
 
-	<a href="<%= post.link %>"><h3><%= post.title %></h3></a>
-	<p>posted by: <%= @users.find(post.user_id).name %></p>
-	<button class="btn btn-primary collapseBtn" data-toggle="collapse" data-target="#<%= post.id %>">Comments Section</button>
+  
+  <div class="upvoteForm">
+  <% if @current_user %>
+      <%= form_for :vote, :url => "/vote" do |form| %>
+          <%= form.hidden_field :choice, :value => 'up' %>
+          <%= form.hidden_field :post_id, :value => 2 %>
+          <%= form.hidden_field :user_id, :value => @current_user.id %>
+           <p class="thumbBtn"><%= image_submit_tag("thumb.png") %></p>
+           <p><%= post.upvotes %></p>
+      <% end %>
+  <% end %>
+  </div>
+
+    <a href="<%= post.link %>"><h3><%= post.title %></h3></a>
+    <p>posted by: <%= @users.find(post.user_id).name %></p>
+    <button class="btn btn-primary collapseBtn" data-toggle="collapse" data-target="#<%= post.id %>">Comments Section</button>
 
 
-	<div id="<%= post.id %>" class="collapse">
-		<% if @current_user %>
-			<%= form_for :comment, :remote => true, :url => '/comment' do |form| %>
-			<%= form.text_field :content, class: post.id, placeholder: "Anything to say?" %>
-			<%= form.hidden_field :post_id, :value => post.id %>
-			<%= form.submit 'comment', class: 'submitComment', id: post.id, 'name': @current_user.name %>
-			<% end %>
-		<% end %>
-		<h4>Comments:</h4>
-		<div id="comments_for_<%= post.id %>">
-			<% @comments.where(:post_id => post.id).each do |c| %>
-				<p><strong><%= @users.find(c.user_id).name %>:</strong> <%= c.content %></p>
-			<% end %>
-		</div>
-	</div>
+    <div id="<%= post.id %>" class="collapse">
+        <% if @current_user %>
+            <%= form_for :comment, :remote => true, :url => '/comment' do |form| %>
+            <%= form.text_field :content, placeholder: "Anything to say?" %>
+            <%= form.hidden_field :post_id, :value => post.id %>
+            <%= form.submit 'comment' %>
+            <% end %>
+        <% end %>
+        <h4>Comments:</h4>
+        <div id="comments_for_<%= post.id %>">
+            <% @comments.where(:post_id => post.id).each do |c| %>
+                <p><strong><%= @users.find(c.user_id).name %>:</strong> <%= c.content %></p>
+            <% end %>
+        </div>
+    </div>
 </div>
 <% end %>
 
 <script>
 
-	$('.submitComment').on('click', function(){
-		var postId = this.id;
-		var userName = this.name;
-		var content = $('.' + postId).val();
-		$('#comments_for_' + postId).append('<p><strong>' + userName + ": </strong>" + content +  '</p>');
-		$("." + postId).val("");
-	});
+
+$('.downBtn').on('click', function(){
+        console.log("downBtn clicked!");
+        var user = this.getAttribute("data-user");
+        var post = this.getAttribute("data-post");
+        var choice = this.getAttribute("data-choice");
+        console.log("user" + user);
+        console.log("post" + post);
+        console.log("choice" + choice);
+        $.ajax({
+            url: "/vote",
+            method: "POST", 
+            data: {
+                user_id: user,
+                post_id: post,
+                choice: choice
+            }
+        }).done(function(response){
+            console.log("vote submitted");
+        })
+    });
 
 </script>
