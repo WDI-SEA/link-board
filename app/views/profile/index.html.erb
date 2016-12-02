@@ -2,9 +2,20 @@
 
 <% @posts.where(:user_id => @current_user.id).reverse.each do |post| %>
 	<div class="well">
+
+			<div class="upvoteForm">
+				<%= image_tag("thumb.png") %>
+				<p><%= post.upvotes %></p>
+			</div>
+
+			<div class="downvoteForm">
+				<%= image_tag("thumb-down.png") %>
+				<p><%= post.downvotes %></p>
+			</div>	
+
 			<a href="<%= post.link %>"><h3><%= post.title %></h3></a>
 			<%= link_to "Delete Post", "/DELETE/" + post.id.to_s, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn-xs btn-danger delete' %>			
-			<button data-toggle="collapse" data-target="#<%= post.id %>">Read Comments</button>
+			<button class="btn btn-primary" data-toggle="collapse" data-target="#<%= post.id %>">Read Comments</button>
 
 			<div id="<%= post.id %>" class="collapse">
 				<h4>Comments:</h4>

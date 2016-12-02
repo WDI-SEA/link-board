@@ -121,3 +121,23 @@ h2 {
 	box-shadow: 0 0 5px #6666ff, 0 0 10px #6666ff, 0 0 20px #0000cc, 0 0 30px #0000cc, 0 0 40px #0000cc, 0 0 55px 			  #0000cc, 0 0 75px #0000cc;
 	border-radius: 4%;
 }
+
+.loginForm h1 {
+	clear: both;
+	color: white;
+	text-decoration: underline;
+}
+
+.loginForm label {
+	color: white;
+}
+
+.signupForm h1 {
+	clear: both;
+	color: white;
+	text-decoration: white;
+}
+
+.signupForm label {
+	color: white;
+}
