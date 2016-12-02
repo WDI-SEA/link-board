@@ -38,12 +38,12 @@ class HomeController < ApplicationController
 		post.save
 		@posts = Post.all.reverse
         puts params.inspect
-        redirect_to "/home"
+        render :action => 'index'
     end
 
 	def destroy
    		Post.find(params[:id]).delete
-   		redirect_to root_path
+   		redirect_to "/home"
  	end
 
 	private

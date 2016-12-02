@@ -8,16 +8,14 @@ body {
 }
 
 header h1 {
-	color: white;
-	display: inline;
-	float: left;
 	margin-left: 10%;
-	margin-bottom: 20px;
 }
 
 .title {
-	margin: 0;
+	float: left;
+	display: inline;
 	text-decoration: none;
+	font-size: 1.3em;
 	color: #6666ff;
 	text-shadow: 0 0 5px #6666ff, 0 0 10px #6666ff, 0 0 20px #0000cc, 0 0 30px #0000cc, 0 0 40px #0000cc, 0 0 55px 			  #0000cc, 0 0 75px #0000cc;
 }
@@ -25,6 +23,7 @@ header h1 {
 header a {
 	float: right;
 	margin-top: 20px;
+	margin-bottom: 25px;
 }
 
 h2 {
@@ -52,16 +51,16 @@ h2 {
 .well {
 	clear: both;
 	max-width: 80%;
-	margin: 30px auto;
+	margin: 35px auto;
 	background-color: #a6a6a6;
 	box-shadow: 0px 0px 18px 7px rgba(4, 214, 42, 0.5);
 	padding-bottom: 4%;
 }
 
 .well h3 {
-	font-size: 2em;
+	font-size: 1.8em;
 	color: #00ff00;
-	text-shadow: 0 0 3px #00ff00, 0 0 6px #00ff00, 0 0 10px #008000, 0 0 12px #008000, 0 0 20px #008000, 0 0 26px 			  #008000, 0 0 35px #008000;
+	text-shadow: 0 0 2px #00ff00, 0 0 4px #00ff00, 0 0 7px #008000, 0 0 9px #008000, 0 0 15px #008000, 0 0 20px 			  #008000, 0 0 24px #008000;
 }
 
 .well h3:hover {
@@ -110,11 +109,15 @@ h2 {
 }
 
 .down-voted {
-	background-color: rgba(255, 5, 7, 0.5);
+	background-color: rgba(255, 5, 7, 0.3);
+	padding: 2px;
 	box-shadow: 0 0 5px #f73707, 0 0 10px #f73707, 0 0 20px #c90202, 0 0 30px #c90202, 0 0 40px #c90202, 0 0 55px 			  #c90202, 0 0 75px #c90202;
+	border-radius: 4%;
 }
 
 .up-voted {
-	background-color:rgba(102, 179, 255, 0.5);
+	background-color:rgba(102, 179, 255, 0.3);
+	padding: 2px;
 	box-shadow: 0 0 5px #6666ff, 0 0 10px #6666ff, 0 0 20px #0000cc, 0 0 30px #0000cc, 0 0 40px #0000cc, 0 0 55px 			  #0000cc, 0 0 75px #0000cc;
+	border-radius: 4%;
 }

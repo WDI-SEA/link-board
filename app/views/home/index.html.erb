@@ -15,7 +15,7 @@
 
     <div class="upvoteForm">
     <% if @current_user %>
-             <p data-choice="up" data-post="<%= post.id %>" data-user="<%= @current_user.id.to_s %>"
+             <p data-choice="up" data-post="<%= post.id %>" data-count="<%= post.upvotes %>" data-user="<%= @current_user.id.to_s %>"
                 <% @votes.each do |vote| %>
                   <% if post.id == vote.post_id and vote.choice == "up" %>
                     class="up-voted"
@@ -24,13 +24,13 @@
                 class="downBtn"
              ><%= image_tag("thumb.png") %>
               </p>
-              <p><%= post.upvotes %></p>
+              <p class="upvote_count" id="up_count_<%= post.id %>"><%= post.upvotes %></p>
     <% end %>
     </div>
 
   <div class="downvoteForm">
     <% if @current_user %>
-             <p data-choice="down" data-post="<%= post.id %>" data-user="<%= @current_user.id.to_s %>"
+             <p data-choice="down" data-post="<%= post.id %>" data-count="<%= post.downvotes %>" data-user="<%= @current_user.id.to_s %>"
                 <% @votes.each do |vote| %>
                   <% if post.id == vote.post_id and vote.choice == "down" %>
                     class="down-voted"
@@ -39,7 +39,7 @@
                 class="downBtn"
              ><%= image_tag("thumb-down.png") %>
               </p>
-              <p><%= post.downvotes %></p>
+              <p class="downvote_count" id="down_count_<%= post.id %>"><%= post.downvotes %></p>
     <% end %>
     </div>
 
@@ -51,9 +51,9 @@
     <div id="<%= post.id %>" class="collapse">
         <% if @current_user %>
             <%= form_for :comment, :remote => true, :url => '/comment' do |form| %>
-            <%= form.text_field :content, placeholder: "Anything to say?" %>
+            <%= form.text_field :content, class: "comment_" + post.id.to_s, placeholder: "Anything to say?" %>
             <%= form.hidden_field :post_id, :value => post.id %>
-            <%= form.submit 'comment' %>
+            <%= form.submit 'comment', class: "submitComment", :"data-post_id" => post.id, :"data-name" => @current_user.name  %>
             <% end %>
         <% end %>
         <h4>Comments:</h4>
@@ -71,7 +71,17 @@
         console.log("downBtn clicked!");
         var user = this.getAttribute("data-user");
         var post = this.getAttribute("data-post");
+        var count = this.getAttribute("data-count");
+        console.log("count: " + count);
         var choice = this.getAttribute("data-choice");
+        if (choice == "up") {
+            $(this).addClass("up-voted");
+            $("#up_count_" + post).text(parseInt(count) + 1)
+        }
+        else {
+            $(this).addClass("down-voted");
+            $("#down_count_" + post).text(parseInt(count) + 1)
+        }
         console.log("user" + user);
         console.log("post" + post);
         console.log("choice" + choice);
@@ -87,4 +97,13 @@
             console.log("vote submitted");
         })
     });
+
+    $('.submitComment').on('click', function(){
+        console.log("comment submitted.");
+        var postId = this.getAttribute("data-post_id");
+        var name = this.getAttribute("data-name");
+        var comment = $('.comment_' + postId).val()
+        console.log(comment);
+        $('#comments_for_' + postId).prepend("<strong>" + name + "</strong> " + comment);
+    })
 </script>
