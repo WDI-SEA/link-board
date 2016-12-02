@@ -63,10 +63,6 @@ h2 {
 	text-shadow: 0 0 2px #00ff00, 0 0 4px #00ff00, 0 0 7px #008000, 0 0 9px #008000, 0 0 15px #008000, 0 0 20px 			  #008000, 0 0 24px #008000;
 }
 
-.well h3:hover {
-	text-decoration: none;
-}
-
 .collapse {
 	margin-top: 2%;
 }
@@ -140,4 +136,12 @@ h2 {
 
 .signupForm label {
 	color: white;
+}
+
+.downvoteForm p {
+	font-size: 1.2em;
+}
+
+.upvoteForm p {
+	font-size: 1.2em;
 }

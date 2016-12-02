@@ -5,12 +5,12 @@
 
 			<div class="upvoteForm">
 				<%= image_tag("thumb.png") %>
-				<p><%= post.upvotes %></p>
+				<p class="upvote_count"><%= post.upvotes %></p>
 			</div>
 
 			<div class="downvoteForm">
 				<%= image_tag("thumb-down.png") %>
-				<p><%= post.downvotes %></p>
+				<p class="downvote_count"><%= post.downvotes %></p>
 			</div>	
 
 			<a href="<%= post.link %>"><h3><%= post.title %></h3></a>
