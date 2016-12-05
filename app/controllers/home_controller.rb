@@ -42,7 +42,7 @@ class HomeController < ApplicationController
     end
 
 	def destroy
-   		Post.find(params[:id]).delete
+   		Post.find(params[:id]).destroy
    		redirect_to "/home"
  	end
 
