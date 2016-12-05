@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 	before_action :current_user, only: [:index, :add_vote]
 
     def index
-  	  @posts = Post.all.reverse
+  	  @posts = Post.all.sort_by(&:created_at).reverse
   	  @users = User.all
   	  if @current_user
   	  	@votes  = @current_user.votes
@@ -36,7 +36,7 @@ class HomeController < ApplicationController
 			post.downvotes = post.downvotes + 1
 		end
 		post.save
-		@posts = Post.all.reverse
+		@posts = Post.all.sort_by(&:created_at).reverse
         puts params.inspect
         render :action => 'index'
     end

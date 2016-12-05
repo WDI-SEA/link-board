@@ -21,7 +21,7 @@
                     class="up-voted"
                   <% end %>
                 <% end %>
-                class="downBtn"
+                class="voteBtn"
              ><%= image_tag("thumb.png") %>
               </p>
               <p class="upvote_count" id="up_count_<%= post.id %>"><%= post.upvotes %></p>
@@ -36,7 +36,7 @@
                     class="down-voted"
                   <% end %>
                 <% end %>
-                class="downBtn"
+                class="voteBtn"
              ><%= image_tag("thumb-down.png") %>
               </p>
               <p class="downvote_count" id="down_count_<%= post.id %>"><%= post.downvotes %></p>
@@ -67,12 +67,12 @@
 <% end %>
 
 <script>
-    $('.downBtn').on('click', function(){
-        console.log("downBtn clicked!");
+    $('.voteBtn').on('click', function(){
+        $(this).removeClass("voteBtn");
+        $(this).off('click');
         var user = this.getAttribute("data-user");
         var post = this.getAttribute("data-post");
         var count = this.getAttribute("data-count");
-        console.log("count: " + count);
         var choice = this.getAttribute("data-choice");
         if (choice == "up") {
             $(this).addClass("up-voted");
@@ -82,9 +82,6 @@
             $(this).addClass("down-voted");
             $("#down_count_" + post).text(parseInt(count) + 1)
         }
-        console.log("user" + user);
-        console.log("post" + post);
-        console.log("choice" + choice);
         $.ajax({
             url: "/vote",
             method: "POST", 
@@ -99,11 +96,9 @@
     });
 
     $('.submitComment').on('click', function(){
-        console.log("comment submitted.");
         var postId = this.getAttribute("data-post_id");
         var name = this.getAttribute("data-name");
         var comment = $('.comment_' + postId).val()
-        console.log(comment);
         $('#comments_for_' + postId).prepend("<strong>" + name + "</strong> " + comment);
     })
 </script>
