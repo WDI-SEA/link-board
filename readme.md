@@ -1,24 +1,7 @@
-# README
+## JT Worldwide
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# About
+This is a Ruby on Rails app using PostgreSQL for the database. JT Worldwide is a social site for sharing links to anything you find interesting or projects of your own. Users can comment and vote on your posts.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Install Instructions
+To set up on your local machine clone this repo, run 'bundle install' and 'rake db:migrate' in the command line. 
