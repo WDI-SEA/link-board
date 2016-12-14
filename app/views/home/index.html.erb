@@ -100,5 +100,6 @@
         var name = this.getAttribute("data-name");
         var comment = $('.comment_' + postId).val()
         $('#comments_for_' + postId).prepend("<strong>" + name + "</strong> " + comment);
+        $("input[type=text]").val("");
     })
 </script>

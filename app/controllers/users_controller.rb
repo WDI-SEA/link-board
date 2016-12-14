@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   		return
   	end
 
-  	redirect_to root_path
+  	redirect_to "/home"
   end
 
   private
