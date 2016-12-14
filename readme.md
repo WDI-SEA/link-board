@@ -1,4 +1,4 @@
-## JT Worldwide
+# JT Worldwide
 
 # About
 This is a Ruby on Rails app using PostgreSQL for the database. JT Worldwide is a social site for sharing links to anything you find interesting or projects of your own. Users can comment and vote on your posts.
