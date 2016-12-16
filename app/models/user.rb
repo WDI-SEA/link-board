@@ -11,7 +11,7 @@ class User < ApplicationRecord
 		uniqueness: {case_sensitive: false}
 
 		validates :password,
-		length: {in: 8..72},
+		length: {in: 1..72},
 		on: :create
 
 		has_secure_password
