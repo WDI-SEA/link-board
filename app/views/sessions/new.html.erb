@@ -1,0 +1,12 @@
+<div class="loginForm">
+	<h1>Login</h1>
+	<%= form_for :user do |form| %>
+		<label>Email: </label>
+		<%= form.email_field :email, placeholder: "Enter email" %>
+		<br>
+		<label>Password: </label>
+		<%= form.password_field :password, placeholder: "Enter password" %>
+		<br>
+		<%= form.submit 'Login' %>
+	<% end %>
+</div>
