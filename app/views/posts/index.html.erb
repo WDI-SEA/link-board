@@ -1,8 +1,11 @@
-<h1>All Posts</h1>
-
+<br>
 <% @posts.each do |p| %>
   <div>
-    <%= p.title %> - <%= p.link %> - Created by: <%= p.user_id %>
+
+    <p><%= (@posts.index(p)+1).to_s %>. <%= p.title %> <span class="sub-text"><small>(<%= p.link %>)</small></span> </p>
+    <p class="sub-text"><small>1 point by <%= p.user.name %> 2 minutes ago | hide | past | web | discuss</small></p>
+    <div>
+</div>
 
   </div>
 <% end %>

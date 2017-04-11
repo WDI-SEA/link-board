@@ -10,7 +10,18 @@
 
   <body>
     <%= render "partials/flash" %>
-    <div class="container">
+    <div class="container news-board">
+      <div class="my-nav">
+        <%= image_tag 'y18.gif', :class => 'icon' %>
+        <strong>Hacker News</strong>
+        <a href="#">new</a> |
+        <a href="#">comments</a> |
+        <a href="/">show</a> |
+        <a href="#">ask</a> |
+        <a href="#">jobs</a> |
+        <a href="#">submit</a>
+        <a class="login" href="/login">login</a>
+      </div>
       <%= yield %>
       <hr>
       <%if not @current_user %>

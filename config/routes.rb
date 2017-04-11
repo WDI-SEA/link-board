@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   # get 'posts/index'
   # get 'posts/new'
 
-  root 'home#index'
+  # root 'home#index'
+  root 'posts#index'
 
   get "login" => 'sessions#new'
   post "login" => "sessions#create"
