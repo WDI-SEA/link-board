@@ -1,0 +1,18 @@
+
+
+<h1>Add a post!</h1>
+
+<%= form_for @post, url: posts_path do |form|%>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <%= form.label :link %>
+  <%= form.text_field :link %>
+  <%= form.label :user_id %>
+  <%= form.text_field :user_id %>
+  <%= form.submit :class => 'btn'%>
+<%end%>
+
+
+
+  <p>Please <a href="/login"><strong>login</strong></a> to make a post!</p>
+

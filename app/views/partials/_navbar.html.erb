@@ -1,0 +1,28 @@
+  <nav class="navbar navbar-inverse site-navigation" role='navigation'>
+    <div class="navbar-header navbar-left">
+      <button type="button" class="navbar-toggle" data-toggle='collapse' data-targe='#myNavBar'>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavBar">
+      <ul class="nav navbar-nav">
+        <li>
+           <a class="navbar-brand" href="/">Home</a>
+        </li>
+        <li>
+          <a href="/post/new">Write Post</a>
+        </li>
+        <li>
+          <a if='!current_user' class="navbar-brand" href="/signup">Signup</a>
+        </li>
+        <li>
+          <a if='!current_user' class="navbar-brand" href="/login">Login</a>
+        </li>
+        <li>
+          <a if='current_user' class="navbar-brand" href="/logout">Signout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
