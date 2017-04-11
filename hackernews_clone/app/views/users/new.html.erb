@@ -1,0 +1,12 @@
+<div class="row">
+<div class="col-sm-6 col-sm-offset-3">
+
+<h1 class="text-center">Signup</h1>
+
+ <%= form_for :user do |f| %>
+  <%= f.email_field :email, placeholder: "Email"%>
+  <%= f.password_field :password, placeholder: "************"%>
+  <%= f.submit "Signup"%>
+ <%end%>
+</div>
+</div>
