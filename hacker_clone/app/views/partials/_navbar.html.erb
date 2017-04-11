@@ -1,0 +1,15 @@
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+    <h4>Hacker Clone</h4>
+  </div>
+  <ul id="white" class="nav navbar-nav pull-right">
+    <% if @current_user %>
+      <li><a class="btn default-btn" id="default-btn" href="/logout">Logout</a></li>
+      <li><a class="btn default-btn" id="default-btn" href="/posts/new">New post</a></li>
+    <% else %>
+      <li><a class="btn default-btn" id="default-btn" href="/login">Login</a></li>
+      <li><a class="btn default-btn" id="default-btn" href="/signup">Signup</a></li>
+      <li><a class="btn default-btn" id="default-btn" href="/posts/new">New post</a></li>
+    <% end %>
+  </ul>
+</div>
