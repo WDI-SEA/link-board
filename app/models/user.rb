@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :posts
-  
+
   validates :email,
   presence: true,
   uniqueness: {case_sensitive: false}
@@ -8,6 +8,10 @@ class User < ApplicationRecord
   validates :password,
   length: { in: 8..72 },
   on: :create
+
+  validates :name,
+  presence: true,
+  length: { in: 1..29 }
 
   has_secure_password
 
