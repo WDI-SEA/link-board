@@ -1,0 +1,39 @@
+<br>
+<p>
+  <span class="sub-text"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
+  <%= @post.title %>
+  <span class="sub-text">
+    <small>(<%= @post.link %>)</small>
+  </span>
+</p>
+<p class="sub-text"><small><%= @post.points%> points by <%= @post.user.name %> <%= time_ago_in_words(@post.created_at) %> ago | hide | past | web |
+  <a class="comment-link" href="/comments/<%= @post.id %>">
+    <% if @post.comments.length > 0 %>
+      <%=@post.comments.length%> comments
+    <% else %>
+      discuss
+    <% end %>
+  </a> | favorite
+</small></p>
+<br>
+<%= form_for @comment do |f| %>
+  <%= f.text_area :content, cols: "70", rows: "4" %>
+  <% if @current_user %>
+    <%= f.hidden_field :user_id, :value => @current_user.id %>
+  <% end %>
+  <%= f.hidden_field :post_id, :value => @post.id %>
+  <br>
+  <%= f.submit "add comment" %>
+<% end %>
+<br><br>
+<% @comments.each do |c| %>
+  <p>
+    <small class="sub-text"><i class="fa fa-caret-up" aria-hidden="true"></i>
+    <%= c.user.name %>
+    <%= time_ago_in_words(c.created_at) %> ago
+    </small>
+  </p>
+  <p>
+    <%= c.content %>
+  </p>
+<% end %>
