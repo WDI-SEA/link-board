@@ -1,22 +1,19 @@
 .my-nav {
-  background-color: rgb(255,102, 0);
-}
-
-.my-nav a {
-  color: black;
-}
-
-.my-nav a:hover {
-  color: black;
-  text-decoration: none;
+  @extend .orange-bg;
+  a {
+    color: black;
+    &:hover {
+    color: black;
+    text-decoration: none;
+    }
+  }
 }
 
 .comment-link {
-  color: rgb(153,153,153);
-}
-
-.comment-link:hover {
-  color: rgb(153,153,153);
+  @extend .grey;
+  &:hover {
+    @extend .grey;
+  }
 }
 
 .login {
@@ -30,11 +27,11 @@
 }
 
 .news-board {
-  background-color: rgb(246,246,239);
+  @extend .tan-bg;
 }
 
 .sub-text {
-  color: rgb(153,153,153);
+  @extend .grey;
 }
 
 .line{
@@ -43,4 +40,17 @@
 
 .footer {
   text-align: center;
+}
+
+//colors
+.orange-bg {
+  background-color: rgb(255,102, 0);
+}
+
+.grey {
+  color: rgb(153,153,153);
+}
+
+.tan-bg {
+  background-color: rgb(246,246,239);
 }
