@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   get "comments/:post_id" => "comments#index"
   post "comments" => "comments#create"
 
+  get "profile" => "users#show"
+
+  # put "posts" => "posts#update"
+
   resources :posts
   # resources :comments
 

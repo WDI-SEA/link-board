@@ -4,5 +4,6 @@
   <%= f.text_field :title, placeholder: "Title" %>
   <%= f.text_field :link, placeholder: "URL" %>
   <%= f.hidden_field :user_id, :value => @current_user.id %>
+  <%= f.hidden_field :points, :value => 0 %>
   <%= f.submit "Create new post" %>
 <% end %>

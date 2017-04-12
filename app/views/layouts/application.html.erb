@@ -19,19 +19,23 @@
         <a href="#">comments</a> |
         <a href="/">show</a> |
         <a href="#">ask</a> |
-        <a href="#">jobs</a> |
-        <a href="#">submit</a>
-        <a class="login" href="/login">login</a>
+        <a href="#">jobs</a>
+        <% if not @current_user %>
+          <a class="login" href="/login">login</a>
+          <a class="login" href="/signup">signup</a>
+        <% else %>
+          | <a href="/posts/new">submit</a>
+          <%= link_to "logout", "/logout", method: :delete, class: "login" %>
+          <a class="login" href="/profile">profile</a>
+        <% end%>
       </div>
       <%= yield %>
-      <hr>
-      <%if not @current_user %>
-        <a href="/signup">Sign up</a>
-        <a href="/login">Log in</a>
-      <% else %>
-        <a href="/posts/new">Create new post</a>
-        <%= link_to "Log out", "/logout", method: :delete %>
-      <% end %>
+
+      <div class="footer">
+        <hr class="line">
+        <p><small>Guidelines | FAQ | Support | API | Security | Lists | Bookmarklet | DMCA | Apply to YC | Contact</small></p>
+        <p class="sub-text">Search: <input type="text"></p>
+      </div>
     </div>
   </body>
 </html>

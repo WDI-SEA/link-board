@@ -7,22 +7,15 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @c = Comment.new(comment_params)
-    @c.save!
-    # if @c.save
-    #   flash[:success] = comment_params
+    if @current_user
+      @c = Comment.new(comment_params)
+      @c.save!
       redirect_to "/comments/" + comment_params[:post_id]
-    # else
-    #   redirect_to root_path
-    # end
-    #also save to post?
-    # user = @current_user
-    # user.comments.create(comment_params)
-    # user.save!
-    # Comment.create(comment_params)
-    # flash[:success] = "New comment created!"
-    # flash[:success] = comment_params
-    # redirect_to comments_path
+    else
+      flash[:warning] = "You need to log in to post a comment"
+      redirect_to login_path
+    end
+
   end
 
   private

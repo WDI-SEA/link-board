@@ -11,14 +11,21 @@ class PostsController < ApplicationController
     user = @current_user
     user.posts.create(post_params)
     user.save
-    # Post.create(post_params)
-    flash[:success] = "New post created!"
+    # flash[:success] = "New post created!"
+    # flash[:success] = post_params
+    redirect_to posts_path
+  end
+
+  def update
+    p = Post.find(params[:id])
+    post_params = {"title"=>p.title, "link"=>p.link, "user_id"=>p.user.id, "points"=>p.points += 1}
+    p.update(post_params)
     redirect_to posts_path
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :link, :user_id)
+    params.require(:post).permit(:title, :link, :user_id, :points)
   end
 end
