@@ -1,0 +1,36 @@
+class PostsController < ApplicationController
+  def index
+  	@posts = Post.all
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def new
+  	@post = Post.new
+  end
+
+  def create
+  	user = @current_user
+  	user.posts.create(post_params)
+  	user.save
+  	redirect_to posts_path
+  end
+
+  def update
+  	p = Post.find(params[:id])
+  	post_params = {"title"=>p.tilte, "link"=>p.link, "user_id"=>p.user.id, "points"=>p.points += 1}
+  	p.update(post_params)
+  	redirect_to posts_path
+  end
+
+  private
+
+  def post_params
+  	params.require(:post).permit(:title, :link, :user_id, :points)
+  end
+  
+end
