@@ -1,14 +1,17 @@
 class SessionsController < ApplicationController
+  def new
+  end
+
   def create
     user = User.authenticate(user_params)
 
     if user
-      session[:user_id] = user.user_id
+      session[:user_id] = user.id
       flash[:success] = "User logged in!!"
       redirect_to root_path
     else
       flash[:danger] = "Credentials Invalid"
-      redurect_to login_path
+      redirect_to login_path
     end
   end
 
@@ -21,6 +24,6 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :name)  
+    params.require(:user).permit(:email, :password)  
   end
 end
