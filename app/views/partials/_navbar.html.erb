@@ -11,18 +11,24 @@
         <li>
            <a class="navbar-brand" href="/">Home</a>
         </li>
-        <li>
-          <a href="/post/new">Write Post</a>
-        </li>
-        <li>
-          <a if='!current_user' class="navbar-brand" href="/signup">Signup</a>
-        </li>
-        <li>
-          <a if='!current_user' class="navbar-brand" href="/login">Login</a>
-        </li>
-        <li>
-          <a if='current_user' class="navbar-brand" href="/logout">Signout</a>
-        </li>
+        <% if @current_user %>
+          <li>
+            <a class="navbar-brand" href="/posts/new">Write Post</a>
+          </li>
+          <li>
+            <%= link_to 'logout', "/logout", method: :delete, class: "navbar-brand"  %>
+          </li>
+          <li>
+            <a class="navbar-brand" href="/profile">Profile</a>
+          </li>
+        <% else %>
+          <li>
+            <a class="navbar-brand" href="/signup">Signup</a>
+          </li>
+          <li>
+            <a class="navbar-brand" href="/login">Login</a>
+          </li>
+        <% end %>
       </ul>
     </div>
   </nav>

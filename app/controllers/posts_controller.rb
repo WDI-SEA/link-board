@@ -1,15 +1,16 @@
-class PostController < ApplicationController
+class PostsController < ApplicationController
   def index
-    @posts = Post.order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def new
     @post = Post.new
-    puts('Posts...', @currentUser)
   end
 
   def create
-    Post.create(post_params)
+    user = @current_user
+    user.posts.create(post_params)
+    user.save
     redirect_to root_path
   end
 
@@ -23,6 +24,7 @@ class PostController < ApplicationController
 
   def update
     p = Post.find(params[:id])
+    post_params = {'title' => p.title, 'link' => p.link, 'user_id' => p.user.id, 'points' => p.points +=1}
     p.update(post_params)
     redirect_to '/'
   end
@@ -34,6 +36,6 @@ class PostController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :link, :user_id)
+    params.require(:post).permit(:title, :link, :user_id, :points)
   end
 end

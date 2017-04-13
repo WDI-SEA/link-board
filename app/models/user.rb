@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts
+  has_many :comments
 
   validates :email,
   presence: true,
@@ -10,7 +11,7 @@ class User < ApplicationRecord
   length: {in: 3..20}
 
   validates :password_digest,
-  length: {in: 8..32},
+  length: {in: 3..32},
   on: :create
 
   def self.authenticate(params)

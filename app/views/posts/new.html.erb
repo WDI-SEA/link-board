@@ -1,0 +1,13 @@
+<h1>Add a post!</h1>
+
+<%= form_for @post do |f|%>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :link %>
+  <%= f.text_field :link %>
+  <%= f.hidden_field :user_id, :value => @current_user.id %>
+  <%= f.hidden_field :points, :value => 0 %>
+  <%= f.submit :class => 'btn'%>
+<%end%>
+
+

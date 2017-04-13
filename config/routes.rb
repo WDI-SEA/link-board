@@ -1,28 +1,31 @@
 Rails.application.routes.draw do
 
-  root 'post#index'
+  root 'posts#index'
 
-  # get 'post/show' => 'post#show'
+  get 'posts/new' => 'posts#new'
 
-  # get 'post/edit' => 'post#edit'
+  post 'posts/new' => 'posts#create'
 
-  get 'signup' => 'user#new'
+  get 'comments/:post_id' => 'comments#index'
 
-  post 'signup' => 'user#create'
+  post 'comments' => 'comments#create'
+
+  get 'signup' => 'users#new'
+
+  post 'signup' => 'users#create'
+
+  get 'profile' => 'users#show'
 
   get 'login' => 'sessions#new'
 
   post 'login' => 'sessions#create'
 
-  get 'logout' => 'sessions#destroy'
+  delete 'logout' => 'sessions#destroy'
 
-  # get 'user/edit' => 'user#edit'
-
-  # post 'user/edit' => 'user#update'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :post
-  resources :user
-  resources :sessions
+  resources :posts
+  resources :comments
+
 end

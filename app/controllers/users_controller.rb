@@ -1,8 +1,4 @@
-class UserController < ApplicationController
-  def index
-    
-  end
-
+class UsersController < ApplicationController
   def new
     @user = User.new
   end
@@ -12,7 +8,7 @@ class UserController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      flash[:success] = 'You logged in!'
+      flash[:success] = 'You signed up!'
       redirect_to root_path
     else
       flash[:danger] = 'Incorrect credentials!'
@@ -21,8 +17,7 @@ class UserController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @posts = Posts.all
+    @user = @current_user
   end
 
   def edit
@@ -32,7 +27,7 @@ class UserController < ApplicationController
   def update
     u = User.find(params[:id])
     u.update(user_params)
-    redirect_to '/'
+    redirect_to root_path
   end
 
   private
