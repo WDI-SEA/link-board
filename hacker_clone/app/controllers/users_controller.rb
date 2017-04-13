@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+
+
   def create
     # render json: User.create(user_params)
     User.create(user_params)
@@ -12,6 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = @current_user
+    @posts = Post.where(:user_id => @current_user.id)
   end
 
   def edit

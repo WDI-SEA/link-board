@@ -1,6 +1,15 @@
-<% @posts.each do |p| %>
-  <div>
-    <a href="<%= p.link %>"><%= p.title %></a>
+<h1><%= @post.title %></h1>
+
+<% @comments.each do |c| %>
+  <div class="container text-center">
+    <%= c.content %> by <%= c.user.name %>
   </div>
-  <br>
 <% end %>
+<div class="col-xs-8 col-xs-offset-2">
+  <%= bootstrap_form_for @comment do |c| %>
+    <%= c.text_area :content %>
+    <%= c.hidden_field :user_id, :value => @current_user.id %>
+    <%= c.hidden_field :post_id, :value => @post.id %>
+    <%= c.primary "Submit", class: 'btn default-btn' %>
+  <% end %>
+</div>

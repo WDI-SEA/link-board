@@ -1,15 +1,22 @@
 class PostsController < ApplicationController
+
+  def index
+    @posts = Post.all
+  end
+
   def new
     @post = Post.new
   end
 
   def create 
-    render json: Post.create(post_params)
-    # redirect_to "/"
+    Post.create(post_params)
+    redirect_to "/"
   end
 
   def show
-    @posts = Post.all
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.where(:post_id => params[:id])
   end
 
   def edit

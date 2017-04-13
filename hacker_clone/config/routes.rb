@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
 
-  root 'posts#show'
+
+  root 'posts#index'
+  get 'post/:id' => "posts#show"
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   get "logout" => "sessions#destroy"
@@ -13,5 +15,6 @@ Rails.application.routes.draw do
   post 'posts/new' => 'posts#create'
 
   resources :posts
+  resources :comments
 
 end

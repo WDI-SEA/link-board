@@ -1,1 +1,9 @@
-<%= @current_user.name %>
+<h1><%= @current_user.name %></h1>
+<hr>
+<div class="text-center">
+  <h2>Posts Submitted</h2>
+  <% @posts.each do |p| %>
+    <h3><%= p.title %></h3>
+    <a href="http://<%= p.link %>"><h5>View</h5></a>
+  <%end%>
+</div>
