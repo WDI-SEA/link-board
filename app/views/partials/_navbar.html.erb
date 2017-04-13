@@ -1,0 +1,34 @@
+  <nav class="navbar navbar-inverse site-navigation" role='navigation'>
+    <div class="navbar-header navbar-left">
+      <button type="button" class="navbar-toggle" data-toggle='collapse' data-targe='#myNavBar'>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavBar">
+      <ul class="nav navbar-nav">
+        <li>
+           <a class="navbar-brand" href="/">Home</a>
+        </li>
+        <% if @current_user %>
+          <li>
+            <a class="navbar-brand" href="/posts/new">Write Post</a>
+          </li>
+          <li>
+            <%= link_to 'logout', "/logout", method: :delete, class: "navbar-brand"  %>
+          </li>
+          <li>
+            <a class="navbar-brand" href="/profile">Profile</a>
+          </li>
+        <% else %>
+          <li>
+            <a class="navbar-brand" href="/signup">Signup</a>
+          </li>
+          <li>
+            <a class="navbar-brand" href="/login">Login</a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>

@@ -1,0 +1,27 @@
+
+<h2><%= @post.title %></h2>
+
+<div>
+  <h4>By: <%= @post.user.name %> Rated: <%= @post.points%></h4>
+  <h3><a href='<%= @post.link%>'><%= @post.link%></a></h3>
+  <a class="btn btn-info" href="<%= @post.link %>">Check it out!</a>
+</div>
+<br>
+<div>
+  <%= form_for @comment do |c| %>
+    <%= c.text_area :content%>
+    <% if @current_user %>
+      <%= c.hidden_field :user_id, :value => @current_user.id %>
+    <% end %>
+    <%= c.hidden_field :post_id, :value => @post.id %>
+    <%= c.submit "Comment"%>
+  <% end %>
+</div>
+<div>
+  <% @comments.each do |c|%>
+    <p>
+      <%= c.content %>
+    </p>
+    <small><%= c.user.name %></small>
+  <% end %>
+</div>

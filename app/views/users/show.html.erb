@@ -1,0 +1,12 @@
+<h1>Your Profile</h1>
+<h3><%= @user.name %></h3>
+<h4>Email: <%= @user.email %></h4>
+
+<h4>You have made <% @user.posts.length %></h4>
+<ul>
+  <% @user.posts.each do |p|%>
+    <li><% p.title %></li>
+  <% end %>
+</ul>
+
+<h4>You've contributed <%= @user.comments.length %> comments to our community.</h4>
