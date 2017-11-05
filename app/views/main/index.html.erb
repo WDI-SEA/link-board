@@ -1,8 +1,12 @@
-<h1>This is our root route</h1>
-
-<a href="/login">Login</a>
-<a href="/user">Sign Up</a>
-<a href="/logout">Logout</a>
-
+<h3>Hello <%=@current_user.try(:name) %></h3>
 <p>Logged in as: <%= @current_user.try(:email) %></p>
 
+<a href="/posts">My Posts</a>
+
+<hr />
+
+<ol>
+	<% @posts.each do |post| %>
+		<li><%= post.title %> (<a href=""><%= post.link %></a>)</li>
+	<% end %>
+</ol>

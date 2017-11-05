@@ -1,0 +1,15 @@
+<h1>Add a post!</h1>
+<p>(Title must be greater than 10 characters)</p>
+
+<%= form_for @post do |form| %>
+	<div>
+		<%= form.label :title %>
+		<%= form.text_field :title %>
+		<%= form.hidden_field :user_id, :value => @current_user.id %>
+	</div>
+	<div>
+		<%= form.label :link %>
+		<%= form.text_area :link %>
+	</div>
+	<%= form.submit %>
+<% end %>

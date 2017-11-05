@@ -3,6 +3,15 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="mui-textfield">
+                    <%= form.text_field :name, class: 'f', id: 'name' %>
+                    <%= form.label :name, class: '', for: 'name' %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
                     <%= form.text_field :email, class: 'f', id: 'email' %>
                     <%= form.label :email, class: '', for: 'email' %>
                 </div>
