@@ -1,0 +1,7 @@
+<h1>Show Page</h1>
+<%= link_to "home", root_path(@current_user) %>
+<%= link_to "Edit Pro", edit_user_path(@current_user)  %>
+<br>
+
+
+<%= link_to "Delete Account", user_path, method: :delete  %>

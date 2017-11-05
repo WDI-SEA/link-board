@@ -1,0 +1,72 @@
+<h1>Edit Profile</h1>
+<%= link_to "home", root_path(@current_user) %>
+<%= link_to "My Profile", user_path(@current_user)  %>
+<br>
+
+<%= form_for @user do |form| %>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
+                    <%= form.text_field :firstName, class: 'f', id: 'firstName' %>
+                    <%= form.label :firstName, class: '', for: 'firstName' %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
+                    <%= form.text_field :lastName, class: 'f', id: 'lastName' %>
+                    <%= form.label :lastName, class: '', for: 'lastName' %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
+                    <%= form.number_field :age, class: 'f', id: 'age' %>
+                    <%= form.label :age, class: '', for: 'age' %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
+                    <%= form.date_field :birthday, class: 'f', id: 'birthday' %>
+                    <%= form.label :birthday, class: '', for: 'birthday' %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
+                    <%= form.text_field :phone, class: 'f', id: 'phone' %>
+                    <%= form.label :phone, class: '', for: 'phone' %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
+                    <%= form.text_field :email, class: 'f', id: 'email' %>
+                    <%= form.label :email, class: '', for: 'email' %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
+                    <%= form.password_field :password, class: '', id: 'password' %>
+                    <%= form.label :password, class: '', for: 'password' %>
+                </div>
+            </div>
+        </div>
+
+        <%= form.submit 'Submit Changes', :class => 'mui-btn mui-btn--primary' %>
+        <%end%>

@@ -1,0 +1,17 @@
+<h1>Root Route</h1>
+<%= link_to "My Profile", user_path(@current_user)  %>
+<%= link_to "Edit Profile", edit_user_path(@current_user)  %>
+<br>
+
+<p>Name: <%= @current_user.try(:firstName) %>
+    <%= @current_user.try(:lastName) %> </p>
+<p>Age: <%= @current_user.try(:age) %> </p>
+<p>Birthday: <%= @current_user.try(:birthday) %> </p>
+<p>Phone Number: <%= @current_user.try(:phone) %> </p>
+<p>Email: <%= @current_user.try(:email) %> </p>
+
+<br>
+
+<%= button_to 'logout', logout_path, :method => :delete %>
+
+<%= link_to "logout", logout_path, method: :delete %>
