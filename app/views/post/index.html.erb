@@ -1,0 +1,32 @@
+<div class="container moveDown">
+	<div class="headerBar">
+		<img src="https://news.ycombinator.com/y18.gif" class="headerItem"/>
+		<div class="headerItem bold">Yubsy's List</div>
+		<a class="headerItem rightBorder" href="/newPost">new</a>
+		<div class="headerItem rightBorder">comments</div>
+		<div class="headerItem rightBorder">show</div>
+		<div class="headerItem rightBorder">ask</div>
+		<div class="headerItem rightBorder">jobs</div>
+		<div class="headerItem rightBorder">submit</div>
+		<a class="headerItem pull-right" href="/login">login</a>
+	</div>
+	<div class="postSection">
+		<% @user.posts.each_with_index do |post,index| %>
+		<div class="listRow">
+			<div class="listItem gray"><%=index+1%></div>
+			<img src="https://news.ycombinator.com/grayarrow.gif" class="listItem gray"></img>
+			<div class="listItem"><%= post.title%></div>
+			<div class="listItem gray shrink">(<%= post.link%>)</div>
+		</div>
+		<div class="listRow gray shrink">
+			<div class="listItem"># points </div>
+			<div class="listItem">by soAndSo </div>
+			<div class="listItem rightgray"># hours ago </div>
+			<div class="listItem rightgray"> hide </div>
+			<div class="listItem"> # comments</div>
+		</div>
+		<% end %>
+	</div>
+</div>
+	<!-- ff6223 orange -->
+	<!-- f6f6f0 gray-->

@@ -1,0 +1,7 @@
+<h1>Post To Yubsy's List</h1>
+
+<%= form_for :post do |f| %>
+	<%= f.text_field :title, placeholder: "Title of Post" %>
+  	<%= f.text_field :link, placeholder: "Add a Link" %>
+  	<%= f.submit "Submit" %>
+<% end %>
