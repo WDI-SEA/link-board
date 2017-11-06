@@ -1,0 +1,9 @@
+<%= link_to "create new post", 'post/new', method: :get %>
+
+<h1>Users Posts</h1>
+
+<% @posts.each do |post| %>
+    <a href="<%= post_path(post)%>"><h3><%= post.title %></h3></a>
+<%end%>
+
+<%= button_to 'logout', logout_path, :method => :delete %>

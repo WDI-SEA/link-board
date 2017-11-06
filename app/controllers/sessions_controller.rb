@@ -3,27 +3,27 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.authenticate(user_params)
+      user = User.authenticate(user_params)
 
-    if user
-      session[:user_id] = user.id
-      flash[:success] = "Look what the dern there cow's've'gon'n done drugg'd in"
-      redirect_to root_path
-    else
-      flash[:danger] = "YOU SHALL NOT PASS!"
-      redirect_to login_path
-    end
+      if user
+          session[:user_id] = user.id
+          flash[:success] = "You're now logged in."
+          redirect_to root_path
+      else
+          flash[:danger] = "Email or password are invalid."
+          redirect_to login_path
+      end
   end
 
   def destroy
-    session[:user_id] = nil
-    flash[:success] = "To the left, to the left, everything you own..."
-    redirect_to login_path
+      session[:user_id] = nil
+      flash[:success] = "You've logged out."
+      redirect_to root_path
   end
 
   private
+  
   def user_params
-    params.require(:user).permit(:email, :password)
+      params.require(:user).permit(:email, :password)
   end
-
 end

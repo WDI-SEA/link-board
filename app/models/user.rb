@@ -1,15 +1,19 @@
 class User < ApplicationRecord
-  validates :email,
-  presence: true,
-  uniqueness: {case_sensitive: false}
+    has_many :posts
 
-  validates :password,
-  length: (7..35),
-  on: :create
+    validates :email,
+    presence: true,
+    uniqueness: {case_sensitive: false}
 
-  has_secure_password #ensure's that we are using bcrypt
+   validates :password, length: {in: 8..35}, on: :create
 
-  def self.authenticate(params)
-    User.find_by_email(params[:email]).try(:authenticate, params[:password])
-  end
+   validates :name,
+   length: (1..35),
+   on: :create
+
+   has_secure_password
+
+   def self.authenticate(params)
+        User.find_by_email(params[:email]).try(:authenticate, params[:password])
+    end
 end
