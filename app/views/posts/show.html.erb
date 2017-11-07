@@ -1,0 +1,14 @@
+<h1>Post#show</h1>
+<%= link_to "All Posts", root_path %> |
+<%= link_to "Home", user_path(@current_user) %> |
+<%= link_to "Posts", posts_path %> |
+<%= link_to "Logout", logout_path, method: :delete %>
+
+<h1><%= @current_user.name %></h1>
+<h1><%= @post.title %></h1>
+<p><%= @post.content %></p>
+
+<div>
+	<a href="/posts/<%= @post.id %>/edit">Edit</a>
+	<%= link_to "Delete", post_path(@post), method: :delete %>
+</div>

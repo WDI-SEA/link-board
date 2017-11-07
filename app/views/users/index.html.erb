@@ -1,0 +1,35 @@
+<div class="indexPage">
+  <div class="header">
+    <span class="headerLeft">
+      <span class="logo">
+        <%= link_to "Y", login_path %>
+      </span>
+      <span class="headerLinks">
+        <strong><%= link_to "Hacker News", login_path %></strong>
+        <%= link_to "new", login_path %> |
+        <%= link_to "comments", login_path %> |
+        <%= link_to "show", login_path %> |
+        <%= link_to "ask", login_path %> |
+        <%= link_to "jobs", login_path %> |
+        <%= link_to "submit", login_path %>
+      </span>
+    </span>
+    <span class="headerRight">
+      <%= link_to "Log In", login_path %> |
+      <%= link_to "Sign Up", new_user_path %>
+    </span>
+  </div>
+
+
+  <ol class="indexPostList">
+    <% for post in @all_posts %>
+      <li>
+        <%= link_to '^', '#top', class: 'upVote'%>
+        <% post %>
+        <a href="posts/<%= post.id %>">
+          <h3><%= post.title %></h3>
+        </a>
+      </li>
+    <% end %>
+  </ol>
+</div>
