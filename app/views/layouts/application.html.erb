@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LinkBoard</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'partials/flash' %>
+    <%= link_to 'home', root_path, class: 'btn btn-primary' %>
+    <%= link_to 'login', login_path, class: 'btn btn-primary' %>
+    <%= link_to 'signup', signup_path, class: 'btn btn-primary' %>
+    <% if @current_user %>
+      <%= @current_user.email %>
+      <%= link_to 'posts', posts_path, class: 'btn btn-primary' %>
+      <%= link_to 'new post', new_post_path, class: 'btn btn-primary' %>
+      <%= link_to 'logout', logout_path, method: :post, class: 'btn btn-danger' %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
