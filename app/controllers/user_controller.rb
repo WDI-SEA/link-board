@@ -9,6 +9,6 @@ class UserController < ApplicationController
 	  	end
 	
   	def user_params
-	  params.require(:user).permit(:name, :email, :password, :post_ids => [])
+	  params.require(:user).permit(:name, :email, :password, :post_ids => [], :comment_ids => [])
 	end
 end

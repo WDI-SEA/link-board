@@ -7,7 +7,6 @@ class PostController < ApplicationController
   def new
   	@user = current_user
   	@userId = @user.id
-  	puts @userId
   end
 
   def create
@@ -18,7 +17,12 @@ class PostController < ApplicationController
   	redirect_to root_path
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
+
   def post_params
-	  params.require(:post).permit(:title, :link, user_id: current_user)
+	  params.require(:post).permit(:title, :link, :comment_ids => [])
 	end
 end

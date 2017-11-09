@@ -1,0 +1,9 @@
+<h1>Post To Yubsy's List</h1>
+
+<%= form_for :comment do |c| %>
+	<%= c.text_field :title, placeholder: "Title of Comment" %>
+  	<%= c.text_field :text, placeholder: "Comment Text" %>
+  	<%= c.hidden_field :user_id, :value => @user%>
+  	<%= c.hidden_field :post_id, :value => @post%>
+  	<%= c.submit "Submit" %>
+<% end %>

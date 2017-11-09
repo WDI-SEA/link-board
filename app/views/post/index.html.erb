@@ -2,7 +2,7 @@
 	<div class="headerBar">
 		<img src="https://news.ycombinator.com/y18.gif" class="headerItem"/>
 		<div class="headerItem bold">Yubsy's List</div>
-		<a class="headerItem rightBorder" href="/newPost">new</a>
+		<a class="headerItem rightBorder" href="/post/new">new</a>
 		<div class="headerItem rightBorder">comments</div>
 		<div class="headerItem rightBorder">show</div>
 		<div class="headerItem rightBorder">ask</div>
@@ -15,7 +15,7 @@
 		<div class="listRow">
 			<div class="listItem gray"><%=index+1%></div>
 			<img src="https://news.ycombinator.com/grayarrow.gif" class="listItem gray"></img>
-			<div class="listItem"><%= post.title%></div>
+			<a class="listItem" href="/post/<%= post.id %>"><%= post.title%></a>
 			<div class="listItem gray shrink">(<%= post.link%>)</div>
 		</div>
 		<div class="listRow gray shrink">

@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   	
     root 'post#index'
 
-    get 'newPost' => 'post#new'
+    # get 'newPost' => 'post#new'
 
-    post 'newPost' => 'post#create'
+    post 'post/new' => 'post#create'
 
   	get 'signup' => 'user#new'
   	get 'Signup' => 'user#new'
@@ -18,6 +18,11 @@ Rails.application.routes.draw do
 	post 'Login' => 'sessions#create'
 	
 	delete 'logout' => 'sessions#destroy'
+
+  post 'comment/new' => 'comment#create'
+
+  resources :comment
+  resources :post
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
