@@ -4,7 +4,7 @@
 
 <% @current_user.posts.each do |post| %>
 	<p>
-		<%= post.title %> (<a href=""><%= post.link %></a>)
+		<%= post.title %> (<a href="#"><%= post.link %></a>)
 		- <%= link_to "Delete", post_path(post), method: :delete %>
 	</p>
 <% end %>

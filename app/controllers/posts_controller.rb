@@ -12,10 +12,12 @@ class PostsController < ApplicationController
 
   def new
   	@post = Post.new
+    @tags = Tag.all
   end
 
   def edit
   	@post = Post.find(params[:id])
+    @tags = Tag.all
   end
 
   def show
@@ -36,6 +38,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-  	params.require(:post).permit(:title, :link, :user_id)
+  	params.require(:post).permit(:title, :link, :user_id, :tag_ids => [])
   end
 end

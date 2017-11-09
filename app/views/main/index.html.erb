@@ -7,6 +7,6 @@
 
 <ol>
 	<% @posts.each do |post| %>
-		<li><%= post.title %> (<a href=""><%= post.link %></a>)</li>
+		<li><a href="posts/<%= post.id %>"><%= post.title %></a> (<a href=""><%= post.link %></a>)</li>
 	<% end %>
 </ol>

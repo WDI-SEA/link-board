@@ -11,5 +11,11 @@
 		<%= form.label :link %>
 		<%= form.text_area :link %>
 	</div>
+
+	<h2>Tags</h2>
+	<%= link_to 'Create New Tag', new_tag_path %>
+	<br>
+	<%= form.collection_check_boxes :tag_ids, @tags, :id, :name %>
+	<br>
 	<%= form.submit %>
 <% end %>
