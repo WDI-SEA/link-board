@@ -1,0 +1,9 @@
+
+<div class="container">
+	<h1>Title: <%= @post.title %></h1>
+  	<p>Link: <%= @post.link %></p>
+  	<p><a href="/">Back to List</a></p>
+  	<p><%=link_to "New Comment", new_comment_path(:post => @post.id) %></p>
+  	<!-- link_to "Visit Other Site", "http://www.rubyonrails.org/", data: { confirm: "Are you sure?" }
+# => <a href="/comment/new">Visit Other Site</a> -->
+</div>
