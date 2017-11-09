@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171104203401) do
+ActiveRecord::Schema.define(version: 20171109014133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "comment"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "comments_posts", force: :cascade do |t|
+    t.bigint "comment_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comments_posts_on_comment_id"
+    t.index ["post_id"], name: "index_comments_posts_on_post_id"
+  end
+
+  create_table "comments_users", force: :cascade do |t|
+    t.bigint "comment_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comments_users_on_comment_id"
+    t.index ["user_id"], name: "index_comments_users_on_user_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.text "title"
@@ -48,6 +76,12 @@ ActiveRecord::Schema.define(version: 20171104203401) do
     t.index ["email"], name: "users_email_key", unique: true
   end
 
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
+  add_foreign_key "comments_posts", "comments"
+  add_foreign_key "comments_posts", "posts"
+  add_foreign_key "comments_users", "comments"
+  add_foreign_key "comments_users", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "posts_users", "posts"
   add_foreign_key "posts_users", "users"

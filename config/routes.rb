@@ -1,5 +1,29 @@
 Rails.application.routes.draw do
 
+  # get 'comments/create'
+  #
+  # get 'comments/new'
+  #
+  # get 'comments/edit'
+  #
+  # get 'comments/show'
+  #
+  # get 'comments/update'
+  #
+  # get 'comments/destroy'
+
+  get 'post/create'
+
+  get 'post/new'
+
+  get 'post/edit'
+
+  get 'post/show'
+
+  get 'post/update'
+
+  get 'post/destroy'
+
   get 'login' => 'sessions#new'         #changed this from just: " get 'sessions/new' "
   get 'Login' => 'sessions#new'
 
@@ -15,9 +39,11 @@ Rails.application.routes.draw do
 
   post  '/users/new', to: 'users#create'
   post  '/posts/new', to: 'posts#create'
+  post '/comments/new', to: 'comments#create'
 
   resources :users
   resources :posts
+  resources :comments
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

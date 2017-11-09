@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     @current_post ||= Post.find_by_id(@post[:id])
   end
 
+  def comments_by_post
+    @comments_by_post ||= Post.find_by_id(@post[:id]).includes(:comments)
+  end
+
   def current_user
     puts "XXXXXXXXXXXXXXXXXXXX"
     @current_user ||= User.find_by_id(session[:user_id])
