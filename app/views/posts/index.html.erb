@@ -1,0 +1,10 @@
+<h3>My Posts</h3>
+
+<a href="/posts/new">New Post</a>
+
+<% @current_user.posts.each do |post| %>
+	<p>
+		<%= post.title %> (<a href="#"><%= post.link %></a>)
+		- <%= link_to "Delete", post_path(post), method: :delete %>
+	</p>
+<% end %>

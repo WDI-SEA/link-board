@@ -1,0 +1,12 @@
+<h3>Hello <%=@current_user.try(:name) %></h3>
+<p>Logged in as: <%= @current_user.try(:email) %></p>
+
+<a href="/posts">My Posts</a>
+
+<hr />
+
+<ol>
+	<% @posts.each do |post| %>
+		<li><a href="posts/<%= post.id %>"><%= post.title %></a> (<a href=""><%= post.link %></a>)</li>
+	<% end %>
+</ol>
