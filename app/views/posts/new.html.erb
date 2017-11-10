@@ -1,0 +1,30 @@
+<h1>Post#new</h1>
+<%= link_to "All Posts", root_path %> |
+<%= link_to "Home", user_path(@current_user) %> |
+<%= link_to "Posts", posts_path %> |
+<%= link_to "Comments", comments_path %> |
+<%= link_to "Logout", logout_path, method: :delete %>
+<br>
+
+<%= form_for :post do |form| %>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
+                    <%= form.text_field :title, class: '', id: 'title' %>
+                    <%= form.label :title, class: '', for: 'title' %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
+                    <%= form.text_field :content, class: 'f', id: 'content' %>
+                    <%= form.label :content, class: '', for: 'content' %>
+                </div>
+            </div>
+        </div>
+
+        <%= form.submit 'Submit', :class => 'mui-btn mui-btn--primary' %>
+        <%end%>

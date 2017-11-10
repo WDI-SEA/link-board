@@ -1,0 +1,33 @@
+<%= link_to "Home", user_path(@current_user) %> |
+<%= link_to "Posts", posts_path %>
+<%= link_to "Comments", comments_path %> |
+
+<br>
+
+<h1>Edit Post</h1>
+
+<%= form_for @post do |form| %>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
+                    <%= form.label :title, class: 'titleLabel', for: 'title' %>
+                    <%= form.text_field :title, class: 'textBox', id: 'title' %>
+                    </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
+                    <%= form.text_field :content, class: 'contentLabel', id: 'content' %>
+                    <%= form.label :content, class: 'textBox', for: 'content' %>
+                </div>
+            </div>
+        </div>
+
+        <%= form.submit 'Submit Changes', :class => 'mui-btn mui-btn--primary' %>
+        <%end%>
+
+<br>
+<%= link_to "Delete Post", post_path(@post), method: :delete  %>

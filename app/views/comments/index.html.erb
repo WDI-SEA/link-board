@@ -1,0 +1,12 @@
+<%= link_to "All Posts", root_path %> |
+<%= link_to "Home", user_path(@current_user) %> |
+<%= link_to "Posts", posts_path %> |
+<%= link_to "Comments", comments_path %> |
+<%= link_to "Logout", logout_path, method: :delete %>
+
+<h1>My Comments</h1>
+<p>Click comment to edit</p>
+
+<% @comments.each do |comment| %>
+	<a href="comments/<%= comment.id %>"><h3><%= comment.comment %></h3></a>
+<% end %>

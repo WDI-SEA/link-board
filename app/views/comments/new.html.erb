@@ -1,0 +1,22 @@
+<h1>comments#new</h1>
+<%= link_to "All Posts", root_path %> |
+<%= link_to "Home", user_path(@current_user) %> |
+<%= link_to "Posts", posts_path %> |
+<%= link_to "Logout", logout_path, method: :delete %>
+<br>
+
+<%= form_for :comment do |form| %>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
+                  <%= form.label :comment, class: '', for: 'comment' %>
+                  <%= form.text_field :comment, class: '', id: 'comment' %>
+                    <%= form.hidden_field :user_id, class: '', id: 'user_id', :value => @current_user.id %>
+
+                </div>
+            </div>
+        </div>
+
+        <%= form.submit 'Submit', :class => 'mui-btn mui-btn--primary' %>
+        <%end%>

@@ -1,0 +1,19 @@
+<h1>Comments#edit</h1>
+<p>Find me in app/views/comments/edit.html.erb</p>
+
+
+<%= form_for :comment, :method => :put do |form| %>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mui-textfield">
+                  <%= form.label :comment, class: '', for: 'comment' %>
+                  <%= form.text_field :comment, class: '', id: 'comment' %>
+                    <%= form.hidden_field :user_id, class: '', id: 'user_id', :value => @current_user.id %>
+
+                </div>
+            </div>
+        </div>
+
+        <%= form.submit 'Submit', :class => 'mui-btn mui-btn--primary' %>
+        <%end%>
