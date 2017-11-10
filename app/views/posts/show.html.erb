@@ -2,6 +2,7 @@
 <%= link_to "All Posts", root_path %> |
 <%= link_to "Home", user_path(@current_user) %> |
 <%= link_to "Posts", posts_path %> |
+<%= link_to "Comments", comments_path %> |
 <%= link_to "Logout", logout_path, method: :delete %>
 
 <h1><%= @current_user.name %></h1>
@@ -9,10 +10,10 @@
 <p><%= @post.content %></p>
 <br>
 
-<!-- <h1>Comments</h1>
+<h1>Comments</h1>
 <% @comments.each do |comments| %>
 	<h3><%= comments.comment %></h3>
-<% end %> -->
+<% end %>
 
 <br>
 

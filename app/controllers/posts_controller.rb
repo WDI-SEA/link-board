@@ -26,6 +26,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @current_user ||= User.find_by_id(session[:user_id])
     @comments = Comment.where(post_id: @post.id)
+    @comment = Comment.where(user_id: @current_user.id)
   end
 
   def update
@@ -45,7 +46,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :user_id => [], :comment_id => [])
+    params.require(:post).permit(:title, :content, :user_id, :comment_id)
   end
 
 end

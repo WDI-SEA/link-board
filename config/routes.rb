@@ -39,7 +39,8 @@ Rails.application.routes.draw do
 
   post  '/users/new', to: 'users#create'
   post  '/posts/new', to: 'posts#create'
-  post '/comments/new', to: 'comments#create'
+  post  '/comments/new', to: 'comments#create'
+  put   '/comments/:id/edit' => 'comments#update'
 
   resources :users
   resources :posts

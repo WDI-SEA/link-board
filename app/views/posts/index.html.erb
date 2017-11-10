@@ -1,5 +1,6 @@
 <h1>Posts#index</h1>
 <%= link_to "All Posts", root_path %> |
+<%= link_to "All Comments", comments_path %> |
 <%= link_to "Home", user_path(@current_user) %> |
 <%= link_to "Create Post", new_post_path %> |
 <%= link_to "Logout", logout_path(@current_user), method: :delete %>
